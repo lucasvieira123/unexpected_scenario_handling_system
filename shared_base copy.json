@@ -1,0 +1,42 @@
+[
+    {
+        "lidar": {
+            "Given": "height > 0",
+            "When": "distance_target <=5",
+            "Do": "landing",
+            "Then": "height = 0 AND distance_target <=50"
+        }
+    },
+    {
+        "neighbor": {
+            "Given": "height > 0 AND obstacle = 1",
+            "When": "distance_target <=5",
+            "Do": "landInNeighbor",
+            "Then": "height = 0 AND distance_target <=50"
+        }
+    },
+    {
+        "parachute": {
+            "Given": "height > 0",
+            "When": "distance_target <=5",
+            "Do": "land",
+            "Then": "height != 0 AND distance_target <=10"
+        }
+    },
+    {
+        "airdrop": {
+            "Given": "height > 0",
+            "When": "distance_target <=5",
+            "Do": "landing",
+            "Then": "height != 0 AND distance_target <=5"
+        }
+    },
+    {
+        "neighbor": {
+            "Given": "height > 0",
+            "When": "distance_target <=5",
+            "Do": "landing",
+            "Then": "height != 0 AND distance_target <=5\n;"
+        }
+    }
+]
