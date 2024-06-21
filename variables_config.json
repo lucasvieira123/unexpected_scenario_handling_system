@@ -16,5 +16,23 @@
       "type": "integer",
       "min_value": 0,
       "max_value": 100
+    },
+    {
+      "name": "a",
+      "type": "integer",
+      "min_value": 0,
+      "max_value": 10
+    },
+    {
+      "name": "b",
+      "type": "integer",
+      "min_value": 0,
+      "max_value": 10
+    },
+      {
+      "name": "c",
+      "type": "integer",
+      "min_value": 0,
+      "max_value": 10
     }
   ]
