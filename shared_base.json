@@ -2,9 +2,9 @@
     {
         "Landing": {
             "Given": "height > 3 AND obstacle < 10",
-            "When": "distance_target <=5",
-            "Do": "similar.Do",
-            "Then": "height < 10 AND distance_target <=5"
+            "When": "distance_target <= 5",
+            "Do": "XPTO",
+            "Then": "height < 10 AND distance_target <= 5"
           }
     }
 ]

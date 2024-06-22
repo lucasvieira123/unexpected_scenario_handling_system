@@ -2,33 +2,33 @@
   "expected": {
     "Landing": {
       "Given": "height > 0",
-      "When": "distance_target <=5",
+      "When": "distance_target <= 5",
       "Do": "landing",
-      "Then": "height = 0 AND distance_target <=5"
+      "Then": "height = 0 AND distance_target <= 5"
     }
   },
   "unexpected": {
     "Landing": {
       "Given": "height > 0",
-      "When": "distance_target <=5",
+      "When": "distance_target <= 5",
       "Do": "landing",
-      "Then": "height > 0 AND distance_target <=5"
+      "Then": "height > 0 AND distance_target <= 5"
     }
   },
   "diagnosed": {
     "Landing": {
       "Given": "height > 0 AND obstacle > 0",
-      "When": "distance_target <=5",
+      "When": "distance_target <= 5",
       "Do": "landing",
-      "Then": "height > 0 AND distance_target <=5"
+      "Then": "height > 0 AND distance_target <= 5"
     }
   },
   "desired": {
     "Landing": {
       "Given": "height > 3 AND obstacle > 10",
-      "When": "distance_target <=1",
+      "When": "distance_target <= 1",
       "Do": "similar.Do",
-      "Then": "height < 10 AND distance_target <=5"
+      "Then": "height < 10 AND distance_target <= 5"
     }
   }
 }
