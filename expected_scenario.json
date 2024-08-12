@@ -4,7 +4,7 @@
             "Given": "height > 0 AND height > 0",
             "When": "distance_target <= 5 OR height > 0 AND height > 0",
             "Do": "landing",
-            "Then": "height = 0 AND distance_target <= 5"
+            "Then": "height == 0 AND distance_target <= 5"
         }
     },
     {
@@ -12,7 +12,7 @@
             "Given": "height > 0",
             "When": "distance_target <= 5",
             "Do": "landing",
-            "Then": "height = 0 AND distance_target <= 5"
+            "Then": "height == 0 AND distance_target <= 5"
         }
     }
 ]
