@@ -1,0 +1,145 @@
+[
+    {
+        "Start": {
+            "Given": "battery > 2.5",
+            "When": "*",
+            "Do": "arm",
+            "Then": "armed == True"
+        },
+        "_extra":{
+            "initial":true,
+            "gointo": ["Takeoff"]
+        }
+        
+    },
+    {
+        "Takeoff": {
+            "Given": "battery > 10",
+            "When": "*",
+            "Do": "takeoff",
+            "Then": "altitude > 10"
+        },
+        "_extra":{
+            "initial":false,
+            "gointo": ["CheckStatus"]
+        }
+        
+    },
+    {
+        "Flying": {
+            "Given": "battery > 10",
+            "When": "target_distance > 5",
+            "Do": "flying",
+            "Then": "target_distance = target_distance - 5"
+        },
+        "_extra":{
+            "initial":false,
+            "gointo": ["CheckStatus"]
+        }
+        
+    },
+    {
+        "RTH": {
+            "Given": "origin_distance <= 2000",
+            "When": "bad_connection = True",
+            "Do": "rth",
+            "Then": "bad_connection = False AND origin_distance <= 5"
+        },
+        "_extra":{
+            "initial":false,
+            "gointo": ["CheckStatus"]
+        }
+        
+    },
+    {
+        "Glide": {
+            "Given": "target_distance <= 2000",
+            "When": "bad_connection = True",
+            "Do": "glide",
+            "Then": "bad_connection = False"
+        },
+        "_extra":{
+            "initial":false,
+            "gointo": ["CheckStatus"]
+        }
+        
+    },
+    {
+        "CheckStatus": {
+            "Given": "*",
+            "When": "*",
+            "Do": "checkstatus",
+            "Then": "*"
+        },
+        "_extra":{
+            "initial":false,
+            "gointo": ["Flying","RTH","Glide", "LandingToDelever", "SafeLand", "MoveAside", "Keepflying"]
+        }
+        
+    },
+    {
+        "SafeLand": {
+            "Given": "*",
+            "When": "battery <= 10",
+            "Do": "safeland",
+            "Then": "altitude = 0"
+        },
+        "_extra":{
+            "initial":false,
+            "gointo": ["Shutdown"]
+        }
+        
+    },
+    {
+        "MoveAside": {
+            "Given": "onWater = True",
+            "When": "battery <= 10",
+            "Do": "moveaside",
+            "Then": "onWater = False"
+        },
+        "_extra":{
+            "initial":false,
+            "gointo": ["SafeLand"]
+        }
+        
+    },
+    {
+        "Keepflying": {
+            "Given": "target_distance <= 2000",
+            "When": "battery <= 10",
+            "Do": "keepflying",
+            "Then": "target_distance <= 5"
+        },
+        "_extra":{
+            "initial":false,
+            "gointo": ["LandingToDelever"]
+        }
+        
+    },
+    {
+        "LandingToDelever": {
+            "Given": "altitude > 0",
+            "When": "target_distance <= 5",
+            "Do": "landing",
+            "Then": "altitude == 0 AND target_distance <= 5"
+        },
+        "_extra":{
+            "initial":false,
+            "gointo": ["Shutdown"]
+        }
+        
+    },
+    {
+        "Shutdown": {
+            "Given": "altitude = 0 AND armed = True",
+            "When": "*",
+            "Do": "disarm",
+            "Then": "armed == False"
+        },
+        "_extra":{
+            "initial":false,
+            "gointo": []
+        }
+        
+    }
+]

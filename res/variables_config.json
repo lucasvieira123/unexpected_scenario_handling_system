@@ -1,0 +1,50 @@
+[
+    {
+      "name": "altitude",
+      "type": "float",
+      "min_value": 0,
+      "max_value": 1000.0
+    },
+    {
+      "name": "target_distance",
+      "type": "float",
+      "min_value": 0.0,
+      "max_value": 10000.0
+    },
+    {
+      "name": "origin_distance",
+      "type": "float",
+      "min_value": 0.0,
+      "max_value": 10000.0
+    },
+    {
+      "name": "battery",
+      "type": "float",
+      "min_value": 0.0,
+      "max_value": 100.0
+    },
+    {
+      "name": "obstacle",
+      "type": "boolean",
+      "min_value": false,
+      "max_value": true
+    },
+    {
+      "name": "armed",
+      "type": "boolean",
+      "min_value": false,
+      "max_value": true
+    },
+    {
+      "name": "bad_connection",
+      "type": "boolean",
+      "min_value": false,
+      "max_value": true
+    },
+      {
+      "name": "onWater",
+      "type": "boolean",
+      "min_value": false,
+      "max_value": true
+    }
+  ]
