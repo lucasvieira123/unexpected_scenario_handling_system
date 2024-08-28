@@ -64,12 +64,12 @@ class StateMachineModel:
                         do = BDD_scenario.get("Do")
                         then = BDD_scenario.get("Then")
 
-                        indexed_given = f"{scenario_name}_{given}"
+                        indexed_given = f"{scenario_name.lower()}__{given}"
                         # indexed_when = f"{scenario_name}.({when})"
-                        adapted_when = f"{scenario_name}_when"
+                        adapted_when = f"{scenario_name.lower()}__when"
                         when_from_scenario[scenario_name] = when
                         indexed_do = f"{do}"
-                        indexed_then = f"{scenario_name}_{then}"
+                        indexed_then = f"{scenario_name.lower()}__{then}"
 
                         add_state(self.machine,indexed_given)
                         add_state(self.machine, indexed_then)

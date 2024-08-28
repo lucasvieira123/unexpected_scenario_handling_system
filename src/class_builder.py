@@ -48,6 +48,8 @@ class ClassBuilder:
                 "max_value": max_value
             }
 
+            lines.append(f"        self.action = None")
+
         # Juntando todas as linhas em uma única string
         class_code = "\n".join(lines)
 
@@ -102,7 +104,7 @@ class ClassBuilder:
                             when = re.sub(pattern_or, 'or', when)
 
                             body = ""
-                            methed_name = f"{scenario_name}_when"
+                            methed_name = f"{scenario_name}__when"
 
                             if when == "*":
                                 body = "return True"
@@ -123,6 +125,8 @@ class ClassBuilder:
             var_name = item
             lines.append(f"        self.{var_name} = new_data[\"{var_name}\"]")
         
+
+        lines.append(f"        self.action = new_data[\"action\"]")
         # Juntando todas as linhas em uma única string
         method_code = "\n".join(lines)
 
