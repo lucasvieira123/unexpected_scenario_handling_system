@@ -1,8 +1,12 @@
+import os
 import pandas as pd
 import numpy as np
 import time
+import csv
 from datetime import datetime
 from multiprocessing import Manager, Process
+from watchdog.events import FileSystemEventHandler
+from watchdog.observers import Observer
 
 class MockedDataGenerator:
     def __init__(self):
@@ -49,3 +53,62 @@ class MockedDataGenerator:
         except KeyboardInterrupt:
             print("Interrompido pelo usuário.")
             self.df.to_csv('res/outcome/mocked_telemetry.csv', index=False)
+
+class Px4DroneMonitor(FileSystemEventHandler):
+    def __init__(self, monitoring_folder_path, shared_list):
+        self.monitoring_folder_path = os.path.normpath(monitoring_folder_path)
+        self.shared_list = shared_list
+        self.current_file_path = None
+
+    
+
+    def get_current_file_path(self):
+        files = os.listdir(self.monitoring_folder_path)
+        num_files = len(files)
+        index = num_files - 1
+        file_name = f"PX4_collected_telemetry_{index}.csv"
+        return os.path.join(self.monitoring_folder_path, file_name)
+        
+    
+    def on_modified(self, event):
+        new_file_path = self.get_current_file_path()
+        print(f"Arquivo modificado: {new_file_path}")
+        if new_file_path != self.current_file_path:
+            #clean shared_list
+            self.shared_list[:] = []
+
+        self.current_file_path = new_file_path
+        self.process_new_lines()
+    
+    # def process_new_lines(self):
+    #     with open(self.filepath, 'r') as file:
+    #         file.seek(self.last_position)
+    #         reader = csv.reader(file)
+    #         new_lines = list(reader)
+
+    #         if new_lines:
+    #             print("Novos dados:", new_lines)  # Substitua com sua lógica de análise
+            
+    #         self.last_position = file.tell()
+
+    def process_new_lines(self):
+        all_collected_data_df = pd.read_csv(self.current_file_path)
+        new_data_df = all_collected_data_df.iloc[-1]
+        self.shared_list.append((new_data_df, all_collected_data_df))
+        print(f"Novos dados adicionados ao DataFrame!+ {len(self.shared_list)}")
+        print(new_data_df['time'])
+    
+    def start_monitoring(self):
+
+
+        observer = Observer()
+        observer.schedule(self, self.monitoring_folder_path, recursive=False)
+        observer.start()
+        try:
+            while True:
+                print("Monitorando arquivo...")
+                time.sleep(1)
+        except KeyboardInterrupt:
+            observer.stop()
+
+        observer.join()

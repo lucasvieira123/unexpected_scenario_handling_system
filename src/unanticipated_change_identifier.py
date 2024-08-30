@@ -7,7 +7,7 @@ class UC_state_identifier:
         self.model = delivery_model
 
     # Função para monitorar o DataFrame compartilhado
-    def monitor_data(self, shared_list):
+    def check_states(self, shared_list):
         last_len = 0
         while True:
             current_len = len(shared_list)
