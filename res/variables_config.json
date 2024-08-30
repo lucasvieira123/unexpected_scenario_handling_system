@@ -1,6 +1,6 @@
 [
     {
-      "name": "altitude",
+      "name": "current_alt",
       "type": "float",
       "min_value": 0,
       "max_value": 1000.0
@@ -30,7 +30,7 @@
       "max_value": true
     },
     {
-      "name": "armed",
+      "name": "is_armed",
       "type": "boolean",
       "min_value": false,
       "max_value": true

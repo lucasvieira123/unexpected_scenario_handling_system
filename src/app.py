@@ -34,16 +34,16 @@ if __name__ == "__main__":
         # Cria e inicia o processo que executa o add_data_every_second
         # producer_process = Process(target=generator.add_data_every_second, args=(shared_list,))
 
-        PX4_monitor = Px4DroneMonitor(monitoring_folder_path, shared_list)
-        PX4_monitor.start_monitoring()
-
-        # unexpected_state_identifier = UC_state_identifier(delivery_model)
-        # unexpected_state_monitor = Process(target=unexpected_state_identifier.check_states, args=(shared_list,))
-
+        PX4_monitor = Px4DroneMonitor(monitoring_folder_path)
+        PX4_monitor_process=Process(target=PX4_monitor.start_monitoring, args=(shared_list,))
+        
+        unexpected_state_identifier = UC_state_identifier(delivery_model)
+        unexpected_state_monitor_process = Process(target=unexpected_state_identifier.check_states, args=(shared_list,))
+        
         # # Inicia os processos
-        # # producer_process.start()
-        # unexpected_state_monitor.start()
+        PX4_monitor_process.start()
+        unexpected_state_monitor_process.start()
 
         # # Aguarda o término dos processos
-        # # producer_process.join()
-        # unexpected_state_monitor.join()
+        PX4_monitor_process.join()
+        unexpected_state_monitor_process.join()

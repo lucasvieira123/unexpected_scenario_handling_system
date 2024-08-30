@@ -11,16 +11,21 @@ class UC_state_identifier:
         last_len = 0
         while True:
             current_len = len(shared_list)
-            if current_len > last_len:
-                # Obtenha os novos dados
-                new_data=shared_list[last_len:current_len][0][0]
-                new_df=shared_list[last_len:current_len][0][1]
-                # print(f"Novas linhas adicionadas ao DataFrame:{len(shared_list)}")
-                last_len = current_len
-                
-                # Atualiza as variáveis do modelo
-                self.model.update_variables(new_data)
-                self.check_unanticipated_change(new_data, new_df)
+
+            if current_len == 0:
+                continue
+
+            if current_len == last_len:
+                continue
+
+            new_data_df, all_data_df=shared_list[-1]
+            print(f"Novas dados para checar:{new_data_df['time']}")
+
+            last_len = current_len
+
+            # Atualiza as variáveis do modelo
+            self.model.create_update_variables(new_data_df)
+            # self.check_unanticipated_change(new_data, new_df)
             time.sleep(1)
 
     def check_unanticipated_change(self, new_data, new_df):

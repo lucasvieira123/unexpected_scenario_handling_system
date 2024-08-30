@@ -4,7 +4,7 @@
             "Given": "battery > 2.5",
             "When": "*",
             "Do": "arm",
-            "Then": "armed == True"
+            "Then": "is_armed == True"
         },
         "_extra":{
             "initial":true,
@@ -17,7 +17,7 @@
             "Given": "battery > 10",
             "When": "*",
             "Do": "takeoff",
-            "Then": "altitude > 10"
+            "Then": "current_alt > 10"
         },
         "_extra":{
             "initial":false,
@@ -82,7 +82,7 @@
             "Given": "*",
             "When": "battery <= 10",
             "Do": "safeland",
-            "Then": "altitude = 0"
+            "Then": "current_alt = 0"
         },
         "_extra":{
             "initial":false,
@@ -118,10 +118,10 @@
     },
     {
         "LandingToDelever": {
-            "Given": "altitude > 0",
+            "Given": "current_alt > 0",
             "When": "target_distance <= 5",
             "Do": "landing",
-            "Then": "altitude == 0 AND target_distance <= 5"
+            "Then": "current_alt == 0 AND target_distance <= 5"
         },
         "_extra":{
             "initial":false,
@@ -131,10 +131,10 @@
     },
     {
         "Shutdown": {
-            "Given": "altitude = 0 AND armed = True",
+            "Given": "current_alt = 0 AND is_armed = True",
             "When": "*",
             "Do": "disarm",
-            "Then": "armed == False"
+            "Then": "is_armed == False"
         },
         "_extra":{
             "initial":false,

@@ -55,9 +55,9 @@ class MockedDataGenerator:
             self.df.to_csv('res/outcome/mocked_telemetry.csv', index=False)
 
 class Px4DroneMonitor(FileSystemEventHandler):
-    def __init__(self, monitoring_folder_path, shared_list):
+    def __init__(self, monitoring_folder_path):
         self.monitoring_folder_path = os.path.normpath(monitoring_folder_path)
-        self.shared_list = shared_list
+        self.shared_list = None
         self.current_file_path = None
 
     
@@ -79,28 +79,16 @@ class Px4DroneMonitor(FileSystemEventHandler):
 
         self.current_file_path = new_file_path
         self.process_new_lines()
-    
-    # def process_new_lines(self):
-    #     with open(self.filepath, 'r') as file:
-    #         file.seek(self.last_position)
-    #         reader = csv.reader(file)
-    #         new_lines = list(reader)
-
-    #         if new_lines:
-    #             print("Novos dados:", new_lines)  # Substitua com sua lógica de análise
-            
-    #         self.last_position = file.tell()
 
     def process_new_lines(self):
         all_collected_data_df = pd.read_csv(self.current_file_path)
         new_data_df = all_collected_data_df.iloc[-1]
         self.shared_list.append((new_data_df, all_collected_data_df))
-        print(f"Novos dados adicionados ao DataFrame!+ {len(self.shared_list)}")
-        print(new_data_df['time'])
+        # print(f"Novos dados adicionados ao DataFrame!+ {len(self.shared_list)}")
+        print(f"Novos Dados Monitorados: {new_data_df['time']}")
     
-    def start_monitoring(self):
-
-
+    def start_monitoring(self, shared_list):
+        self.shared_list = shared_list
         observer = Observer()
         observer.schedule(self, self.monitoring_folder_path, recursive=False)
         observer.start()

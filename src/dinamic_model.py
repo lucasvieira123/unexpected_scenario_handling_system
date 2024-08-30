@@ -1,6 +1,6 @@
 class DynamicClass:
     def __init__(self):
-        self.altitude = None  # float Range: [0, 1000.0]
+        self.current_alt = None  # float Range: [0, 1000.0]
         self.action = None
         self.target_distance = None  # float Range: [0.0, 10000.0]
         self.action = None
@@ -10,7 +10,7 @@ class DynamicClass:
         self.action = None
         self.obstacle = None  # boolean Range: [False, True]
         self.action = None
-        self.armed = None  # boolean Range: [False, True]
+        self.is_armed = None  # boolean Range: [False, True]
         self.action = None
         self.bad_connection = None  # boolean Range: [False, True]
         self.action = None
@@ -58,12 +58,12 @@ class DynamicClass:
        return True
 
     def create_update_variables(self, new_data):
-        self.altitude = new_data["altitude"]
+        self.current_alt = new_data["current_alt"]
         self.target_distance = new_data["target_distance"]
         self.origin_distance = new_data["origin_distance"]
         self.battery = new_data["battery"]
         self.obstacle = new_data["obstacle"]
-        self.armed = new_data["armed"]
+        self.is_armed = new_data["is_armed"]
         self.bad_connection = new_data["bad_connection"]
         self.onWater = new_data["onWater"]
         self.action = new_data["action"]
