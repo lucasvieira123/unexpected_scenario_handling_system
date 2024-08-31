@@ -60,16 +60,20 @@ class StateMachineModel:
                         scenario_name = key
 
                         given = BDD_scenario.get("Given")
+                        if given == "*": given = "True"
                         when = BDD_scenario.get("When")
                         do = BDD_scenario.get("Do")
                         then = BDD_scenario.get("Then")
+                        if then == "*": then = "True"
 
                         indexed_given = f"{scenario_name.lower()}__{given}"
-                        # indexed_when = f"{scenario_name}.({when})"
                         adapted_when = f"{scenario_name.lower()}__when"
+                        # indexed_given = f"{scenario_name}__{given}"
+                        # adapted_when = f"{scenario_name}__when"
                         when_from_scenario[scenario_name] = when
                         indexed_do = f"{do}"
                         indexed_then = f"{scenario_name.lower()}__{then}"
+                        # indexed_then = f"{scenario_name}__{then}"
 
                         add_state(self.machine,indexed_given)
                         add_state(self.machine, indexed_then)
@@ -110,7 +114,8 @@ class StateMachineModel:
         
         self.model.epson()
 
-        return self.model
+        return self.model, self.machine
+    
 
 
 

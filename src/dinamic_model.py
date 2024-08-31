@@ -17,44 +17,55 @@ class DynamicClass:
         self.onWater = None  # boolean Range: [False, True]
         self.action = None
 
-    def Start__when(self):
+    @property
+    def arm__when(self):
        return True
 
-    def Takeoff__when(self):
+    @property
+    def takeoff__when(self):
        return True
 
-    def Flying__when(self):
+    @property
+    def flying__when(self):
        if self.target_distance > 5: return True
        else: return False
 
-    def RTH__when(self):
+    @property
+    def rth__when(self):
        if self.bad_connection == True: return True
        else: return False
 
-    def Glide__when(self):
+    @property
+    def glide__when(self):
        if self.bad_connection == True: return True
        else: return False
 
-    def CheckStatus__when(self):
+    @property
+    def checkstatus__when(self):
        return True
 
-    def SafeLand__when(self):
+    @property
+    def safeland__when(self):
        if self.battery <= 10: return True
        else: return False
 
-    def MoveAside__when(self):
+    @property
+    def moveaside__when(self):
        if self.battery <= 10: return True
        else: return False
 
-    def Keepflying__when(self):
+    @property
+    def keepflying__when(self):
        if self.battery <= 10: return True
        else: return False
 
-    def LandingToDelever__when(self):
+    @property
+    def landingtodelever__when(self):
        if self.target_distance <= 5: return True
        else: return False
 
-    def Shutdown__when(self):
+    @property
+    def disarm__when(self):
        return True
 
     def create_update_variables(self, new_data):

@@ -17,7 +17,7 @@ if __name__ == "__main__":
                                   variables_config_json=variables_config_json)
     class_builder.build_dinamic_class()
 
-    delivery_model = StateMachineModel(class_name_model="DynamicClass").scenario_model_to_state_machine(expected_scenario_json)
+    delivery_model, machine = StateMachineModel(class_name_model="DynamicClass").scenario_model_to_state_machine(expected_scenario_json)
     delivery_model_view = StateMachineModelView(class_name_model="DynamicClass").scenario_model_to_state_machine(expected_scenario_json)
 
     #Descomentar esta linha apesas para debugar o diagrama
@@ -37,9 +37,9 @@ if __name__ == "__main__":
         PX4_monitor = Px4DroneMonitor(monitoring_folder_path)
         PX4_monitor_process=Process(target=PX4_monitor.start_monitoring, args=(shared_list,))
         
-        unexpected_state_identifier = UC_state_identifier(delivery_model)
+        unexpected_state_identifier = UC_state_identifier(delivery_model,machine)
         unexpected_state_monitor_process = Process(target=unexpected_state_identifier.check_states, args=(shared_list,))
-        
+
         # # Inicia os processos
         PX4_monitor_process.start()
         unexpected_state_monitor_process.start()

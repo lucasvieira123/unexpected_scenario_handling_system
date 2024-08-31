@@ -85,7 +85,7 @@ class Px4DroneMonitor(FileSystemEventHandler):
         new_data_df = all_collected_data_df.iloc[-1]
         self.shared_list.append((new_data_df, all_collected_data_df))
         # print(f"Novos dados adicionados ao DataFrame!+ {len(self.shared_list)}")
-        print(f"Novos Dados Monitorados: {new_data_df['time']}")
+        # print(f"Novos Dados Monitorados: {new_data_df['time']}")
     
     def start_monitoring(self, shared_list):
         self.shared_list = shared_list

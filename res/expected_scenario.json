@@ -1,6 +1,6 @@
 [
     {
-        "Start": {
+        "Arm": {
             "Given": "battery > 2.5",
             "When": "*",
             "Do": "arm",
@@ -17,7 +17,7 @@
             "Given": "battery > 10",
             "When": "*",
             "Do": "takeoff",
-            "Then": "current_alt > 10"
+            "Then": "current_alt > 9.5"
         },
         "_extra":{
             "initial":false,
@@ -86,7 +86,7 @@
         },
         "_extra":{
             "initial":false,
-            "gointo": ["Shutdown"]
+            "gointo": ["Disarm"]
         }
         
     },
@@ -125,12 +125,12 @@
         },
         "_extra":{
             "initial":false,
-            "gointo": ["Shutdown"]
+            "gointo": ["Disarm"]
         }
         
     },
     {
-        "Shutdown": {
+        "Disarm": {
             "Given": "current_alt = 0 AND is_armed = True",
             "When": "*",
             "Do": "disarm",

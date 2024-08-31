@@ -104,14 +104,14 @@ class ClassBuilder:
                             when = re.sub(pattern_or, 'or', when)
 
                             body = ""
-                            methed_name = f"{scenario_name}__when"
+                            methed_name = f"{scenario_name.lower()}__when"
 
                             if when == "*":
                                 body = "return True"
                             else: body = f"if {when}: return True\n       else: return False"
-
+                            decorator = "    @property\n"
                             method_def = f"    def {methed_name}(self):\n       {body}\n\n"
-                            new_methods_code += method_def
+                            new_methods_code += decorator + method_def
                             
         # Append the new methods before the end of the file
         updated_code = existing_code.rstrip() + "\n\n" + new_methods_code
