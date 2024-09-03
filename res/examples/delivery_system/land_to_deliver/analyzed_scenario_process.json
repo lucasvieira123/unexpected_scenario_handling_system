@@ -1,0 +1,116 @@
+{
+  "expected": {
+    "Landing": {
+      "Given": "height > 0",
+      "When": "distance_target <= 5",
+      "Do": "landing",
+      "Then": "height == 0 AND distance_target <= 5"
+    }
+  },
+  "unexpected": {
+    "Landing": {
+      "Given": "height > 0",
+      "When": "distance_target <= 5",
+      "Do": "landing",
+      "Then": "height > 0 AND distance_target <= 5"
+    }
+  },
+  "diagnosed": {
+    "Landing": {
+      "Given": "height > 0 AND obstacle != 0",
+      "When": "distance_target <= 5",
+      "Do": "landing",
+      "Then": "height > 0 AND distance_target <= 5"
+    }
+  },
+  "desired": [
+    {
+      "landing_with_obstacle": {
+        "Given": "height > 0 AND obstacle != 0",
+        "When": "distance_target <= 1",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    },
+    {
+      "landing_with_battery_failure": {
+        "Given": "height > 0 AND voltage_low == 1 AND battery <= 20",
+        "When": "distance_target <= 5",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    },
+    {
+      "landing_with_image_stabilization_failure": {
+        "Given": "height > 0 AND image_stabilization_failure == 1 AND visibility >= 50 AND is_stormy == 0",
+        "When": "distance_target <= 5",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    },
+    {
+      "landing_with_obstructed_infrastructure": {
+        "Given": "height > 0 AND obstructed_infrastructure == 1",
+        "When": "distance_target <= 5",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    },
+    {
+      "landing_low_satellite": {
+        "Given": "height > 0 AND satellite_count <= 7",
+        "When": "distance_target <= 5",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    },
+    {
+      "landing_with_strong_wind": {
+        "Given": "height > 0 AND wind_speed > 50",
+        "When": "distance_target <= 5",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    },
+    {
+      "landing_with_gps_failures": {
+        "Given": "height > 0 AND gps_status == 0",
+        "When": "distance_target <= 5",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    },
+    {
+      "landing_with_temperature_extremes": {
+        "Given": "height > 0 AND temperature > 40",
+        "When": "distance_target <= 5",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    },
+    {
+      "landing_with_magnetic_interference": {
+        "Given": "height > 0 AND magnetic_interference == 1",
+        "When": "distance_target <= 5",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    },
+    {
+      "landing_with_nearby_birds": {
+        "Given": "height > 0 AND birds_detected_nearby == 1",
+        "When": "distance_target <= 5",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    },
+    {
+      "landing_with_dust_or_sandstorm": {
+        "Given": "height > 0 AND dust_or_sandstorm_detected == 1",
+        "When": "distance_target <= 5",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    }
+  ]
+}

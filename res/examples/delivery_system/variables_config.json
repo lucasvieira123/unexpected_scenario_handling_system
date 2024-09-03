@@ -1,0 +1,147 @@
+[
+    {
+      "name": "height",
+      "type": "float",
+      "min_value": 0,
+      "max_value": 100.0
+    },
+    {
+      "name": "distance_target",
+      "type": "float",
+      "min_value": 0.0,
+      "max_value": 100.0
+    },
+    {
+      "name": "origin_distance",
+      "type": "float",
+      "min_value": 0.0,
+      "max_value": 100.0
+    },
+    {
+      "name": "battery",
+      "type": "float",
+      "min_value": 0.0,
+      "max_value": 100.0
+    },
+    {
+      "name": "obstacle",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 1
+    },
+    {
+      "name": "obstructed_infrastructure",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 1
+    },
+    {
+      "name": "is_armed",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 1
+    },
+    {
+      "name": "bad_connection",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 1
+    },
+      {
+      "name": "onWater",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 1
+    }
+    ,
+      {
+      "name": "vibration",
+      "type": "float",
+      "min_value": 0,
+      "max_value": 100
+    },
+    {
+      "name": "satellite_count",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 15
+    },
+    {
+      "name": "wind_speed",
+      "type": "float",
+      "min_value": 0.0,
+      "max_value": 100.0
+    },
+    {
+      "name": "gps_status",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 1
+    },
+    {
+      "name": "overweight",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 1
+    },
+    {
+      "name": "visibility",
+      "type": "float",
+      "min_value": 0.0,
+      "max_value": 100.0
+    },
+    {
+      "name": "is_storm",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 1
+  },
+  {
+    "name": "is_crowd",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 1
+},
+    {
+      "name": "temperature",
+      "type": "float",
+      "min_value": -50.0,
+      "max_value": 50.0
+    },
+    {
+      "name": "dust_or_sandstorm_detected",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 1
+    },
+    {
+      "name": "birds_detected_nearby",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 1
+    },
+    {
+      "name": "voltage_low",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 1
+  },
+  {
+    "name": "image_stabilization_failure",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 1
+},
+{
+  "name": "is_night",
+  "type": "int",
+  "min_value": 0,
+  "max_value": 1
+},
+{
+  "name": "lights",
+  "type": "int",
+  "min_value": 0,
+  "max_value": 1
+}
+  ]

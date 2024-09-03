@@ -1,0 +1,34 @@
+{
+  "expected": {
+    "Photo_capture_at_destination": {
+      "Given": "height > 0",
+      "When": "distance_target <= 5",
+      "Do": "capture_photo",
+      "Then": "photo_status  == 1"
+    }
+  },
+  "unexpected": {
+    "Photo_capture_at_destination": {
+      "Given": "height > 0",
+      "When": "distance_target <= 5",
+      "Do": "capture_photo",
+      "Then": "photo_status  == 0"
+    }
+  },
+  "diagnosed": {
+    "Photo_capture_at_destination": {
+      "Given": "height > 0 AND vibration == 1",
+      "When": "distance_target <= 5",
+      "Do": "capture_photo",
+      "Then": "photo_status  == 0"
+    }
+  },
+  "desired": {
+    "photo_capture_at_destination": {
+      "Given": "height > 0 AND vibration == 1",
+      "When": "distance_target <= 5",
+      "Do": "unknown_action",
+      "Then": "photo_status  == 1"
+    }
+  }
+}

@@ -17,7 +17,7 @@
             "Given": "battery > 10",
             "When": "*",
             "Do": "takeoff",
-            "Then": "current_alt > 9.5"
+            "Then": "height > 9.5"
         },
         "_extra":{
             "initial":false,
@@ -28,9 +28,9 @@
     {
         "Flying": {
             "Given": "battery > 10",
-            "When": "target_distance > 5",
+            "When": "distance_target > 5",
             "Do": "flying",
-            "Then": "target_distance = target_distance - 5"
+            "Then": "distance_target = distance_target - 5"
         },
         "_extra":{
             "initial":false,
@@ -53,7 +53,7 @@
     },
     {
         "Glide": {
-            "Given": "target_distance <= 2000",
+            "Given": "distance_target <= 2000",
             "When": "bad_connection = True",
             "Do": "glide",
             "Then": "bad_connection = False"
@@ -82,7 +82,7 @@
             "Given": "*",
             "When": "battery <= 10",
             "Do": "safeland",
-            "Then": "current_alt = 0"
+            "Then": "height = 0"
         },
         "_extra":{
             "initial":false,
@@ -105,10 +105,10 @@
     },
     {
         "Keepflying": {
-            "Given": "target_distance <= 2000",
+            "Given": "distance_target <= 2000",
             "When": "battery <= 10",
             "Do": "keepflying",
-            "Then": "target_distance <= 5"
+            "Then": "distance_target <= 5"
         },
         "_extra":{
             "initial":false,
@@ -118,10 +118,10 @@
     },
     {
         "LandingToDelever": {
-            "Given": "current_alt > 0",
-            "When": "target_distance <= 5",
+            "Given": "height > 0",
+            "When": "distance_target <= 5",
             "Do": "landing",
-            "Then": "current_alt == 0 AND target_distance <= 5"
+            "Then": "height == 0 AND distance_target <= 5"
         },
         "_extra":{
             "initial":false,
@@ -131,7 +131,7 @@
     },
     {
         "Disarm": {
-            "Given": "current_alt = 0 AND is_armed = True",
+            "Given": "height = 0 AND is_armed = True",
             "When": "*",
             "Do": "disarm",
             "Then": "is_armed == False"
