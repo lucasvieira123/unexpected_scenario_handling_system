@@ -1,0 +1,317 @@
+[
+  {
+    "takeoff_with_insufficient_satellites": {
+      "Given": "satellite_count <= 7 AND battery >= 30", 
+      "When": "takeoff_initiated == 1",
+      "Do": "navigation_mode_INS",
+      "Then": "height > 0 AND source_distance > 20"
+    }
+  },
+  {
+    "takeoff_with_strong_wind": {
+      "Given": "wind_speed > 50",
+      "When": "takeoff_initiated == 1",
+      "Do": "adjust_power_motor",
+      "Then": "height > 0 AND source_distance == 0"
+    }
+  },
+  {
+    "takeoff_with_moderate_wind": {
+      "Given": "wind_speed > 25",
+      "When": "takeoff_initiated == 1",
+      "Do": "calibrate_sensors",
+      "Then": "height > 0 AND source_distance == 0"
+    }
+  },
+  {
+    "takeoff_aborted_due_to_high_wind": {
+      "Given": "wind_speed > 20",
+      "When": "takeoff_initiated == 1",
+      "Do": "stop_takeoff",
+      "Then": "height == 0 AND source_distance == 0"
+    }
+  },
+  {
+    "takeoff_with_no_gps": {
+      "Given": "gps_status == 0 AND battery >= 20",
+      "When": "takeoff_initiated == 1",
+      "Do": "navigation_mode_visual",
+      "Then": "height > 0 AND source_distance > 0"
+    }
+  },
+  {
+    "takeoff_with_overweight": {
+      "Given": "overweight == 1 AND battery >= 20",
+      "When": "takeoff_initiated == 1",
+      "Do": "adjust_power_motor",
+      "Then": "height > 0 AND source_distance > 0"
+    }
+  },
+  {
+    "takeoff_with_low_battery": {
+        "Given": "battery < 20",
+        "When": "takeoff_initiated == 1",
+        "Do": "abort_takeoff",
+        "Then": "height == 0 AND source_distance == 0"
+    }
+},
+{
+    "takeoff_with_limited_visibility": {
+        "Given": "visibility == 0",
+        "When": "takeoff_initiated == 1",
+        "Do": "enable_obstacle_detection_AND_reduce_speed",
+        "Then": "height > 0 AND source_distance > 0"
+    }
+    
+},
+{
+    "takeoff_with_high_height": {
+        "Given": "height > 2000 AND battery > 50",
+        "When": "takeoff_initiated == 1",
+        "Do": "increase_motor_power",
+        "Then": "height > 0 AND source_distance > 0"
+    }
+},
+{
+    "takeoff_with_heavy_rain": {
+        "Given": "is_storm == 1",
+        "When": "takeoff_initiated == 1",
+        "Do": "abort_takeoff",
+        "Then": "height == 0"
+    }
+},
+{
+    "takeoff_with_low_temperature": {
+        "Given": "temperature < 0",
+        "When": "takeoff_initiated == 1",
+        "Do": "warm_up_motors",
+        "Then": "height > 0 AND speed < 10"
+    }
+},
+{
+    "takeoff_with_high_temperature": {
+        "Given": "temperature > 35",
+        "When": "takeoff_initiated == 1",
+        "Do": "monitor_motor_temperature",
+        "Then": "height > 0 AND source_distance > 0 AND speed < 10"
+    }
+},
+{
+    "takeoff_with_dust_or_sandstorm": {
+        "Given": "dust_or_sandstorm_detected == 1",
+        "When": "takeoff_initiated == 1",
+        "Do": "increase_filtering_AND_reduce_speed",
+        "Then": "height > 0 AND source_distance > 0 AND speed < 10"
+    }
+},
+{
+    "takeoff_with_nearby_birds": {
+        "Given": "birds_detected_nearby == 1",
+        "When": "takeoff_initiated == 1",
+        "Do": "delay_takeoff",
+        "Then": "height > 0 AND birds_detected_nearby == 0"
+    }
+},
+{
+    "takeoff_with_low_control_signal": {
+        "Given": "bad_connection == 1",
+        "When": "takeoff_initiated == 1",
+        "Do": "attempt_signal_boost_OR_switch_to_autonomous_mode",
+        "Then": "height > 0 AND source_distance > 0"
+    }
+},
+{
+    "perform_3d_mapping": {
+        "Given": "battery > 50 AND obstacle_detected == 1 AND obstacle_distance < 1",
+        "When": "takeoff_initiated == 1",
+        "Do": "perform_3d_mapping",
+        "Then": "height > 0 AND source_distance == 0"
+    }
+},
+{
+  "calculate_new_takeoff_trajectory": {
+      "Given": "battery > 15 AND obstacle_detected == 1 AND obstacle_distance < 5 AND obstacle_detected_above == 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "calculate_new_takeoff_trajectory",
+      "Then": "height > 20 AND source_distance == 0"
+  }
+},
+{
+  "ten_sec_delay_takeoff": {
+      "Given": "battery > 80 AND obstacle_detected == 1 AND obstacle_type_moving == 1 AND obstacle_distance < 5",
+      "When": "takeoff_initiated == 1 AND height == 0",
+      "Do": "ten_sec_delay_takeoff",
+      "Then": "height > 0 AND source_distance > 3"
+  }
+},
+{
+  "issue_warning_signals": {
+      "Given": "battery > 50 AND obstacle_detected == 1 AND obstacle_type_moving == 1 AND obstacle_speed > 1",
+      "When": "height < 5 ",
+      "Do": "issue_warning_signals",
+      "Then": "height > 0 AND source_distance == 0"
+  }
+},
+{
+  "abort_takeoff": {
+      "Given": "obstacle_detected == 1 AND obstacle_distance < 3 AND high_obstacle_density == 1 AND satellite_count < 10",
+      "When": "takeoff_initiated == 1",
+      "Do": "abort_takeoff",
+      "Then": "height == 0 AND source_distance == 0"
+  }
+},
+{
+  "lidar": {
+    "Given": "height > 0 AND obstacle_detected == 1",
+    "When": "distance_target <= 5",
+    "Do": "around_obstacle",
+    "Then": "height == 0 AND distance_target <= 50"
+  }
+},
+{
+  "neighbor": {
+    "Given": "height > 0 AND obstacle_detected == 1",
+    "When": "distance_target <= 5",
+    "Do": "landInNeighbor",
+    "Then": "height == 0 AND distance_target <= 50"
+  }
+},
+{
+  "hope": {
+    "Given": "height > 0 AND wind_speed <= 75 AND is_storm == 1",
+    "When": "distance_target <= 5",
+    "Do": "land_package",
+    "Then": "height != 0 AND distance_target <= 10"
+  }
+},
+{
+  "parachute": {
+    "Given": "height > 0 AND wind_speed <= 10 AND is_storm != 1",
+    "When": "distance_target <= 5",
+    "Do": "land_package_with_parachute",
+    "Then": "height != 0 AND distance_target <= 30"
+  }
+},
+{
+  "airdrop": {
+    "Given": "height > 0 AND wind_speed <= 30 AND is_storm != 1",
+    "When": "distance_target <= 5",
+    "Do": "land_package",
+    "Then": "height != 0 AND distance_target <= 10"
+  }
+},
+
+{
+  "emergency_landing": {
+    "Given": "height > 0 AND battery < 10",
+    "When": "distance_target > 50",
+    "Do": "land_emergency",
+    "Then": "height == 0 AND battery == 0"
+  }
+},
+{
+  "weather_avoidance": {
+    "Given": "height > 30 AND is_storm == 1",
+    "When": "distance_target <= 20",
+    "Do": "hold_position",
+    "Then": "height > 0 AND distance_target > 20"
+  }
+},
+{
+  "re_route": {
+    "Given": "height > 0 AND obstacle_detected == 1",
+    "When": "distance_target > 10",
+    "Do": "reroute_around",
+    "Then": "height > 0 AND distance_target > 10 AND obstacle_detected == 1"
+  }
+},
+{
+  "high_altitude_drop": {
+    "Given": "height < 50",
+    "When": "distance_target <= 10",
+    "Do": "drop_package_high_altitude",
+    "Then": "height > 0 AND distance_target <= 10"
+  }
+},
+{
+  "night_delivery": {
+    "Given": "height > 0 AND is_night  == 1",
+    "When": "distance_target <= 10",
+    "Do": "use_night_lights",
+    "Then": "height == 0 AND distance_target <= 10 AND lights == 1"
+  }
+},
+{
+  "collision_avoidance": {
+    "Given": "height > 10",
+    "When": "obstacle_detected == 1",
+    "Do": "adjust_course",
+    "Then": "height > 0 AND obstacle_detected == 0"
+  }
+},
+{
+  "obstacle_detected_Avoidance_Landing": {
+    "Given": "height > 0 AND obstacle_detected != 0",
+    "When": "distance_target <= 1",
+    "Do": "ascend_to_safe_altitude AND retry_landing",
+    "Then": "height == 0 AND distance_target <= 5"
+  }
+},
+{
+  "battery_Critical_Landing": {
+    "Given": "height > 0 AND voltage_low == 1",
+    "When": "distance_target <= 10",
+    "Do": "reduce_power_consumption AND initiate_emergency_landing",
+    "Then": "height == 0 AND distance_target == 0"
+  }
+},
+{
+  "landing_With_Visual_Instability": {
+    "Given": "height > 0 AND image_stabilization_failure == 1",
+    "When": "distance_target <= 30",
+    "Do": "use_lidar_and_ultrasonic_sensors_for_landing",
+    "Then": "height == 5 AND distance_target <= 10"
+  }
+},
+{
+  "impeded_Infrastructure_Delivery": {
+    "Given": "height > 0 AND obstructed_infrastructure == 1",
+    "When": "distance_target <= 5",
+    "Do": "deliver_to_alternative_location OR notify_recipient_for_manual_pickup OR retry_delivery_later",
+    "Then": "height == 0"
+  }
+},
+{
+  "high_Density_Landing": {
+    "Given": "height > 0 AND is_crowd == 1",
+    "When": "distance_target <= 5",
+    "Do": "notify_authorities_and_retry_landing_later",
+    "Then": "height > 0 AND distance_target < 50"
+  }
+},
+{
+  "foggy_Conditions_Landing": {
+    "Given": "height > 0 AND visibility < 20",
+    "When": "distance_target == 0",
+    "Do": "use_thermal_imaging_for_safe_landing",
+    "Then": "height == 0"
+  }
+},
+{
+  "dynamic_Target_Landing": {
+    "Given": "height > 0 AND target_moving == 1",
+    "When": "distance_target <= 5",
+    "Do": "synchronize_with_target_movement_and_land",
+    "Then": "height == 0 AND distance_target <= 100"
+  }
+},
+{
+  "landing_With_Animal_Activity": {
+    "Given": "height > 0 AND person_detected == 1",
+    "When": "distance_target <= 3",
+    "Do": "drop",
+    "Then": "height == 7 AND distance_target <= 5"
+  }
+}
+
+]

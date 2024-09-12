@@ -6,13 +6,19 @@
       "max_value": 100.0
     },
     {
+      "name": "load",
+      "type": "float",
+      "min_value": 0,
+      "max_value": 1
+    },
+    {
       "name": "distance_target",
       "type": "float",
       "min_value": 0.0,
       "max_value": 100.0
     },
     {
-      "name": "origin_distance",
+      "name": "source_distance",
       "type": "float",
       "min_value": 0.0,
       "max_value": 100.0
@@ -24,7 +30,13 @@
       "max_value": 100.0
     },
     {
-      "name": "obstacle",
+      "name": "obstacle_detected",
+      "type": "int",
+      "min_value": 0,
+      "max_value": 1
+    },
+    {
+      "name": "obstacle_type_moving",
       "type": "int",
       "min_value": 0,
       "max_value": 1
@@ -68,6 +80,12 @@
     },
     {
       "name": "wind_speed",
+      "type": "float",
+      "min_value": 0.0,
+      "max_value": 100.0
+    },
+    {
+      "name": "speed",
       "type": "float",
       "min_value": 0.0,
       "max_value": 100.0
@@ -140,6 +158,12 @@
 },
 {
   "name": "lights",
+  "type": "int",
+  "min_value": 0,
+  "max_value": 1
+},
+{
+  "name": "takeoff_initiated",
   "type": "int",
   "min_value": 0,
   "max_value": 1

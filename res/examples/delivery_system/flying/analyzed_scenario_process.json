@@ -1,0 +1,50 @@
+{
+  "expected": {
+    "Flying": {
+      "Given": "battery > 10",
+      "When": "distance_target > 5",
+      "Do": "flying",
+      "Then": "travel_to_destination >= 100 AND battery_charge <= 2"
+    }
+  },
+  "unexpected": {
+    "Flying": {
+      "Given": "battery > 10",
+      "When": "distance_target > 5",
+      "Do": "flying",
+      "Then": "travel_to_destination == 60 AND battery_discharge == 10"}
+  },
+  "diagnosed": {
+    "Flying": {
+      "Given": "battery > 10 AND wind_speed > 50",
+      "When": "distance_target > 5",
+      "Do": "flying",
+      "Then": "travel_to_destination == 60 AND battery_discharge == 10"}
+  },
+  "desired": [
+    {
+      "landing_with_obstacle": {
+        "Given": "height > 0 AND obstacle_detected != 0",
+        "When": "distance_target <= 1",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    },
+    {
+      "landing_with_battery_failure": {
+        "Given": "height > 0 AND voltage_low == 1 AND battery <= 20",
+        "When": "distance_target <= 5",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    },
+    {
+      "landing_with_image_stabilization_failure": {
+        "Given": "height > 0 AND image_stabilization_failure == 1 AND visibility >= 50 AND is_stormy == 0",
+        "When": "distance_target <= 5",
+        "Do": "unknown_action",
+        "Then": "height == 0 AND distance_target <= 5"
+      }
+    }
+  ]
+}

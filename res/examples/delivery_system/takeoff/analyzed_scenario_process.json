@@ -1,59 +1,67 @@
 {
   "expected": {
     "Takeoff": {
-      "Given": "battery > 10",
-      "When": "takeoff_initiated = 1",
+      "Given": "load == 1 AND battery > 10",
+      "When": "takeoff_initiated == 1",
       "Do": "takeoff",
-      "Then": "altitude > 0 AND source_distance > 0"
+      "Then": "height > 30 AND source_distance == 0"
     }
   },
   "unexpected": {
     "Landing": {
-      "Given": "height > 0",
-      "When": "distance_target <= 5",
+      "Given": "load == 1 AND battery > 10",
+      "When": "takeoff_initiated == 1",
       "Do": "landing",
-      "Then": "height > 0 AND distance_target <= 5"
+        "Then": "height > 30 AND source_distance == 0"
     }
   },
   "diagnosed": {
     "Landing": {
-      "Given": "height > 0 AND obstacle != 0",
-      "When": "distance_target <= 5",
+      "Given": "load == 1 AND battery > 10 AND obstacle_detected == 1",
+      "When": "takeoff_initiated == 1",
       "Do": "landing",
-      "Then": "height > 0 AND distance_target <= 5"
+        "Then": "height > 30 AND source_distance == 0"
     }
   },
   "desired": [
     {
-      "Takeoff": {
-        "Given": "battery > 10 AND satellite_count <= 7",
-        "When": "takeoff_initiated = 1",
+      "Takeoff_with_obstacle": {
+        "Given": "load == 1 AND battery > 10 AND obstacle_detected == 1",
+        "When": "takeoff_initiated == 1",
         "Do": "unknown_action",
-        "Then": "altitude > 0 AND source_distance > 0"
+        "Then": "height > 30 AND source_distance == 0"
+      }
+    },
+    {
+      "Takeoff_with_low_sign": {
+        "Given": "battery > 10 AND satellite_count <= 7",
+        "When": "takeoff_initiated == 1",
+        "Do": "unknown_action",
+        "Then": "height > 30 AND source_distance == 0"
       }
     },
     {
       "Takeoff_with_strong_wind": {
         "Given": "battery > 10 AND wind_speed > 50",
-        "When": "takeoff_initiated = 1",
+        "When": "takeoff_initiated == 1",
         "Do": "unknown_action",
-        "Then": "altitude > 0 AND source_distance > 0"
+        "Then": "height > 30 AND source_distance == 0"
       }
     },
     {
       "Takeoff_with_gps_failures": {
         "Given": "battery > 10 AND gps_status == 0",
-        "When": "takeoff_initiated = 1",
+        "When": "takeoff_initiated == 1",
         "Do": "unknown_action",
-        "Then": "altitude > 0 AND source_distance > 0"
+        "Then": "height > 30 AND source_distance == 0"
       }
     },
     {
       "Takeoff_with_overweight": {
-        "Given": "battery > 10 AND overweight = 1",
-        "When": "takeoff_initiated = 1",
+        "Given": "battery > 10 AND overweight == 1",
+        "When": "takeoff_initiated == 1",
         "Do": "unknown_action",
-        "Then": "altitude > 0 AND source_distance > 0"
+        "Then": "height > 30 AND source_distance == 0"
       }
     }
   ]

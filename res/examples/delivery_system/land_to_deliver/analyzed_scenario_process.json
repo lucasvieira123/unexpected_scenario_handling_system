@@ -17,7 +17,7 @@
   },
   "diagnosed": {
     "Landing": {
-      "Given": "height > 0 AND obstacle != 0",
+      "Given": "height > 0 AND obstacle_detected != 0",
       "When": "distance_target <= 5",
       "Do": "landing",
       "Then": "height > 0 AND distance_target <= 5"
@@ -26,7 +26,7 @@
   "desired": [
     {
       "landing_with_obstacle": {
-        "Given": "height > 0 AND obstacle != 0",
+        "Given": "height > 0 AND obstacle_detected != 0",
         "When": "distance_target <= 1",
         "Do": "unknown_action",
         "Then": "height == 0 AND distance_target <= 5"
@@ -66,7 +66,7 @@
     },
     {
       "landing_with_strong_wind": {
-        "Given": "height > 0 AND wind_speed > 50",
+        "Given": "height > 0 AND wind_speed > 40 AND is_storm == 1",
         "When": "distance_target <= 5",
         "Do": "unknown_action",
         "Then": "height == 0 AND distance_target <= 5"
