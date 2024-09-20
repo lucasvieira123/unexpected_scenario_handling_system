@@ -1,0 +1,122 @@
+[
+  {
+    "Candidate_1": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_1",
+      "Then": "height >= 30"
+    }
+  },
+  {
+    "Candidate_2": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_2",
+      "Then": "source_distance == 0"
+    }
+  },
+  {
+    "Candidate_3": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_3",
+      "Then": "a > 10"
+    }
+  },
+  {
+    "Candidate_4": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_4",
+      "Then": "b > 10"
+    }
+  },
+  {
+    "Candidate_5": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_5",
+      "Then": "height >= 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Candidate_6": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_6",
+      "Then": "height >= 30 AND a > 10"
+    }
+  },
+  {
+    "Candidate_7": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_7",
+      "Then": "height >= 30 AND b > 10"
+    }
+  },
+  {
+    "Candidate_8": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_8",
+      "Then": "source_distance == 0 AND a > 10"
+    }
+  },
+  {
+    "Candidate_9": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_9",
+      "Then": "source_distance == 0 AND b > 10"
+    }
+  },
+  {
+    "Candidate_10": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_10",
+      "Then": "a > 10 AND b > 10"
+    }
+  },
+  {
+    "Candidate_11": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_11",
+      "Then": "height >= 30 AND source_distance == 0 AND a > 10"
+    }
+  },
+  {
+    "Candidate_12": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_12",
+      "Then": "height >= 30 AND source_distance == 0 AND b > 10"
+    }
+  },
+  {
+    "Candidate_13": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_13",
+      "Then": "height >= 30 AND a > 10 AND b > 10"
+    }
+  },
+  {
+    "Candidate_14": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_14",
+      "Then": "source_distance == 0 AND a > 10 AND b > 10"
+    }
+  },
+  {
+    "Candidate_15": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_15",
+      "Then": "height >= 30 AND source_distance == 0 AND a > 10 AND b > 10"
+    }
+  }
+]

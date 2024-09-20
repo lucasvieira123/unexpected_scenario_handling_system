@@ -1,0 +1,50 @@
+{
+  "Given": {
+    "var_combinations": {
+      "battery": [
+        "battery >= 10"
+      ],
+      "satellite_count": [
+        "satellite_count >= 7"
+      ],
+      "wind_speed": [
+        "wind_speed <= 36"
+      ]
+    },
+    "is_changeable_number_variables": false,
+    "extra_expressions": []
+  },
+  "Then": {
+    "var_combinations": {
+      "height": [
+        "height >= 30",
+        "height >= 0",
+        "height >= 25",
+        "height >= 50",
+        "height >= 75",
+        "height >= 100",
+        "height <= 30",
+        "height <= 0",
+        "height <= 25",
+        "height <= 50",
+        "height <= 75",
+        "height <= 100"
+      ],
+      "source_distance": [
+        "source_distance == 0",
+        "source_distance >= 0",
+        "source_distance >= 25",
+        "source_distance >= 50",
+        "source_distance >= 75",
+        "source_distance >= 100",
+        "source_distance <= 0",
+        "source_distance <= 25",
+        "source_distance <= 50",
+        "source_distance <= 75",
+        "source_distance <= 100"
+      ]
+    },
+    "is_changeable_number_variables": false,
+    "extra_expressions": []
+  }
+}

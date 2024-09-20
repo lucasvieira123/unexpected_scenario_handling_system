@@ -1,0 +1,1730 @@
+[
+  {
+    "Cadidate_1": {
+      "Given": "battery > 10 AND satellite_count > 7 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "1",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_2": {
+      "Given": "battery > 10 AND satellite_count > 7 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "2",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_3": {
+      "Given": "battery > 10 AND satellite_count > 7 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "3",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_4": {
+      "Given": "battery > 10 AND satellite_count > 7 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "4",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_5": {
+      "Given": "battery > 10 AND satellite_count > 7 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "5",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_6": {
+      "Given": "battery > 10 AND satellite_count > 7 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "6",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_7": {
+      "Given": "battery > 10 AND satellite_count > 0 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "7",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_8": {
+      "Given": "battery > 10 AND satellite_count > 0 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "8",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_9": {
+      "Given": "battery > 10 AND satellite_count > 0 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "9",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_10": {
+      "Given": "battery > 10 AND satellite_count > 0 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "10",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_11": {
+      "Given": "battery > 10 AND satellite_count > 0 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "11",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_12": {
+      "Given": "battery > 10 AND satellite_count > 0 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "12",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_13": {
+      "Given": "battery > 10 AND satellite_count > 4 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "13",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_14": {
+      "Given": "battery > 10 AND satellite_count > 4 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "14",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_15": {
+      "Given": "battery > 10 AND satellite_count > 4 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "15",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_16": {
+      "Given": "battery > 10 AND satellite_count > 4 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "16",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_17": {
+      "Given": "battery > 10 AND satellite_count > 4 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "17",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_18": {
+      "Given": "battery > 10 AND satellite_count > 4 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "18",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_19": {
+      "Given": "battery > 10 AND satellite_count > 8 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "19",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_20": {
+      "Given": "battery > 10 AND satellite_count > 8 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "20",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_21": {
+      "Given": "battery > 10 AND satellite_count > 8 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "21",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_22": {
+      "Given": "battery > 10 AND satellite_count > 8 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "22",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_23": {
+      "Given": "battery > 10 AND satellite_count > 8 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "23",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_24": {
+      "Given": "battery > 10 AND satellite_count > 8 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "24",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_25": {
+      "Given": "battery > 10 AND satellite_count > 12 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "25",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_26": {
+      "Given": "battery > 10 AND satellite_count > 12 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "26",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_27": {
+      "Given": "battery > 10 AND satellite_count > 12 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "27",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_28": {
+      "Given": "battery > 10 AND satellite_count > 12 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "28",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_29": {
+      "Given": "battery > 10 AND satellite_count > 12 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "29",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_30": {
+      "Given": "battery > 10 AND satellite_count > 12 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "30",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_31": {
+      "Given": "battery > 10 AND satellite_count > 15 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "31",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_32": {
+      "Given": "battery > 10 AND satellite_count > 15 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "32",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_33": {
+      "Given": "battery > 10 AND satellite_count > 15 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "33",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_34": {
+      "Given": "battery > 10 AND satellite_count > 15 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "34",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_35": {
+      "Given": "battery > 10 AND satellite_count > 15 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "35",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_36": {
+      "Given": "battery > 10 AND satellite_count > 15 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "36",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_37": {
+      "Given": "battery > 0 AND satellite_count > 7 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "37",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_38": {
+      "Given": "battery > 0 AND satellite_count > 7 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "38",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_39": {
+      "Given": "battery > 0 AND satellite_count > 7 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "39",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_40": {
+      "Given": "battery > 0 AND satellite_count > 7 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "40",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_41": {
+      "Given": "battery > 0 AND satellite_count > 7 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "41",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_42": {
+      "Given": "battery > 0 AND satellite_count > 7 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "42",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_43": {
+      "Given": "battery > 0 AND satellite_count > 0 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "43",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_44": {
+      "Given": "battery > 0 AND satellite_count > 0 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "44",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_45": {
+      "Given": "battery > 0 AND satellite_count > 0 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "45",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_46": {
+      "Given": "battery > 0 AND satellite_count > 0 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "46",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_47": {
+      "Given": "battery > 0 AND satellite_count > 0 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "47",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_48": {
+      "Given": "battery > 0 AND satellite_count > 0 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "48",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_49": {
+      "Given": "battery > 0 AND satellite_count > 4 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "49",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_50": {
+      "Given": "battery > 0 AND satellite_count > 4 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "50",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_51": {
+      "Given": "battery > 0 AND satellite_count > 4 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "51",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_52": {
+      "Given": "battery > 0 AND satellite_count > 4 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "52",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_53": {
+      "Given": "battery > 0 AND satellite_count > 4 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "53",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_54": {
+      "Given": "battery > 0 AND satellite_count > 4 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "54",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_55": {
+      "Given": "battery > 0 AND satellite_count > 8 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "55",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_56": {
+      "Given": "battery > 0 AND satellite_count > 8 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "56",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_57": {
+      "Given": "battery > 0 AND satellite_count > 8 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "57",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_58": {
+      "Given": "battery > 0 AND satellite_count > 8 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "58",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_59": {
+      "Given": "battery > 0 AND satellite_count > 8 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "59",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_60": {
+      "Given": "battery > 0 AND satellite_count > 8 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "60",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_61": {
+      "Given": "battery > 0 AND satellite_count > 12 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "61",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_62": {
+      "Given": "battery > 0 AND satellite_count > 12 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "62",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_63": {
+      "Given": "battery > 0 AND satellite_count > 12 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "63",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_64": {
+      "Given": "battery > 0 AND satellite_count > 12 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "64",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_65": {
+      "Given": "battery > 0 AND satellite_count > 12 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "65",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_66": {
+      "Given": "battery > 0 AND satellite_count > 12 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "66",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_67": {
+      "Given": "battery > 0 AND satellite_count > 15 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "67",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_68": {
+      "Given": "battery > 0 AND satellite_count > 15 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "68",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_69": {
+      "Given": "battery > 0 AND satellite_count > 15 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "69",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_70": {
+      "Given": "battery > 0 AND satellite_count > 15 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "70",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_71": {
+      "Given": "battery > 0 AND satellite_count > 15 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "71",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_72": {
+      "Given": "battery > 0 AND satellite_count > 15 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "72",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_73": {
+      "Given": "battery > 25 AND satellite_count > 7 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "73",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_74": {
+      "Given": "battery > 25 AND satellite_count > 7 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "74",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_75": {
+      "Given": "battery > 25 AND satellite_count > 7 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "75",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_76": {
+      "Given": "battery > 25 AND satellite_count > 7 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "76",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_77": {
+      "Given": "battery > 25 AND satellite_count > 7 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "77",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_78": {
+      "Given": "battery > 25 AND satellite_count > 7 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "78",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_79": {
+      "Given": "battery > 25 AND satellite_count > 0 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "79",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_80": {
+      "Given": "battery > 25 AND satellite_count > 0 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "80",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_81": {
+      "Given": "battery > 25 AND satellite_count > 0 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "81",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_82": {
+      "Given": "battery > 25 AND satellite_count > 0 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "82",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_83": {
+      "Given": "battery > 25 AND satellite_count > 0 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "83",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_84": {
+      "Given": "battery > 25 AND satellite_count > 0 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "84",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_85": {
+      "Given": "battery > 25 AND satellite_count > 4 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "85",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_86": {
+      "Given": "battery > 25 AND satellite_count > 4 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "86",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_87": {
+      "Given": "battery > 25 AND satellite_count > 4 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "87",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_88": {
+      "Given": "battery > 25 AND satellite_count > 4 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "88",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_89": {
+      "Given": "battery > 25 AND satellite_count > 4 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "89",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_90": {
+      "Given": "battery > 25 AND satellite_count > 4 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "90",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_91": {
+      "Given": "battery > 25 AND satellite_count > 8 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "91",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_92": {
+      "Given": "battery > 25 AND satellite_count > 8 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "92",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_93": {
+      "Given": "battery > 25 AND satellite_count > 8 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "93",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_94": {
+      "Given": "battery > 25 AND satellite_count > 8 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "94",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_95": {
+      "Given": "battery > 25 AND satellite_count > 8 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "95",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_96": {
+      "Given": "battery > 25 AND satellite_count > 8 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "96",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_97": {
+      "Given": "battery > 25 AND satellite_count > 12 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "97",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_98": {
+      "Given": "battery > 25 AND satellite_count > 12 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "98",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_99": {
+      "Given": "battery > 25 AND satellite_count > 12 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "99",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_100": {
+      "Given": "battery > 25 AND satellite_count > 12 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "100",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_101": {
+      "Given": "battery > 25 AND satellite_count > 12 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "101",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_102": {
+      "Given": "battery > 25 AND satellite_count > 12 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "102",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_103": {
+      "Given": "battery > 25 AND satellite_count > 15 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "103",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_104": {
+      "Given": "battery > 25 AND satellite_count > 15 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "104",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_105": {
+      "Given": "battery > 25 AND satellite_count > 15 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "105",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_106": {
+      "Given": "battery > 25 AND satellite_count > 15 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "106",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_107": {
+      "Given": "battery > 25 AND satellite_count > 15 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "107",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_108": {
+      "Given": "battery > 25 AND satellite_count > 15 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "108",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_109": {
+      "Given": "battery > 50 AND satellite_count > 7 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "109",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_110": {
+      "Given": "battery > 50 AND satellite_count > 7 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "110",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_111": {
+      "Given": "battery > 50 AND satellite_count > 7 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "111",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_112": {
+      "Given": "battery > 50 AND satellite_count > 7 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "112",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_113": {
+      "Given": "battery > 50 AND satellite_count > 7 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "113",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_114": {
+      "Given": "battery > 50 AND satellite_count > 7 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "114",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_115": {
+      "Given": "battery > 50 AND satellite_count > 0 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "115",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_116": {
+      "Given": "battery > 50 AND satellite_count > 0 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "116",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_117": {
+      "Given": "battery > 50 AND satellite_count > 0 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "117",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_118": {
+      "Given": "battery > 50 AND satellite_count > 0 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "118",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_119": {
+      "Given": "battery > 50 AND satellite_count > 0 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "119",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_120": {
+      "Given": "battery > 50 AND satellite_count > 0 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "120",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_121": {
+      "Given": "battery > 50 AND satellite_count > 4 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "121",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_122": {
+      "Given": "battery > 50 AND satellite_count > 4 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "122",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_123": {
+      "Given": "battery > 50 AND satellite_count > 4 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "123",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_124": {
+      "Given": "battery > 50 AND satellite_count > 4 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "124",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_125": {
+      "Given": "battery > 50 AND satellite_count > 4 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "125",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_126": {
+      "Given": "battery > 50 AND satellite_count > 4 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "126",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_127": {
+      "Given": "battery > 50 AND satellite_count > 8 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "127",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_128": {
+      "Given": "battery > 50 AND satellite_count > 8 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "128",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_129": {
+      "Given": "battery > 50 AND satellite_count > 8 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "129",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_130": {
+      "Given": "battery > 50 AND satellite_count > 8 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "130",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_131": {
+      "Given": "battery > 50 AND satellite_count > 8 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "131",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_132": {
+      "Given": "battery > 50 AND satellite_count > 8 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "132",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_133": {
+      "Given": "battery > 50 AND satellite_count > 12 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "133",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_134": {
+      "Given": "battery > 50 AND satellite_count > 12 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "134",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_135": {
+      "Given": "battery > 50 AND satellite_count > 12 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "135",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_136": {
+      "Given": "battery > 50 AND satellite_count > 12 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "136",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_137": {
+      "Given": "battery > 50 AND satellite_count > 12 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "137",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_138": {
+      "Given": "battery > 50 AND satellite_count > 12 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "138",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_139": {
+      "Given": "battery > 50 AND satellite_count > 15 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "139",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_140": {
+      "Given": "battery > 50 AND satellite_count > 15 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "140",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_141": {
+      "Given": "battery > 50 AND satellite_count > 15 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "141",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_142": {
+      "Given": "battery > 50 AND satellite_count > 15 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "142",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_143": {
+      "Given": "battery > 50 AND satellite_count > 15 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "143",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_144": {
+      "Given": "battery > 50 AND satellite_count > 15 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "144",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_145": {
+      "Given": "battery > 75 AND satellite_count > 7 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "145",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_146": {
+      "Given": "battery > 75 AND satellite_count > 7 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "146",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_147": {
+      "Given": "battery > 75 AND satellite_count > 7 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "147",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_148": {
+      "Given": "battery > 75 AND satellite_count > 7 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "148",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_149": {
+      "Given": "battery > 75 AND satellite_count > 7 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "149",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_150": {
+      "Given": "battery > 75 AND satellite_count > 7 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "150",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_151": {
+      "Given": "battery > 75 AND satellite_count > 0 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "151",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_152": {
+      "Given": "battery > 75 AND satellite_count > 0 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "152",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_153": {
+      "Given": "battery > 75 AND satellite_count > 0 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "153",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_154": {
+      "Given": "battery > 75 AND satellite_count > 0 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "154",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_155": {
+      "Given": "battery > 75 AND satellite_count > 0 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "155",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_156": {
+      "Given": "battery > 75 AND satellite_count > 0 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "156",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_157": {
+      "Given": "battery > 75 AND satellite_count > 4 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "157",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_158": {
+      "Given": "battery > 75 AND satellite_count > 4 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "158",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_159": {
+      "Given": "battery > 75 AND satellite_count > 4 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "159",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_160": {
+      "Given": "battery > 75 AND satellite_count > 4 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "160",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_161": {
+      "Given": "battery > 75 AND satellite_count > 4 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "161",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_162": {
+      "Given": "battery > 75 AND satellite_count > 4 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "162",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_163": {
+      "Given": "battery > 75 AND satellite_count > 8 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "163",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_164": {
+      "Given": "battery > 75 AND satellite_count > 8 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "164",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_165": {
+      "Given": "battery > 75 AND satellite_count > 8 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "165",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_166": {
+      "Given": "battery > 75 AND satellite_count > 8 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "166",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_167": {
+      "Given": "battery > 75 AND satellite_count > 8 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "167",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_168": {
+      "Given": "battery > 75 AND satellite_count > 8 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "168",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_169": {
+      "Given": "battery > 75 AND satellite_count > 12 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "169",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_170": {
+      "Given": "battery > 75 AND satellite_count > 12 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "170",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_171": {
+      "Given": "battery > 75 AND satellite_count > 12 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "171",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_172": {
+      "Given": "battery > 75 AND satellite_count > 12 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "172",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_173": {
+      "Given": "battery > 75 AND satellite_count > 12 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "173",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_174": {
+      "Given": "battery > 75 AND satellite_count > 12 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "174",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_175": {
+      "Given": "battery > 75 AND satellite_count > 15 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "175",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_176": {
+      "Given": "battery > 75 AND satellite_count > 15 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "176",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_177": {
+      "Given": "battery > 75 AND satellite_count > 15 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "177",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_178": {
+      "Given": "battery > 75 AND satellite_count > 15 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "178",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_179": {
+      "Given": "battery > 75 AND satellite_count > 15 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "179",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_180": {
+      "Given": "battery > 75 AND satellite_count > 15 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "180",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_181": {
+      "Given": "battery > 100 AND satellite_count > 7 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "181",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_182": {
+      "Given": "battery > 100 AND satellite_count > 7 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "182",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_183": {
+      "Given": "battery > 100 AND satellite_count > 7 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "183",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_184": {
+      "Given": "battery > 100 AND satellite_count > 7 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "184",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_185": {
+      "Given": "battery > 100 AND satellite_count > 7 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "185",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_186": {
+      "Given": "battery > 100 AND satellite_count > 7 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "186",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_187": {
+      "Given": "battery > 100 AND satellite_count > 0 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "187",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_188": {
+      "Given": "battery > 100 AND satellite_count > 0 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "188",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_189": {
+      "Given": "battery > 100 AND satellite_count > 0 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "189",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_190": {
+      "Given": "battery > 100 AND satellite_count > 0 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "190",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_191": {
+      "Given": "battery > 100 AND satellite_count > 0 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "191",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_192": {
+      "Given": "battery > 100 AND satellite_count > 0 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "192",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_193": {
+      "Given": "battery > 100 AND satellite_count > 4 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "193",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_194": {
+      "Given": "battery > 100 AND satellite_count > 4 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "194",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_195": {
+      "Given": "battery > 100 AND satellite_count > 4 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "195",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_196": {
+      "Given": "battery > 100 AND satellite_count > 4 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "196",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_197": {
+      "Given": "battery > 100 AND satellite_count > 4 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "197",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_198": {
+      "Given": "battery > 100 AND satellite_count > 4 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "198",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_199": {
+      "Given": "battery > 100 AND satellite_count > 8 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "199",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_200": {
+      "Given": "battery > 100 AND satellite_count > 8 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "200",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_201": {
+      "Given": "battery > 100 AND satellite_count > 8 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "201",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_202": {
+      "Given": "battery > 100 AND satellite_count > 8 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "202",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_203": {
+      "Given": "battery > 100 AND satellite_count > 8 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "203",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_204": {
+      "Given": "battery > 100 AND satellite_count > 8 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "204",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_205": {
+      "Given": "battery > 100 AND satellite_count > 12 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "205",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_206": {
+      "Given": "battery > 100 AND satellite_count > 12 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "206",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_207": {
+      "Given": "battery > 100 AND satellite_count > 12 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "207",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_208": {
+      "Given": "battery > 100 AND satellite_count > 12 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "208",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_209": {
+      "Given": "battery > 100 AND satellite_count > 12 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "209",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_210": {
+      "Given": "battery > 100 AND satellite_count > 12 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "210",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_211": {
+      "Given": "battery > 100 AND satellite_count > 15 AND wind_speed <= 36",
+      "When": "takeoff_initiated == 1",
+      "Do": "211",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_212": {
+      "Given": "battery > 100 AND satellite_count > 15 AND wind_speed <= 0",
+      "When": "takeoff_initiated == 1",
+      "Do": "212",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_213": {
+      "Given": "battery > 100 AND satellite_count > 15 AND wind_speed <= 90",
+      "When": "takeoff_initiated == 1",
+      "Do": "213",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_214": {
+      "Given": "battery > 100 AND satellite_count > 15 AND wind_speed <= 180",
+      "When": "takeoff_initiated == 1",
+      "Do": "214",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_215": {
+      "Given": "battery > 100 AND satellite_count > 15 AND wind_speed <= 270",
+      "When": "takeoff_initiated == 1",
+      "Do": "215",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  },
+  {
+    "Cadidate_216": {
+      "Given": "battery > 100 AND satellite_count > 15 AND wind_speed <= 360",
+      "When": "takeoff_initiated == 1",
+      "Do": "216",
+      "Then": "height > 30 AND source_distance == 0"
+    }
+  }
+]
