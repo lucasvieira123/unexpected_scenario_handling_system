@@ -1,10 +1,50 @@
 {
   "desired": [
     {
-      "Desired": {
+      "desired_1": {
+        "Given": "battery >= 10",
+        "When": "takeoff == 1",
+        "Do": "behavior_1",
+        "Then": "height >= 30 AND source_distance == 0"
+      }
+    },
+    {
+      "desired_2": {
+        "Given": "battery >= 10 AND satellite_count >= 7",
+        "When": "takeoff == 1",
+        "Do": "behavior_2",
+        "Then": "height >= 30 AND source_distance == 0"
+      }
+    },
+    {
+      "desired_3": {
         "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
         "When": "takeoff == 1",
-        "Do": "unknown_action",
+        "Do": "behavior_3",
+        "Then": "height >= 30 AND source_distance == 0"
+      }
+    },
+    {
+      "desired_4": {
+        "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36 AND visibility >= 10",
+        "When": "takeoff == 1",
+        "Do": "behavior_4",
+        "Then": "height >= 30 AND source_distance == 0"
+      }
+    },
+    {
+      "desired_5": {
+        "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36 AND visibility >= 10 AND temperature <= 25",
+        "When": "takeoff == 1",
+        "Do": "behavior_5",
+        "Then": "height >= 30 AND source_distance == 0"
+      }
+    },
+    {
+      "desired_6": {
+        "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36 AND visibility >= 10 AND temperature <= 25 AND vibration <= 50",
+        "When": "takeoff == 1",
+        "Do": "behavior_6",
         "Then": "height >= 30 AND source_distance == 0"
       }
     }
