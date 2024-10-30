@@ -1,0 +1,11 @@
+[
+  {
+    "candidate": {
+      "Given": "battery >= 10 AND satellite_count >= 7 AND wind_speed <= 36",
+      "When": "takeoff == 1",
+      "Do": "behavior_3",
+      "Then": "height >= 30 AND source_distance == 0"
+    }
+  }
+  
+]
