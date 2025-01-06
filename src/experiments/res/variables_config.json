@@ -6,6 +6,18 @@
     "max_value": 100.0
   },
   {
+    "name": "h",
+    "type": "float",
+    "min_value": 0,
+    "max_value": 150.0
+  },
+  {
+    "name": "avg_accel",
+    "type": "float",
+    "min_value": 0,
+    "max_value": 10
+  },
+  {
     "name": "load",
     "type": "float",
     "min_value": 0,
@@ -13,6 +25,12 @@
   },
   {
     "name": "distance_target",
+    "type": "float",
+    "min_value": 0.0,
+    "max_value": 100.0
+  },
+  {
+    "name": "dt",
     "type": "float",
     "min_value": 0.0,
     "max_value": 100.0
@@ -28,6 +46,18 @@
     "type": "float",
     "min_value": 0.0,
     "max_value": 100.0
+  },
+  {
+    "name": "weight",
+    "type": "float",
+    "min_value": 0.0,
+    "max_value": 10.0
+  },
+  {
+    "name": "flight_time",
+    "type": "float",
+    "min_value": 0.0,
+    "max_value": 10000.0
   },
   {
     "name": "obstacle_detected",

@@ -1,0 +1,41 @@
+{
+  "Given": {
+    "var_combinations": {
+      "battery": [
+        "battery >= 10"
+      ],
+      "satellite_count": [
+        "satellite_count >= 7"
+      ],
+      "wind_speed": [
+        "wind_speed <= 36"
+      ]
+    },
+    "is_changeable_number_variables": true,
+    "extra_expressions": [
+      "a1 > 10",
+      "b1 > 10",
+      "c1 > 10",
+      "d1 > 10",
+      "e1 > 10"
+    ]
+  },
+  "Then": {
+    "var_combinations": {
+      "height": [
+        "height >= 30"
+      ],
+      "source_distance": [
+        "source_distance == 0"
+      ]
+    },
+    "is_changeable_number_variables": true,
+    "extra_expressions": [
+      "a2 > 10",
+      "b2 > 10",
+      "c2 > 10",
+      "d2 > 10",
+      "e2 > 10"
+    ]
+  }
+}

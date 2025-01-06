@@ -1,0 +1,25 @@
+[
+  {
+    "Candidate_1": {
+      "Given": "h > 100 AND avg_accel >= 3 AND wind_speed > 60",
+      "When": "b > 10 AND dt > 0",
+      "Do": "behavior_1",
+      "Then": "dt >= 10 AND h >= 90"
+    }
+  },
+  {
+    "Candidate_2": {
+      "Given": "h < 70 AND avg_accel <= 7",
+      "When": "b > 10 AND dt > 0",
+      "Do": "behavior_2",
+      "Then": "dt >= 10 AND h <= 80 AND flight_time < 60"
+    }
+  },{
+    "Candidate_3": {
+      "Given": "h > 0 AND avg_accel >= 7",
+      "When": "b > 10 AND dt > 0",
+      "Do": "behavior_1",
+      "Then": "dt >= 10 AND h >= 100"
+    }
+  }
+]
