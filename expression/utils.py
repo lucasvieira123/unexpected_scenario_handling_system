@@ -5,13 +5,13 @@ import re
 
 from sympy import Tuple, sympify, to_dnf
 
-def _configure_expression_parsing() -> ParserElement:
+def _configure_conditional_expression_parsing() -> ParserElement:
     """
-    Configure and return the parsing grammar for logical and conditional expressions.
+    Configure and return the parsing grammar for logical and relational expressions.
 
     This function sets up a parsing configuration using the `pyparsing` library. 
-    The grammar supports identifiers, numeric values, conditional operators, and 
-    logical operators, enabling the parsing of conditional expressions typically 
+    The grammar supports identifiers, numeric values, relational operators, and 
+    logical operators, enabling the parsing of relational expressions typically 
     used in scenarios or rule-based systems.
 
     The configuration includes:
@@ -30,7 +30,7 @@ def _configure_expression_parsing() -> ParserElement:
         logical and comparison expressions with nested structures.
 
     Example:
-        >>> parser = configure_expression_parsing()
+        >>> parser = _configure_conditional_expression_parsing()
         >>> result = parser.parseString("a > 10 AND (b <= 20 OR c != 5)")
         >>> print(result.asList())
         ['a', '>', '10', 'AND', ['b', '<=', '20', 'OR', 'c', '!=', '5']]
@@ -43,7 +43,7 @@ def _configure_expression_parsing() -> ParserElement:
     number = Word(nums)
 
     # Define comparison operators
-    comparison_operator = oneOf("<= >= < > == !=")
+    relational_operator = oneOf("<= >= < > == !=")
 
     # Define operands
     operand = identifier | number
@@ -51,101 +51,101 @@ def _configure_expression_parsing() -> ParserElement:
     # Define logical expressions with operator precedence
     parse_settings = infixNotation(operand,
         [
-            (comparison_operator, 2, opAssoc.LEFT),
+            (relational_operator, 2, opAssoc.LEFT),
             ("AND", 2, opAssoc.LEFT),
             ("OR", 2, opAssoc.LEFT),
         ])
 
     return parse_settings
 
-def _extract_conditional_expressions(expression_str: str) -> List[str]:
+def _extract_relational_expressions(conditional_expression_str: str) -> List[str]:
     """
-    Recursively extract leaf conditional expressions from a parsed expression.
+    Recursively extract leaf relational expressions from a parsed conditional expression.
 
-    This function traverses the structure produced by the expression parser
-    (e.g., `configure_expression_parsing`) and collects only the simple
-    conditional conditions (e.g., "a > 10", "b <= 20"). It ignores logical
+    This function traverses the structure produced by the conditional expression parser
+    (e.g., `_configure_conditional_expression_parsing`) and collects only the simple
+    relational conditions (e.g., "a > 10", "b <= 20"). It ignores logical
     operators (AND, OR) and nested groupings, drilling down until it reaches
-    atomic conditional expressions.
+    atomic relational expressions.
 
     Args:
-        parsed_expr (Union[str, ParseResults]): The parsed expression object, which can be:
+        parsed_expr (Union[str, ParseResults]): The parsed conditional expression object, which can be:
             - a string (base token)
             - a ParseResults object (possibly nested) returned by pyparsing
 
     Returns:
-        List[str]: A list of leaf conditional expressions represented as strings.
+        List[str]: A list of leaf relational expressions represented as strings.
                    Each string has the format "<identifier> <operator> <value>".
 
     Example:
-        >>> parser = configure_expression_parsing()
+        >>> parser = _configure_conditional_expression_parsing()
         >>> expr = parser.parseString("a > 10 AND (b <= 20 OR c != 5)")
-        >>> conditional_expressions(expr)
+        >>> expr
         ['a > 10', 'b <= 20', 'c != 5']
     """
 
-    parse_settings: ParserElement = _configure_expression_parsing()
-    parsed_expression: ParseResults = parse_settings.parseString(expression_str, parseAll=True)
+    parse_settings: ParserElement = _configure_conditional_expression_parsing()
+    parsed_conditional_expression: ParseResults = parse_settings.parseString(conditional_expression_str, parseAll=True)
 
-    parsed_expr_list=parsed_expression.asList()
+    parsed_conditional_expr_list=parsed_conditional_expression.asList()
 
-    if isinstance(parsed_expr_list, str):
+    if isinstance(parsed_conditional_expr_list, str):
         return []
-    elif len(parsed_expr_list) == 3 and parsed_expr_list[1] in ["<=", ">=", "<", ">", "==", "!="]:
-        return [" ".join(parsed_expr_list)]
+    elif len(parsed_conditional_expr_list) == 3 and parsed_conditional_expr_list[1] in ["<=", ">=", "<", ">", "==", "!="]:
+        return [" ".join(parsed_conditional_expr_list)]
     else:
         leaves: List[str] = []
-        for sub_expr in parsed_expr_list:
-            leaves.extend(_extract_conditional_expressions(sub_expr))
+        for sub_expr in parsed_conditional_expr_list:
+            leaves.extend(_extract_relational_expressions(sub_expr))
         return leaves
 
-def _conditional_expressions_to_key_dict(expressions: list[str]) -> dict[str, str]:
+def _relational_expressions_to_key_dict(relational_expressions: list[str]) -> dict[str, str]:
     """
-    Convert a list of conditional expressions (as strings) into a dictionary 
+    Convert a list of relational expressions (as strings) into a dictionary 
     with indexed keys in the form "x1", "x2", ..., "xn".
 
     Parameters
     ----------
-    expressions : list of str
-        List of conditional expressions in string format.
+    relational_expressions : list of str
+        List of relational expressions in string format.
 
     Returns
     -------
     dict
         Dictionary where keys are 'x1', 'x2', ..., 'xn' and values are 
-        the conditional expressions from the input list.
+        the relational expressions from the input list.
 
     Examples
     --------
-    >>> conditional_expressions_to_key_dict(["a > 10", "b <= 20", "c != 5"])
+    >>> relational_expressions_to_key_dict(["a > 10", "b <= 20", "c != 5"])
     {'x1': 'a > 10', 'x2': 'b <= 20', 'x3': 'c != 5'}
 
-    >>> conditional_expressions_to_key_dict([])
+    >>> relational_expressions_to_key_dict([])
     {}
     """
-    map_key = {f"x{i+1}": expr for i, expr in enumerate(expressions)}
+    map_key = {f"x{i+1}": expr for i, expr in enumerate(relational_expressions)}
 
     return map_key
 
-def _replace_conditional_expression_to_keys(expression_str: str, map_key:dict) -> str:
+def _replace_relational_expression_to_keys(relational_expression_str: str, map_key:dict) -> str:
     """
-    Replace occurrences of dictionary values with their corresponding keys in a string.
+    Replace occurrences of dictionary values with their corresponding keys in the relational expression in string.
 
-    This function scans through the input string and substitutes every occurrence 
+    This function scans through the input relational expression in string and substitutes every occurrence 
     of each dictionary value with its associated key.
 
     Parameters
     ----------
-    string : str
-        The string where replacements will be performed.
+    string : relational_expression_str
+        The relational expression string where replacements will be performed.
     dictionary : dict
         Dictionary mapping keys to values. Each value in the dictionary will be 
-        replaced with its corresponding key when found in the input string.
+        replaced with its corresponding key when found in the input relational expression string.
 
     Returns
     -------
     str
-        The updated string with values replaced by keys.
+        The updated relational expression string with values replaced by keys.
 
     Examples
     --------
@@ -157,12 +157,12 @@ def _replace_conditional_expression_to_keys(expression_str: str, map_key:dict) -
     'x3'
     """
     for key, value in map_key.items():
-        expression_str = expression_str.replace(value, key)
-    return expression_str
+        relational_expression_str = relational_expression_str.replace(value, key)
+    return relational_expression_str
 
-def _replace_logical_operators(expression_str: str, scenario_operators: bool = False) -> str:
+def _replace_logical_operators(conditional_expression_str: str, scenario_operators: bool = False) -> str:
     """
-    Replace logical operators in an expression string between symbolic and scenario forms.
+    Replace logical operators in the conditional expression string between symbolic and scenario forms.
 
     By default, replaces textual logical operators ('AND', 'OR') with symbolic 
     equivalents ('&', '|'). If `scenario_operators` is True, performs the reverse 
@@ -170,8 +170,8 @@ def _replace_logical_operators(expression_str: str, scenario_operators: bool = F
 
     Parameters
     ----------
-    expression_str : str
-        The expression string where replacements will be performed.
+    conditional_expression_str : str
+        The conditional expression string where replacements will be performed.
     scenario_operators : bool, optional
         If True, replace '&' with 'AND' and '|' with 'OR'.
         If False (default), replace 'AND' with '&' and 'OR' with '|'.
@@ -179,7 +179,7 @@ def _replace_logical_operators(expression_str: str, scenario_operators: bool = F
     Returns
     -------
     str
-        The updated expression string with logical operators replaced.
+        The updated conditional expression string with logical operators replaced.
 
     Examples
     --------
@@ -190,34 +190,34 @@ def _replace_logical_operators(expression_str: str, scenario_operators: bool = F
     'a > 10 AND b <= 20'
     """
     if scenario_operators:
-        return expression_str.replace('&', 'AND').replace('|', 'OR')
+        return conditional_expression_str.replace('&', 'AND').replace('|', 'OR')
     else:
-        return expression_str.replace('AND', '&').replace('OR', '|')
+        return conditional_expression_str.replace('AND', '&').replace('OR', '|')
 
-def _transform_expression_to_symbolic(expression_str: str) -> tuple[str, dict[str, str]]:
+def _transform_conditional_expression_to_symbolic(conditional_expression_str: str) -> tuple[str, dict[str, str]]:
     """
-    Transform a raw logical expression into a symbolic, indexed form.
+    Transform a raw conditional expression into a symbolic, indexed form.
 
     The transformation pipeline:
-      1) Parse the input expression using the configured pyparsing grammar.
-      2) Extract all leaf conditional expressions (e.g., "a <= 3", "b > 10").
-      3) Map each conditional expression to an indexed key: x1, x2, ..., xn.
-      4) Replace those expressions in the original string by the keys.
+      1) Parse the input conditional expression using the configured pyparsing grammar.
+      2) Extract all leaf relational expressions (e.g., "a <= 3", "b > 10").
+      3) Map each relational expression to an indexed key: x1, x2, ..., xn.
+      4) Replace those expressions in the original conditional expression by the keys.
       5) Replace logical operators 'AND'/'OR' with '&'/'|'.
 
     Parameters
     ----------
-    expression_str : str
-        Original logical expression, e.g.:
+    conditional_expression_str : str
+        Original conditional expression, e.g.:
         "(((a <= 3 AND (b > 10 OR c == 10)) OR ((d != 5 AND e >= 20) OR f < 2)) AND ((g <= 7 OR h > 8) AND (i == 9 OR j != 3)))"
 
     Returns
     -------
     tuple[str, dict[str, str]]
-        - symbolic_expression_str: the normalized/symbolic expression, e.g.:
+        - symbolic_conditional_expression_str: the normalized/symbolic conditional expression, e.g.:
           "(((x1 & (x2 | x3)) | ((x4 & x5) | x6)) & ((x7 | x8) & (x9 | x10)))"
-        - map_conditional_expression_to_key_dict: mapping from keys to original
-          conditional expressions, e.g.:
+        - map_relational_expression_to_key_dict: mapping from keys to original
+          relational expressions, e.g.:
           {
             "x1": "a <= 3",
             "x2": "b > 10",
@@ -231,36 +231,36 @@ def _transform_expression_to_symbolic(expression_str: str) -> tuple[str, dict[st
 
     Notes
     -----
-    - Keys are assigned in the order conditional expressions appear.
+    - Keys are assigned in the order relational expressions appear.
     - Logical operator mapping: AND -> '&', OR -> '|'.
     """
     
 
 
-    conditional_expressions_list: List[str] = _extract_conditional_expressions(expression_str)
+    relational_expressions_list: List[str] = _extract_relational_expressions(conditional_expression_str)
 
-    map_conditional_expression_to_key_dict: Dict[str, str] = (
-        _conditional_expressions_to_key_dict(conditional_expressions_list)
+    map_relational_expression_to_key_dict: Dict[str, str] = (
+        _relational_expressions_to_key_dict(relational_expressions_list)
     )
 
-    expression_str = _replace_conditional_expression_to_keys(expression_str, map_conditional_expression_to_key_dict)
-    expression_str = _replace_logical_operators(expression_str)
+    conditional_expression_str = _replace_relational_expression_to_keys(conditional_expression_str, map_relational_expression_to_key_dict)
+    conditional_expression_str = _replace_logical_operators(conditional_expression_str)
 
-    symbolic_expression_str = expression_str
-    return symbolic_expression_str, map_conditional_expression_to_key_dict
+    symbolic_expression_str = conditional_expression_str
+    return symbolic_expression_str, map_relational_expression_to_key_dict
 
-def _symbolic_to_dnf(symbolic_expression_str: str) -> str:
+def _symbolic_conditional_to_dnf(symbolic_conditional_expression_str: str) -> str:
     """
-    Convert a symbolic logical expression into Disjunctive Normal Form (DNF).
+    Convert a symbolic conditional expression into Disjunctive Normal Form (DNF).
 
-    The function uses `sympy.sympify` to parse the input expression into a
+    The function uses `sympy.sympify` to parse the input conditional expression into a
     symbolic form, and then applies `sympy.to_dnf` to transform it into its DNF
     equivalent.
 
     Parameters
     ----------
-    symbolic_expression_str : str
-        Logical expression in string format, where variables are indexed keys
+    symbolic_conditional_expression_str : str
+        Conditional expression in string format, where variables are indexed keys
         (e.g., x1, x2, ...) and logical operators are symbolic:
         - AND: '&'
         - OR : '|'
@@ -272,7 +272,7 @@ def _symbolic_to_dnf(symbolic_expression_str: str) -> str:
     Returns
     -------
     str
-        The logical expression converted into Disjunctive Normal Form.
+        The conditional expression converted into Disjunctive Normal Form.
 
     Examples
     --------
@@ -284,31 +284,31 @@ def _symbolic_to_dnf(symbolic_expression_str: str) -> str:
     - `simplify=True` reduces the result when possible.
     - `force=True` allows conversion even if the input is not strictly Boolean.
     """
-    logical_expression = sympify(symbolic_expression_str)
-    dnf_expr = to_dnf(logical_expression, simplify=True, force=True)
-    return str(dnf_expr)
+    simplified_conditional_expression = sympify(symbolic_conditional_expression_str)
+    dnf_cond_expr = to_dnf(simplified_conditional_expression, simplify=True, force=True)
+    return str(dnf_cond_expr)
 
-def _revert_keys_to_conditional_expressions(
-    dnf_expr: str, 
-    map_conditional_expression_to_key_dict: dict[str, str]
+def _revert_keys_to_relational_expressions(
+    dnf_cond_expr: str, 
+    map_relational_expression_to_key_dict: dict[str, str]
 ) -> str:
     """
     Replace occurrences of the mapping keys (e.g., 'x1', 'x2', ...)
-    with their original conditional expressions in a logical expression string.
+    with their original relational expressions in a conditional expression string.
 
     Parameters
     ----------
-    dnf_expr : str
-        The logical expression string (usually in DNF form) containing keys.
+    dnf_cond_expr : str
+        The conditional expression string (usually in DNF form) containing keys.
         Example: '(x1 & x2) | x3'
-    map_conditional_expression_to_key_dict : dict[str, str]
-        Mapping of keys back to original conditional expressions.
+    map_relational_expression_to_key_dict : dict[str, str]
+        Mapping of keys back to original relational expressions.
         Example: {'x1': 'a <= 3', 'x2': 'b > 10', 'x3': 'c != 5'}
 
     Returns
     -------
     str
-        The expression with the keys replaced by the original conditions.
+        The conditional expression with the keys replaced by the original conditions.
 
     Examples
     --------
@@ -316,25 +316,25 @@ def _revert_keys_to_conditional_expressions(
     >>> revert_keys_to_values("(x1 & x2) | x3", mapping)
     '(a <= 3 & b > 10) | c != 5'
     """
-    for key, value in map_conditional_expression_to_key_dict.items():
-        dnf_expr = dnf_expr.replace(key, value)
-    return dnf_expr
+    for key, value in map_relational_expression_to_key_dict.items():
+        dnf_cond_expr = dnf_cond_expr.replace(key, value)
+    return dnf_cond_expr
 
-def _revert_logical_operators(dnf_expr: str) -> str:
+def _revert_logical_operators(dnf_cond_expr: str) -> str:
     """
     Revert symbolic logical operators ('&', '|') back to their textual forms 
-    ('AND', 'OR') in a logical expression string.
+    ('AND', 'OR') in a conditional expression string.
 
     Parameters
     ----------
-    dnf_expr : str
-        Logical expression string (typically in DNF form) that contains 
+    dnf_cond_expr : str
+        conditional expression string (typically in DNF form) that contains 
         symbolic operators '&' and '|'.
 
     Returns
     -------
     str
-        The expression string with symbolic operators replaced by 
+        The conditional expression string with symbolic operators replaced by 
         their textual equivalents 'AND' and 'OR'.
 
     Examples
@@ -342,37 +342,37 @@ def _revert_logical_operators(dnf_expr: str) -> str:
     >>> revert_logical_operators("(x1 & x2) | x3")
     '(x1 AND x2) OR x3'
     """
-    dnf_expr= _replace_logical_operators(dnf_expr, scenario_operators=True)
-    return dnf_expr
+    dnf_cond_expr= _replace_logical_operators(dnf_cond_expr, scenario_operators=True)
+    return dnf_cond_expr
 
-def expression_to_dnf(
-    expression_str: str,
+def conditional_expression_to_dnf(
+    conditional_expression_str: str,
     *,
     output_operators: Literal["text", "symbolic"] = "text",
     return_mapping: bool = False,
 ):
     """
-    Compile a raw logical expression into Disjunctive Normal Form (DNF).
+    Compile a raw conditional expression into Disjunctive Normal Form (DNF).
 
     Pipeline:
-      1) _transform_expression_to_symbolic: parses the expression, extracts
-         conditionals, maps them to x1..xn, and converts AND/OR -> &/|.
-      2) _to_dnf: converts the symbolic expression into DNF.
-      3) _revert_keys_to_conditional_expressions: replaces x1..xn with the
-         original conditional expressions.
+      1) _transform_conditional_expression_to_symbolic: parses the conditional expression, extracts
+         relational expressions, maps them to x1..xn, and converts AND/OR -> &/|.
+      2) _to_dnf: converts the symbolic conditional expression into DNF.
+      3) _revert_keys_to_relational_expressions: replaces x1..xn with the
+         original relational expressions.
       4) _revert_logical_operators (optional): converts &/| -> AND/OR
          (if output_operators="text").
 
     Parameters
     ----------
-    expression_str : str
-        The original logical expression in string format.
+    conditional_expression_str : str
+        The original conditional expression in string format.
     output_operators : {"text", "symbolic"}, default "text"
         - "text": the final result uses textual operators AND/OR.
         - "symbolic": the final result uses symbolic operators & and |.
     return_mapping : bool, default False
         If True, also returns the dictionary mapping keys (x1, x2, ...) 
-        back to the original conditional expressions.
+        back to the original relational expressions.
 
     Returns
     -------
@@ -387,7 +387,7 @@ def expression_to_dnf(
 
     Notes
     -----
-    - The key mapping preserves the order in which conditional expressions 
+    - The key mapping preserves the order in which relational expressions 
       appear in the original input.
     - Logical operator mapping rules:
         AND -> '&'
@@ -395,38 +395,38 @@ def expression_to_dnf(
         ~   -> NOT (if applicable).
     """
     # 1) Transform into symbolic expression (&, |) + mapping
-    symbolic_expression_str, map_conditional_expression_to_key_dict = _transform_expression_to_symbolic(expression_str)
+    symbolic_conditional_expression_str, map_relational_expression_to_key_dict = _transform_conditional_expression_to_symbolic(conditional_expression_str)
 
     # 2) Convert to DNF in symbolic form
-    dnf_symbolic_str = _symbolic_to_dnf(symbolic_expression_str)
+    dnf_symbolic_conditional_str = _symbolic_conditional_to_dnf(symbolic_conditional_expression_str)
 
     # 3) Replace keys with original conditions
-    dnf_with_values = _revert_keys_to_conditional_expressions(
-        dnf_symbolic_str, map_conditional_expression_to_key_dict
+    dnf_conditional_expr_with_relational_expr = _revert_keys_to_relational_expressions(
+        dnf_symbolic_conditional_str, map_relational_expression_to_key_dict
     )
 
     # 4) Adjust operators depending on output format
     if output_operators == "text":
-        final_str = _revert_logical_operators(dnf_with_values)  # &/| -> AND/OR
+        final_dnf_conditional_exp_str = _revert_logical_operators(dnf_conditional_expr_with_relational_expr)  # &/| -> AND/OR
     else:
-        final_str = dnf_with_values  # keep &/|
+        final_dnf_conditional_exp_str = dnf_conditional_expr_with_relational_expr  # keep &/|
 
     if return_mapping:
-        return final_str, map_conditional_expression_to_key_dict
-    return final_str
+        return final_dnf_conditional_exp_str, map_relational_expression_to_key_dict
+    return final_dnf_conditional_exp_str
 
-def _decompose_conditional_expression(conditional_expression: str) -> Tuple[str, str, str]:
+def _decompose_relational_expression(relational_expression: str) -> Tuple[str, str, str]:
     """
-    Parse the expression into its components: variable, operator, and value.
+    Parse the relational expression into its components: variable, operator, and value.
     """
-    match = re.match(r"(\w+)\s*(>=|<=|>|<|==|!=)\s*(.+)", conditional_expression)
+    match = re.match(r"(\w+)\s*(>=|<=|>|<|==|!=)\s*(.+)", relational_expression)
     if match:
         variable, operator, value = match.groups()
         return variable, operator, value
     else:
-        raise ValueError(f"Invalid expression format: {conditional_expression}")
+        raise ValueError(f"Invalid expression format: {relational_expression}")
     
-def _get_conditional_expression_region(
+def _get_relational_expression_region(
     var_name: str,
     operator: str,
     value: Union[int, float, str],
@@ -435,7 +435,7 @@ def _get_conditional_expression_region(
 ) -> Union[Tuple[float, float], List[Tuple[float, float]]]:
     """
     Compute the numeric region(s) within [min_val, max_val] that satisfy
-    a given conditional expression.
+    a given relational expression.
 
     The function interprets a condition of the form:
         <var_name> <operator> <value>
@@ -446,12 +446,12 @@ def _get_conditional_expression_region(
     Parameters
     ----------
     var_name : str
-        The name of the variable in the conditional expression.
+        The name of the variable in the relational expression.
         (Currently unused, but included for context/consistency).
     operator : str
         The comparison operator. Supported operators: >=, <=, >, <, ==, !=.
     value : int, float, or str
-        The right-hand side of the conditional expression. Converted to float.
+        The right-hand side of the relational expression. Converted to float.
     min_val : float
         Minimum possible value for the variable.
     max_val : float
@@ -497,14 +497,14 @@ def _get_conditional_expression_region(
         raise ValueError(f"Unsupported operator: {operator}")
 
 def _calculate_jaccard_similarity(
-    conditional_expression_1: str,
-    conditional_expression_2: str,
+    relational_expression_1: str,
+    relational_expression_2: str,
     monitored_parameters_dict: dict,
 ) -> float:
     """
-    Calculate the Jaccard similarity between two conditional expressions.
+    Calculate the Jaccard similarity between two relational expressions.
 
-    This function decomposes each conditional expression into its components
+    This function decomposes each relational expression into its components
     (variable, operator, value), determines the numeric region(s) that satisfy
     each expression given the monitored variable ranges, and computes the
     Jaccard similarity as:
@@ -516,11 +516,11 @@ def _calculate_jaccard_similarity(
 
     Parameters
     ----------
-    conditional_expression_1 : str
-        First conditional expression in the form "<variable> <operator> <value>".
+    relational_expression_1 : str
+        First relational expression in the form "<variable> <operator> <value>".
         Example: "temperature >= 30".
-    conditional_expression_2 : str
-        Second conditional expression in the same format.
+    relational_expression_2 : str
+        Second relational expression in the same format.
         Example: "temperature < 40".
     monitored_parameters_dict : dict
         Dictionary containing the monitored variables with their value ranges.
@@ -537,7 +537,7 @@ def _calculate_jaccard_similarity(
     Returns
     -------
     float
-        Jaccard similarity score between the two conditional expressions,
+        Jaccard similarity score between the two relational expressions,
         in the range [0.0, 1.0].
         - 0.0 means no overlap between the value ranges.
         - 1.0 means complete overlap (identical ranges).
@@ -571,8 +571,8 @@ def _calculate_jaccard_similarity(
     """
 
     try:
-        var1, op1, val1 = _decompose_conditional_expression(conditional_expression_1)
-        var2, op2, val2 = _decompose_conditional_expression(conditional_expression_2)
+        var1, op1, val1 = _decompose_relational_expression(relational_expression_1)
+        var2, op2, val2 = _decompose_relational_expression(relational_expression_2)
     except ValueError as e:
         print(e)
         return 0.0
@@ -591,10 +591,10 @@ def _calculate_jaccard_similarity(
     max_val = var_info['max_value']
 
     # Get ranges for each expression
-    region1 = _get_conditional_expression_region(var1, op1, val1, min_val, max_val)
-    region2 = _get_conditional_expression_region(var2, op2, val2, min_val, max_val)
+    region1 = _get_relational_expression_region(var1, op1, val1, min_val, max_val)
+    region2 = _get_relational_expression_region(var2, op2, val2, min_val, max_val)
 
-    def calculate_intersection_union(region1, region2):
+    def compute_region_intersection_union(region1, region2):
         """
         Helper function to calculate intersection and union of two ranges.
         """
@@ -658,18 +658,18 @@ def _calculate_jaccard_similarity(
         else:
             return 0.0
     else:
-        intersection_length, union_length = calculate_intersection_union(region1, region2)
+        intersection_length, union_length = compute_region_intersection_union(region1, region2)
 
     # Calculate the Jaccard similarity
     similarity = intersection_length / union_length
     return round(similarity,5)
 
 
-def pair_conditional_expressions(conditional_expression_1: str,
-                                conditional_expression_2: str) -> str:
+def pair_relational_expressions(relational_expression_1: str,
+                                relational_expression_2: str) -> str:
     
-    conditional_expression_list_1 = _extract_conditional_expressions(conditional_expression_1)
-    conditional_expression_list_2 = _extract_conditional_expressions(conditional_expression_2)
+    relational_expression_list_1 = _extract_relational_expressions(relational_expression_1)
+    relational_expression_list_2 = _extract_relational_expressions(relational_expression_2)
     
     pairs = []
     
@@ -677,8 +677,8 @@ def pair_conditional_expressions(conditional_expression_1: str,
     def extract_variable(leaf):
         return leaf.split()[0]
     
-    variables1 = {extract_variable(leaf): leaf for leaf in conditional_expression_list_1}
-    variables2 = {extract_variable(leaf): leaf for leaf in conditional_expression_list_2}
+    variables1 = {extract_variable(leaf): leaf for leaf in relational_expression_list_1}
+    variables2 = {extract_variable(leaf): leaf for leaf in relational_expression_list_2}
     
     # Create pairs
     for var in variables1:
@@ -689,27 +689,27 @@ def pair_conditional_expressions(conditional_expression_1: str,
 
 
 def calculate_parameter_similarity(
-    expression_1: str,
-    expression_2: str,
+    conditional_expression_1: str,
+    conditional_expression_2: str,
     monitored_parameters_dict: dict,
 ) -> list[dict]:
     """
-    Calculate similarity scores between two expressions
-    by decomposing them into atomic pairs (conditional expression) and evaluating each pair.
+    Calculate similarity scores between two conditional expressions
+    by decomposing them into atomic pairs (relational expression) and evaluating each pair.
 
-    This function converts both input expressions into their 
+    This function converts both input conditional expressions into their 
     Disjunctive Normal Form (DNF), generates pairs of atomic 
-    conditional expressions, and computes the Jaccard similarity 
+    relational expressions, and computes the Jaccard similarity 
     for each pair based on the monitored parameter ranges.
 
     Parameters
     ----------
-    expression_1 : str
-        First logical expression, which can be a simple conditional
+    conditional_expression_1 : str
+        First conditional expression, which can be a simple relational expression
         (e.g., "temperature >= 30") or a compound expression with
         logical operators (e.g., "temperature >= 30 AND battery < 10").
-    expression_2 : str
-        Second logical expression, in the same format as expression_1.
+    conditional_expression_2 : str
+        Second logical expression, in the same format as conditional_expression_1.
         Example: "temperature < 40 OR humidity == 50".
     monitored_parameters_dict : dict
         Dictionary containing metadata of monitored parameters with 
@@ -723,7 +723,7 @@ def calculate_parameter_similarity(
     -------
     list of dict
         A list of dictionaries, where each dictionary maps a pair of
-        conditional expressions (tuple) to their similarity score.
+        relational expressions (tuple) to their similarity score.
         Example:
         [
             {("temperature >= 30", "temperature < 40"): 0.57143}
@@ -731,7 +731,7 @@ def calculate_parameter_similarity(
 
     Notes
     -----
-    - Similarity is only computed if both conditions refer to the 
+    - Similarity is only computed if both relational expression refer to the 
       same variable.
     - Operators supported: <=, >=, <, >, ==, !=.
     - Each pair is compared using the Jaccard similarity measure.
@@ -747,33 +747,33 @@ def calculate_parameter_similarity(
     ]
     """
 
-    expression_1 = expression_to_dnf(expression_1, output_operators="text")
-    expression_2 = expression_to_dnf(expression_2, output_operators="text")
+    conditional_expression_1 = conditional_expression_to_dnf(conditional_expression_1, output_operators="text")
+    conditional_expression_2 = conditional_expression_to_dnf(conditional_expression_2, output_operators="text")
 
 
-    pair_conditional_expressions_list = pair_conditional_expressions(
-        expression_1,
-        expression_2
+    pair_relational_expressions_list = pair_relational_expressions(
+        conditional_expression_1,
+        conditional_expression_2
     )
 
     parameter_similarities = []
 
-    for conditional_expression_pair in pair_conditional_expressions_list:
-        conditional_expression_1 = conditional_expression_pair[0]
-        conditional_expression_2 = conditional_expression_pair[1]
+    for relational_expression_pair in pair_relational_expressions_list:
+        relational_expression_1 = relational_expression_pair[0]
+        relational_expression_2 = relational_expression_pair[1]
 
         jaccard_similarity = _calculate_jaccard_similarity(
-        conditional_expression_1,
-        conditional_expression_2,
+        relational_expression_1,
+        relational_expression_2,
         monitored_parameters_dict)
 
-        parameter_similarities.append({conditional_expression_pair: jaccard_similarity})
+        parameter_similarities.append({relational_expression_pair: jaccard_similarity})
 
     return parameter_similarities
 
-def _extract_parameters(conditional_expressions: List[str]) -> List[str]:
+def _extract_parameters(relational_expressions: List[str]) -> List[str]:
     """
-    Extract variable names from a list of conditional expressions.
+    Extract parameter names from a list of relational expressions.
 
     Each expression must follow the format:
         <variable> <operator> <value>
@@ -783,8 +783,8 @@ def _extract_parameters(conditional_expressions: List[str]) -> List[str]:
 
     Parameters
     ----------
-    conditional_expressions : list of str
-        List of strings, each containing a conditional expression.
+    relational_expressions : list of str
+        List of strings, each containing a relational expression.
 
     Returns
     -------
@@ -799,15 +799,15 @@ def _extract_parameters(conditional_expressions: List[str]) -> List[str]:
     ['x', 'y']
     """
     variables = []
-    for expr in conditional_expressions:
+    for expr in relational_expressions:
         match = re.match(r"([a-zA-Z_]\w*)\s*(==|!=|[<>]=?)\s*([0-9]+)", expr)
         if match:
             variables.append(match.group(1))
     return variables
 
-def _tversky_similarity(vars1, vars2, alpha=1.0, beta=1.0) -> float:
+def _tversky_similarity(parameter_list_1, parameter_list_2, alpha=1.0, beta=1.0) -> float:
     """
-    Compute the Tversky similarity index between two sets of variables.
+    Compute the Tversky similarity index between two sets of parameters.
 
     The Tversky index is a generalization of several similarity measures:
     - When alpha = beta = 0.5, it reduces to the Dice coefficient.
@@ -816,14 +816,14 @@ def _tversky_similarity(vars1, vars2, alpha=1.0, beta=1.0) -> float:
 
     Parameters
     ----------
-    vars1 : list
-        First list of variables.
-    vars2 : list
-        Second list of variables.
+    parameter_list_1 : list
+        First list of parameters.
+    parameter_list_2 : list
+        Second list of parameters.
     alpha : float, optional (default=1.0)
-        Weight for elements unique to `vars1`.
+        Weight for elements unique to `parameter_list_1`.
     beta : float, optional (default=1.0)
-        Weight for elements unique to `vars2`.
+        Weight for elements unique to `parameter_list_2`.
 
     Returns
     -------
@@ -851,8 +851,8 @@ def _tversky_similarity(vars1, vars2, alpha=1.0, beta=1.0) -> float:
     >>> tversky_similarity(["x"], ["y"], alpha=1.0, beta=1.0)
     0.0
     """
-    set1 = set(vars1)
-    set2 = set(vars2)
+    set1 = set(parameter_list_1)
+    set2 = set(parameter_list_2)
 
     intersection = len(set1 & set2)
     only_in_set1 = len(set1 - set2)
@@ -860,7 +860,7 @@ def _tversky_similarity(vars1, vars2, alpha=1.0, beta=1.0) -> float:
 
     return intersection / (intersection + alpha * only_in_set1 + beta * only_in_set2)
 
-def _penalty(vars1, vars2, alpha=1.0, beta=1.0) -> float:
+def _penalty(parameter_list_1, parameter_list_2, alpha=1.0, beta=1.0) -> float:
     """
     Compute the penalty score as the complement of the Tversky similarity.
 
@@ -873,14 +873,14 @@ def _penalty(vars1, vars2, alpha=1.0, beta=1.0) -> float:
 
     Parameters
     ----------
-    vars1 : list
-        First list of variables.
-    vars2 : list
-        Second list of variables.
+    parameter_list_1 : list
+        First list of parameters.
+    parameter_list_2 : list
+        Second list of parameters.
     alpha : float, optional (default=1.0)
-        Weight for the elements unique to `vars1`.
+        Weight for the elements unique to `parameter_list_1`.
     beta : float, optional (default=1.0)
-        Weight for the elements unique to `vars2`.
+        Weight for the elements unique to `parameter_list_2`.
 
     Returns
     -------
@@ -893,7 +893,7 @@ def _penalty(vars1, vars2, alpha=1.0, beta=1.0) -> float:
     -----
     - This is essentially a dissimilarity measure derived from the Tversky index.
     - It can be used as a distance-like metric in clustering, anomaly detection,
-      or measuring differences between variable sets.
+      or measuring differences between parameter sets.
 
     Examples
     --------
@@ -906,4 +906,7 @@ def _penalty(vars1, vars2, alpha=1.0, beta=1.0) -> float:
     >>> penalty(["a", "b", "c"], ["b", "c", "d"], alpha=0.7, beta=0.3)
     0.4444444444444444
     """
-    return 1 - _tversky_similarity(vars1, vars2, alpha, beta)
+    return 1 - _tversky_similarity(parameter_list_1, parameter_list_2, alpha, beta)
+
+
+def calculate_conditional_similarity()
