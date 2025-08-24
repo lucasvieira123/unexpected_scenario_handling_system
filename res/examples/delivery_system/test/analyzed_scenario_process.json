@@ -1,0 +1,22 @@
+{
+  "expected": {
+
+  },
+  "unexpected": {
+ 
+  },
+  "diagnosed": {
+
+  },
+  "desired": [
+
+    {
+      "Takeoff_with_overweight": {
+        "Given": "a >= 3 AND b < 10",
+        "When": "a >= 3 AND b < 10",
+        "Do": "unknown_action",
+        "Then": "a >= 3 AND b < 10"
+      }
+    }
+  ]
+}

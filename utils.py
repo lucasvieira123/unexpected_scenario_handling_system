@@ -1,9 +1,12 @@
 from typing_extensions import Literal
 from pyparsing import Dict, ParseResults, Word, alphas, nums, oneOf, infixNotation, opAssoc, ParserElement
-from typing import List, Union
+from typing import List, Optional, Union
 import re
 
 from sympy import Tuple, sympify, to_dnf
+
+from expression.conditional_expression import ConditionalExpression
+from scenario.scenario_BDD import ScenarioBDD
 
 def _configure_conditional_expression_parsing() -> ParserElement:
     """
@@ -664,7 +667,6 @@ def _calculate_jaccard_similarity(
     similarity = intersection_length / union_length
     return round(similarity,5)
 
-
 def pair_relational_expressions(relational_expression_1: str,
                                 relational_expression_2: str) -> str:
     
@@ -687,8 +689,7 @@ def pair_relational_expressions(relational_expression_1: str,
     
     return pairs
 
-
-def calculate_parameter_similarity(
+def calculate_parameters_similarity(
     conditional_expression_1: str,
     conditional_expression_2: str,
     monitored_parameters_dict: dict,
@@ -756,7 +757,7 @@ def calculate_parameter_similarity(
         conditional_expression_2
     )
 
-    parameter_similarities = []
+    matched_relational_expression_and_similarity_dict = []
 
     for relational_expression_pair in pair_relational_expressions_list:
         relational_expression_1 = relational_expression_pair[0]
@@ -767,11 +768,11 @@ def calculate_parameter_similarity(
         relational_expression_2,
         monitored_parameters_dict)
 
-        parameter_similarities.append({relational_expression_pair: jaccard_similarity})
+        matched_relational_expression_and_similarity_dict.append({relational_expression_pair: jaccard_similarity})
 
-    return parameter_similarities
+    return matched_relational_expression_and_similarity_dict
 
-def _extract_parameters(relational_expressions: List[str]) -> List[str]:
+def _extract_parameters(conditional_expression: str) -> List[str]:
     """
     Extract parameter names from a list of relational expressions.
 
@@ -798,6 +799,9 @@ def _extract_parameters(relational_expressions: List[str]) -> List[str]:
     >>> extract_parameters(["x == 1", "y >= 100"])
     ['x', 'y']
     """
+
+    relational_expressions = _extract_relational_expressions(conditional_expression)
+
     variables = []
     for expr in relational_expressions:
         match = re.match(r"([a-zA-Z_]\w*)\s*(==|!=|[<>]=?)\s*([0-9]+)", expr)
@@ -909,4 +913,222 @@ def _penalty(parameter_list_1, parameter_list_2, alpha=1.0, beta=1.0) -> float:
     return 1 - _tversky_similarity(parameter_list_1, parameter_list_2, alpha, beta)
 
 
-def calculate_conditional_similarity()
+
+def _extract_parameter_and_similarity(
+    parameter_similarities: List[Dict[Tuple[str, str], float]]
+) -> Dict[str, float]:
+    """
+    Extract variable names and their similarities from a dictionary of leaf pairs.
+
+    Args
+    ----
+    local_similarity : dict[tuple[str, str], float]
+        A dictionary with tuples of leaf pairs as keys and similarity values as values.
+
+    Returns
+    -------
+    dict[str, float]
+        A dictionary with variable names as keys and similarity values as values.
+        (If multiple pairs for the same variable exist in `local_similarity`,
+            later entries will overwrite earlier ones; aggregation happens at the outer level.)
+    """
+    final_parameter_similarity_dict: Dict[str, float] = {}
+    for (leaf1, leaf2), similarity in parameter_similarities.items():
+        # Variable is assumed to be the first token in the leaf
+        variable = leaf1.split()[0]
+        final_parameter_similarity_dict[variable] = similarity
+    return final_parameter_similarity_dict
+
+def _parameter_similarity_weighted_avg(
+    parameter_similarities: List[Dict[Tuple[str, str], float]],
+    weight_dict: Dict[str, float] | None = None,
+    ) -> float:
+    """
+    Calculate the weighted average similarity across parameters.
+
+    This function aggregates similarities from multiple conditional 
+    expression pairs and computes a weighted mean. Each parameter can 
+    have a custom weight provided in `weight_dict`.
+
+    Parameters
+    ----------
+    parameter_similarities : list[dict[tuple[str, str], float]]
+        A list of dictionaries where:
+            - key: tuple of two leaf expressions 
+            (e.g., ("temperature >= 30", "temperature < 40"))
+            - value: similarity score (float) between the two leaves
+    weight_dict : dict[str, float], optional
+        Dictionary mapping parameter names to their weights.
+        If not provided, all parameters are weighted equally (weight=1).
+
+    Returns
+    -------
+    float
+        The weighted average similarity across all parameters.
+        Returns 0.0 if no weights are available (to avoid division by zero).
+
+    Notes
+    -----
+    - The parameter name is extracted as the first token of each leaf 
+    expression string.
+    - Example of input:
+        parameter_similarities = [
+            {("temperature >= 30", "temperature < 40"): 0.57},
+            {("battery > 10", "battery != 5"): 0.8}
+        ]
+        weight_dict = {"temperature": 2.0, "battery": 1.0}
+    - Example of output:
+        0.6467 (weighted average)
+    """
+
+    # Extract a flat mapping of parameter -> similarity
+    parameter_and_similarity_dict = _extract_parameter_and_similarity(parameter_similarities)
+
+    if weight_dict is None:
+        weight_dict = {}
+
+    weighted_sum = 0.0
+    total_weight = 0.0
+
+    for var, similarity in parameter_and_similarity_dict.items():
+        weight = weight_dict.get(var, 1.0)
+        weighted_sum += similarity * weight
+        total_weight += weight
+
+    if total_weight == 0.0:
+        return 0.0  # Avoid division by zero
+
+    weighted_average = weighted_sum / total_weight
+    return weighted_average
+
+
+def calculate_scenario_similarity(scenario_1 :ScenarioBDD, sceanrio_2: ScenarioBDD, **kwargs) -> float:
+    #TODO: fazer a documentação dessa função
+
+    def weighted_average_conditional_similarity(
+        given_similarity: float,
+        when_similarity: float,
+        then_similarity: float,
+        given_weight: float = 1.0,
+        when_weight: float = 1.0,
+        then_weight: float = 1.0,
+    ) -> float:
+        
+        #TODO: fazer a documentação dessa função
+
+        if weights is None:
+            weights = {}
+
+        total_weight = given_weight + when_weight + then_weight
+        if total_weight == 0:
+            return 0.0
+
+        weighted_avg = (
+            (given_similarity * given_weight) +
+            (when_similarity * when_weight) +
+            (then_similarity * then_weight)
+        ) / total_weight
+
+        return weighted_avg
+
+    #TODO: ajustar esses pesos para 1 e 1
+    alpha = kwargs.get("alpha", 1.0)
+    beta = kwargs.get("beta", 1.0)
+    given_weight = kwargs.get("given_weight", 1.0)
+    when_weight = kwargs.get("when_weight", 1.0)
+    then_weight = kwargs.get("then_weight", 1.0)
+
+    given_conditional_expression_1 = scenario_1.given()
+    given_conditional_expression_2 = sceanrio_2.given()
+
+    when_conditional_expression_1 = scenario_1.when()
+    when_conditional_expression_2 = sceanrio_2.when()
+
+    then_conditional_expression_1 = scenario_1.then()
+    then_conditional_expression_2 = sceanrio_2.then()
+
+    #monitored_parameters_dict = scenario_1.get_monitored_parameters_dict() #TODO
+    monitored_parameters_dict = {} #TODO
+
+    given_conditional_similarity = calculate_conditional_similarity(
+        given_conditional_expression_1,
+        given_conditional_expression_2,
+        monitored_parameters_dict,
+        alpha=alpha,
+        beta=beta)
+    
+    when_conditional_similarity = calculate_conditional_similarity(
+        when_conditional_expression_1,
+        when_conditional_expression_2,
+        monitored_parameters_dict,
+        alpha=alpha,
+        beta=beta)
+    
+    then_conditional_similarity = calculate_conditional_similarity(
+        then_conditional_expression_1,
+        then_conditional_expression_2,
+        monitored_parameters_dict,
+        alpha=alpha,
+        beta=beta)
+    
+    scenario_similarity = weighted_average_conditional_similarity(given_conditional_similarity,
+                                                                 when_conditional_similarity,
+                                                                 then_conditional_similarity,
+                                                                 given_weight,
+                                                                 when_weight,
+                                                                 then_weight)
+
+    return scenario_similarity
+
+
+
+def calculate_conditional_similarity(conditional_expression_1: str,
+                                     conditional_expression_2: str,
+                                     monitored_parameters_dict: dict,
+                                     alpha: float = 1.0,
+                                     beta: float = 1.0,
+                                     ) -> float:
+    #TODO: fazer a documentação dessa função e colocar os tipos esperados
+    
+    parameter_and_similarity_dict = calculate_parameters_similarity(
+        conditional_expression_1,
+        conditional_expression_2,
+        monitored_parameters_dict)
+    
+    weight_dict = {} #TODO
+
+    parameter_similarity_avg = _parameter_similarity_weighted_avg(
+    parameter_and_similarity_dict,
+    weight_dict=weight_dict)
+
+    monitored_parameters_1 = _extract_parameters(conditional_expression_1)
+    monitored_parameters_2 = _extract_parameters(conditional_expression_2)
+    penalty = _penalty(monitored_parameters_1, monitored_parameters_2, alpha=alpha, beta=beta)
+
+
+    final_similarity = parameter_similarity_avg - penalty
+
+    return final_similarity
+
+def main():
+    kargs = {"alpha": 0.9, "beta": 0.1}
+
+    monitored_parameters_dict = {
+        "a": {"min_value": 0, "max_value": 100, "type": "int"},
+        "b": {"min_value": 0, "max_value": 100, "type": "int"},
+    }
+
+    conditional_expression_1 = ConditionalExpression("a >= 3 AND b < 10")
+    conditional_expression_2 = ConditionalExpression("a >= 3 AND b < 10")
+
+    conditional_similarity = calculate_conditional_similarity(
+        conditional_expression_1,
+        conditional_expression_2,
+        monitored_parameters_dict,
+        **kargs
+    )
+    
+    scenario_1 = None
+    scenario_2 = None
+
+    scenario_similarity = calculate_scenario_similarity(scenario_1, scenario_2, kargs)
