@@ -1,171 +1,183 @@
 [
-    {
-      "name": "height",
-      "type": "float",
-      "min_value": 0,
-      "max_value": 100.0
-    },
-    {
-      "name": "load",
-      "type": "float",
-      "min_value": 0,
-      "max_value": 1
-    },
-    {
-      "name": "distance_target",
-      "type": "float",
-      "min_value": 0.0,
-      "max_value": 100.0
-    },
-    {
-      "name": "source_distance",
-      "type": "float",
-      "min_value": 0.0,
-      "max_value": 100.0
-    },
-    {
-      "name": "battery",
-      "type": "float",
-      "min_value": 0.0,
-      "max_value": 100.0
-    },
-    {
-      "name": "obstacle_detected",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 1
-    },
-    {
-      "name": "obstacle_type_moving",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 1
-    },
-    {
-      "name": "obstructed_infrastructure",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 1
-    },
-    {
-      "name": "is_armed",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 1
-    },
-    {
-      "name": "bad_connection",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 1
-    },
-      {
-      "name": "onWater",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 1
-    }
-    ,
-      {
-      "name": "vibration",
-      "type": "float",
-      "min_value": 0,
-      "max_value": 100
-    },
-    {
-      "name": "satellite_count",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 15
-    },
-    {
-      "name": "wind_speed",
-      "type": "float",
-      "min_value": 0.0,
-      "max_value": 100.0
-    },
-    {
-      "name": "speed",
-      "type": "float",
-      "min_value": 0.0,
-      "max_value": 100.0
-    },
-    {
-      "name": "gps_status",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 1
-    },
-    {
-      "name": "overweight",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 1
-    },
-    {
-      "name": "visibility",
-      "type": "float",
-      "min_value": 0.0,
-      "max_value": 100.0
-    },
-    {
-      "name": "is_storm",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 1
+  {
+    "name": "height",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 150.0
   },
   {
-    "name": "is_crowd",
+    "name": "h",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 150.0
+  },
+  {
+    "name": "vibration",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 100 
+  },
+  {
+    "name": "load",
     "type": "int",
     "min_value": 0,
     "max_value": 1
-},
-    {
-      "name": "temperature",
-      "type": "float",
-      "min_value": -50.0,
-      "max_value": 50.0
-    },
-    {
-      "name": "dust_or_sandstorm_detected",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 1
-    },
-    {
-      "name": "birds_detected_nearby",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 1
-    },
-    {
-      "name": "voltage_low",
-      "type": "int",
-      "min_value": 0,
-      "max_value": 1
   },
   {
-    "name": "image_stabilization_failure",
+    "name": "distance_target",
+    "type": "int",
+    "min_value": 0.0,
+    "max_value": 100.0
+  },
+  {
+    "name": "dt",
+    "type": "int",
+    "min_value": 0.0,
+    "max_value": 100.0
+  },
+    {
+    "name": "dt_delta",
+    "type": "int",
+    "min_value": 0.0,
+    "max_value": 100.0
+  },
+    {
+    "name": "dtd",
+    "type": "int",
+    "min_value": 0.0,
+    "max_value": 100.0
+  },
+
+  {
+    "name": "source_distance",
+    "type": "int",
+    "min_value": 0.0,
+    "max_value": 100.0
+  },
+  {
+    "name": "battery",
+    "type": "int",
+    "min_value": 0.0,
+    "max_value": 100.0
+  },
+  {
+    "name": "weight",
+    "type": "int",
+    "min_value": 0.0,
+    "max_value": 10.0
+  },
+  {
+    "name": "flight_time",
+    "type": "int",
+    "min_value": 0.0,
+    "max_value": 10000.0
+  },
+  {
+    "name": "obstacle_detected",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 100
+  },
+  {
+    "name": "obstacle_speed",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 100
+  },
+  {
+    "name": "is_armed",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 100
+  },
+  {
+    "name": "bad_connection",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 100
+  },
+  {
+    "name": "onWater",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 100
+  },
+  {
+    "name": "satellite_count",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 15
+  },
+  {
+    "name": "wind_speed",
+    "type": "int",
+    "min_value": 0.0,
+    "max_value": 360.0
+  },
+  {
+    "name": "speed",
+    "type": "int",
+    "min_value": 0.0,
+    "max_value": 100.0
+  },
+  {
+    "name": "gps_status",
     "type": "int",
     "min_value": 0,
     "max_value": 1
-},
-{
-  "name": "is_night",
-  "type": "int",
-  "min_value": 0,
-  "max_value": 1
-},
-{
-  "name": "lights",
-  "type": "int",
-  "min_value": 0,
-  "max_value": 1
-},
-{
-  "name": "takeoff_initiated",
-  "type": "int",
-  "min_value": 0,
-  "max_value": 1
-}
-  ]
+  },
+  {
+    "name": "overweight",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 1
+  },
+  {
+    "name": "visibility",
+    "type": "int",
+    "min_value": 0.0,
+    "max_value": 100.0
+  },
+  {
+    "name": "temperature",
+    "type": "int",
+    "min_value": 0.0,
+    "max_value": 100.0
+  },
+  {
+    "name": "takeoff",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 1
+  },
+  {
+    "name": "a",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 100
+  },
+  {
+    "name": "b",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 100
+  },
+  {
+    "name": "c",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 100
+  },
+  {
+    "name": "d",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 100
+  },
+  {
+    "name": "e",
+    "type": "int",
+    "min_value": 0,
+    "max_value": 100
+  }
+]

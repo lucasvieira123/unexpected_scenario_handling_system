@@ -36,6 +36,12 @@
     "max_value": 100.0
   },
     {
+    "name": "dt_delta",
+    "type": "float",
+    "min_value": 0.0,
+    "max_value": 100.0
+  },
+    {
     "name": "dtd",
     "type": "float",
     "min_value": 0.0,
