@@ -3,14 +3,15 @@ from expression.conditional_expression import ConditionalExpression
 from abc import ABC, abstractmethod
 from typing import Optional, Type, TypeVar, Dict, Any
 
-T = TypeVar("T", bound="ScenarioBDD")
+T = TypeVar("T", bound="Scenario")
 
-class ScenarioBDD(ABC):
+class Scenario(ABC):
     def __init__(
         self,
         name: str = None,
         given: ConditionalExpression = None,
         when: ConditionalExpression = None,
+        do: ActionExpression = None,
         then: ConditionalExpression = None,
         data: dict = None,
     ) -> None:
@@ -18,13 +19,15 @@ class ScenarioBDD(ABC):
             self._name = data.get("name")
             self._given = ConditionalExpression(data.get("given"))
             self._when = ConditionalExpression(data.get("when"))
+            self._do = ActionExpression(data.get("do"))
             self._then = ConditionalExpression(data.get("then"))
         else:
-            if name is None or given is None or when is None or then is None:
-                raise ValueError("name, given, when, and then must be provided if data is not given.")
+            if name is None or given is None or when is None or do is None or then is None:
+                raise ValueError("name, given, when, do and then must be provided if data is not given.")
             self._name = name
             self._given = given
             self._when = when
+            self._do = do
             self._then = then
 
     @property
@@ -38,6 +41,10 @@ class ScenarioBDD(ABC):
     @property
     def when(self) -> ConditionalExpression:
         return self._when
+    
+    @property
+    def do(self) -> ActionExpression:
+        return self._do
 
     @property
     def then(self) -> ConditionalExpression:
@@ -51,6 +58,10 @@ class ScenarioBDD(ABC):
     def when(self, value: ConditionalExpression) -> None:
         self._when = value
 
+    @do.setter
+    def do(self, value: ActionExpression) -> None:
+        self._do = value
+
     @then.setter
     def then(self, value: ConditionalExpression) -> None:
         self._then = value
@@ -62,6 +73,7 @@ class ScenarioBDD(ABC):
             "name": self._name,
             "given": self._given.expression,
             "when": self._when.expression,
+            "do": self._do.expression,
             "then": self._then.expression,
         }
     

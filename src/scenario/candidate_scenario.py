@@ -1,7 +1,7 @@
-from scenario.antecipated_scenario import AntecipatedScenario
+from scenario.scenario import Scenario
 
 
-class CandidateScenario(AntecipatedScenario):
+class CandidateScenario(Scenario):
     """
     Candidate Scenario: identical to AntecipatedScenario, inherits all logic.
     """

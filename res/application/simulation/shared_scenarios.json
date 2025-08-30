@@ -1,0 +1,9 @@
+[
+  {
+    "name": "anteciptated_scenario_1",
+    "given": "h > 10 AND vibration >= 30",
+    "when": "b > 10 AND dt > 0",
+    "do":"something",
+    "then": "dt >= 10 AND h >= 100 AND satellite_count >= 7"
+  }
+]
