@@ -12,6 +12,7 @@ from logger import trace, setup_logger
 from pyparsing import pyparsing_common as ppc
 from pyparsing import Regex
 
+
 # %%
 def _configure_conditional_expression_parsing() -> ParserElement:
     """
@@ -77,6 +78,7 @@ def _configure_conditional_expression_parsing() -> ParserElement:
 
     return parse_settings
 
+_CONDITIONAL_EXPRESSION_PARSER = _configure_conditional_expression_parsing()
 # %%
 @trace
 def _extract_relational_expressions(conditional_expression_str: str) -> List[str]:
@@ -122,7 +124,7 @@ def _extract_relational_expressions(conditional_expression_str: str) -> List[str
                 leaves.extend(extract_leaves(sub_expr))
             return leaves
 
-    parse_settings: ParserElement = _configure_conditional_expression_parsing()
+    parse_settings: ParserElement = _CONDITIONAL_EXPRESSION_PARSER
     parsed_conditional_expression: ParseResults = parse_settings.parseString(conditional_expression_str, parseAll=True)
 
     parsed_conditional_expr_list=parsed_conditional_expression.asList()
@@ -790,6 +792,8 @@ def _calculate_jaccard_similarity(
         intersection_length, union_length = compute_region_intersection_union(region1, region2)
 
     # Calculate the Jaccard similarity
+    if union_length == 0:
+        return 0.0
     similarity = intersection_length / union_length
     return round(similarity,5)
 

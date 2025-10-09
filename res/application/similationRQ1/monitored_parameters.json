@@ -1,0 +1,63 @@
+{
+  "p0": {
+    "min_value": 0,
+    "max_value": 100,
+    "type": "float"
+  },
+  "p1": {
+    "min_value": 0,
+    "max_value": 100,
+    "type": "float"
+  },
+  "p2": {
+    "min_value": 0,
+    "max_value": 100,
+    "type": "float"
+  },
+  "p3": {
+    "min_value": 0,
+    "max_value": 100,
+    "type": "float"
+  },
+  "p4": {
+    "min_value": 0,
+    "max_value": 100,
+    "type": "float"
+  },
+  "p5": {
+    "min_value": 0,
+    "max_value": 100,
+    "type": "float"
+  },
+  "p6": {
+    "min_value": 0,
+    "max_value": 100,
+    "type": "float"
+  },
+  "p7": {
+    "min_value": 0,
+    "max_value": 100,
+    "type": "float"
+  },
+  "p8": {
+    "min_value": 0,
+    "max_value": 100,
+    "type": "float"
+  },
+  "p9": {
+    "min_value": 0,
+    "max_value": 100,
+    "type": "float"
+  },
+  "p10": {
+    "min_value": 0,
+    "max_value": 100,
+    "type": "float"
+  },
+
+  "p50": {
+    "min_value": 0,
+    "max_value": 100,
+    "type": "float"
+  }
+}
