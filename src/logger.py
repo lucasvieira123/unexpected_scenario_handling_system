@@ -1,5 +1,6 @@
 import os
 import re
+import threading
 import wrapt
 import pprint
 import logging
@@ -34,6 +35,7 @@ def setup_logger():
     )
     print(f"[LOGGER] Novo arquivo de log: {log_filename}")
     return log_filename
+
 
 @wrapt.decorator
 def trace(wrapped, instance, args, kwargs):

@@ -1283,7 +1283,7 @@ def calculate_conditional_similarity(conditional_expression_1: str,
     penalty = _penalty(monitored_parameters_1, monitored_parameters_2, alpha=alpha, beta=beta)
 
 
-    final_similarity = parameter_similarity_avg - penalty
+    final_similarity = max(parameter_similarity_avg - penalty, 0)
 
     return final_similarity
 

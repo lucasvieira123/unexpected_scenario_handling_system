@@ -167,7 +167,6 @@ def normal_mode(name_app):
 # %%
 def main():
     setup_logger()
-
     settings = get_initialize_config()
     name_app = settings["NAME_APPLICATION"]
     simulation = settings["SIMULATION"]
@@ -176,6 +175,7 @@ def main():
         print("Simulation mode activated")
         simulation_mode(name_app)
     else:
+        
         print("Normal mode activated")
         normal_mode(name_app)
 
