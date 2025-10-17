@@ -1,1262 +1,702 @@
 [
   {
-    "name": "diagnosed1",
-    "given": "p1 >= 50",
+    "name": "candidato_1",
+    "given": "p14 >= 75 AND p1 >= 10 AND p4 >= 60",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50"
+    "then": "p6 >= 80 AND p10 >= 75 AND p8 >= 95 AND p12 <= 90 AND p7 >= 95 AND p13 >= 95"
   },
   {
-    "name": "diagnosed2",
-    "given": "p1 >= 50",
+    "name": "candidato_2",
+    "given": "p13 <= 75 AND p2 <= 10 AND p4 >= 50 AND p14 >= 40",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p3 >= 50"
+    "then": "p10 >= 50"
   },
   {
-    "name": "diagnosed3",
-    "given": "p1 >= 50",
+    "name": "candidato_3",
+    "given": "p14 >= 75 AND p2 <= 80",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p4 >= 50"
+    "then": "p8 <= 10 AND p15 >= 50"
   },
   {
-    "name": "diagnosed4",
-    "given": "p1 >= 50",
+    "name": "candidato_4",
+    "given": "p14 >= 95 AND p12 <= 60 AND p5 <= 40",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p5 >= 50"
+    "then": "p8 <= 60 AND p6 <= 40 AND p9 <= 50 AND p15 <= 60 AND p7 <= 60"
   },
   {
-    "name": "diagnosed5",
-    "given": "p1 >= 50",
+    "name": "candidato_5",
+    "given": "p15 <= 50 AND p1 >= 90 AND p4 >= 90",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50"
+    "then": "p13 >= 50 AND p12 >= 95 AND p8 >= 10 AND p7 >= 10 AND p9 >= 80"
   },
   {
-    "name": "diagnosed6",
-    "given": "p1 >= 50",
+    "name": "candidato_6",
+    "given": "p13 >= 95 AND p15 <= 40 AND p3 >= 50 AND p12 >= 50 AND p14 >= 75 AND p1 <= 40",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50 AND p4 >= 50"
+    "then": "p7 >= 25 AND p14 >= 40 AND p6 <= 50 AND p9 <= 25"
   },
   {
-    "name": "diagnosed7",
-    "given": "p1 >= 50",
+    "name": "candidato_7",
+    "given": "p2 >= 60",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50 AND p5 >= 50"
+    "then": "p15 <= 95 AND p14 >= 90 AND p8 >= 80"
   },
   {
-    "name": "diagnosed8",
-    "given": "p1 >= 50",
+    "name": "candidato_8",
+    "given": "p13 >= 90",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p3 >= 50 AND p4 >= 50"
+    "then": "p14 <= 80 AND p7 >= 25 AND p9 <= 80 AND p10 <= 50 AND p13 >= 50 AND p15 >= 75"
   },
   {
-    "name": "diagnosed9",
-    "given": "p1 >= 50",
+    "name": "candidato_9",
+    "given": "p5 >= 80 AND p1 >= 80 AND p3 <= 60",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p3 >= 50 AND p5 >= 50"
+    "then": "p14 >= 95 AND p15 >= 60 AND p12 >= 60 AND p9 <= 10 AND p8 >= 95"
   },
   {
-    "name": "diagnosed10",
-    "given": "p1 >= 50",
+    "name": "candidato_10",
+    "given": "p3 <= 60 AND p5 >= 25 AND p15 >= 10 AND p2 <= 60 AND p12 <= 75 AND p14 <= 50",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p4 >= 50 AND p5 >= 50"
+    "then": "p13 <= 80 AND p10 <= 40 AND p12 >= 40 AND p8 <= 90"
   },
   {
-    "name": "diagnosed11",
-    "given": "p1 >= 50",
+    "name": "candidato_11",
+    "given": "p12 <= 80 AND p2 >= 75",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50 AND p4 >= 50"
+    "then": "p9 >= 40 AND p6 <= 75"
   },
   {
-    "name": "diagnosed12",
-    "given": "p1 >= 50",
+    "name": "candidato_12",
+    "given": "p15 <= 40 AND p14 <= 60",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50 AND p5 >= 50"
+    "then": "p9 <= 25 AND p6 >= 10 AND p14 <= 40 AND p12 >= 25 AND p7 >= 75"
   },
   {
-    "name": "diagnosed13",
-    "given": "p1 >= 50",
+    "name": "candidato_13",
+    "given": "p4 <= 95",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50 AND p4 >= 50 AND p5 >= 50"
+    "then": "p10 <= 90 AND p15 <= 95"
   },
   {
-    "name": "diagnosed14",
-    "given": "p1 >= 50",
+    "name": "candidato_14",
+    "given": "p15 <= 50 AND p2 <= 10 AND p1 >= 25 AND p3 <= 95 AND p5 <= 60",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p3 >= 50 AND p4 >= 50 AND p5 >= 50"
+    "then": "p10 >= 60 AND p9 >= 40 AND p12 <= 25"
   },
   {
-    "name": "diagnosed15",
-    "given": "p1 >= 50",
+    "name": "candidato_15",
+    "given": "p15 >= 90 AND p12 <= 10 AND p13 <= 90 AND p14 <= 10",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50"
+    "then": "p8 <= 40 AND p10 <= 10 AND p9 >= 25 AND p13 >= 40"
   },
   {
-    "name": "diagnosed16",
-    "given": "p2 >= 50",
+    "name": "candidato_16",
+    "given": "p13 <= 60 AND p5 >= 40 AND p14 >= 40 AND p4 <= 10 AND p3 <= 80",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50"
+    "then": "p7 >= 90 AND p9 >= 25 AND p6 <= 95 AND p10 <= 90 AND p12 <= 95 AND p8 <= 80"
   },
   {
-    "name": "diagnosed17",
-    "given": "p2 >= 50",
+    "name": "candidato_17",
+    "given": "p2 >= 10 AND p5 >= 10 AND p14 <= 60 AND p15 >= 10",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p3 >= 50"
+    "then": "p15 >= 60"
   },
   {
-    "name": "diagnosed18",
-    "given": "p2 >= 50",
+    "name": "candidato_18",
+    "given": "p12 <= 60 AND p13 >= 60 AND p4 <= 25 AND p2 <= 10",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p4 >= 50"
+    "then": "p14 >= 60 AND p9 <= 25 AND p7 >= 60 AND p15 >= 60"
   },
   {
-    "name": "diagnosed19",
-    "given": "p2 >= 50",
+    "name": "candidato_19",
+    "given": "p5 >= 75 AND p12 >= 10 AND p2 <= 50 AND p13 <= 80 AND p3 >= 50 AND p14 <= 10",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p5 >= 50"
+    "then": "p13 <= 75 AND p15 >= 80"
   },
   {
-    "name": "diagnosed20",
-    "given": "p2 >= 50",
+    "name": "candidato_20",
+    "given": "p2 <= 25 AND p12 >= 10",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50"
+    "then": "p9 >= 10 AND p7 >= 95"
   },
   {
-    "name": "diagnosed21",
-    "given": "p2 >= 50",
+    "name": "candidato_21",
+    "given": "p2 <= 95 AND p5 >= 10 AND p3 >= 90 AND p13 <= 50 AND p4 >= 90",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p4 >= 50"
+    "then": "p8 <= 90 AND p6 <= 50 AND p15 >= 10"
   },
   {
-    "name": "diagnosed22",
-    "given": "p2 >= 50",
+    "name": "candidato_22",
+    "given": "p2 >= 25 AND p12 <= 50",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p5 >= 50"
+    "then": "p7 >= 80 AND p12 >= 60 AND p9 <= 10 AND p13 >= 40"
   },
   {
-    "name": "diagnosed23",
-    "given": "p2 >= 50",
+    "name": "candidato_23",
+    "given": "p12 <= 40",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p3 >= 50 AND p4 >= 50"
+    "then": "p12 >= 60 AND p7 <= 25 AND p10 <= 10 AND p8 >= 60 AND p15 >= 90"
   },
   {
-    "name": "diagnosed24",
-    "given": "p2 >= 50",
+    "name": "candidato_24",
+    "given": "p2 >= 40 AND p14 >= 95",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p3 >= 50 AND p5 >= 50"
+    "then": "p9 >= 90 AND p13 >= 90 AND p6 <= 95 AND p14 <= 95"
   },
   {
-    "name": "diagnosed25",
-    "given": "p2 >= 50",
+    "name": "candidato_25",
+    "given": "p1 <= 60 AND p2 <= 60 AND p13 <= 95 AND p5 <= 75 AND p15 >= 25 AND p4 >= 25",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p4 >= 50 AND p5 >= 50"
+    "then": "p9 >= 50"
   },
   {
-    "name": "diagnosed26",
-    "given": "p2 >= 50",
+    "name": "candidato_26",
+    "given": "p12 >= 50 AND p1 >= 90",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50 AND p4 >= 50"
+    "then": "p12 <= 75 AND p13 <= 95"
   },
   {
-    "name": "diagnosed27",
-    "given": "p2 >= 50",
+    "name": "candidato_27",
+    "given": "p12 >= 75 AND p15 >= 25",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50 AND p5 >= 50"
+    "then": "p13 >= 10 AND p8 <= 40 AND p12 >= 60 AND p10 <= 80 AND p15 >= 80 AND p6 <= 10"
   },
   {
-    "name": "diagnosed28",
-    "given": "p2 >= 50",
+    "name": "candidato_28",
+    "given": "p5 <= 80",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p4 >= 50 AND p5 >= 50"
+    "then": "p9 <= 95 AND p14 >= 95 AND p12 >= 75 AND p8 <= 60"
   },
   {
-    "name": "diagnosed29",
-    "given": "p2 >= 50",
+    "name": "candidato_29",
+    "given": "p4 >= 10 AND p15 <= 80 AND p13 <= 10 AND p5 >= 25 AND p14 >= 50 AND p12 <= 40",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p3 >= 50 AND p4 >= 50 AND p5 >= 50"
+    "then": "p13 <= 95 AND p12 >= 40 AND p6 <= 75 AND p10 <= 95 AND p9 <= 25 AND p7 >= 60"
   },
   {
-    "name": "diagnosed30",
-    "given": "p2 >= 50",
+    "name": "candidato_30",
+    "given": "p4 >= 90 AND p14 <= 60 AND p15 <= 80",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50"
+    "then": "p7 >= 10 AND p8 <= 40 AND p14 <= 60 AND p15 >= 60 AND p12 >= 10"
   },
   {
-    "name": "diagnosed31",
+    "name": "candidato_31",
+    "given": "p14 >= 60 AND p4 <= 40 AND p5 <= 10 AND p12 <= 90 AND p13 >= 50 AND p1 >= 95",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p8 >= 10 AND p14 <= 50 AND p6 >= 25 AND p15 <= 60"
+  },
+  {
+    "name": "candidato_32",
+    "given": "p15 >= 40 AND p14 >= 10 AND p1 >= 95",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p7 >= 25 AND p8 <= 75"
+  },
+  {
+    "name": "candidato_33",
+    "given": "p13 <= 40 AND p15 >= 50 AND p5 >= 40 AND p12 <= 60 AND p4 >= 10",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p8 <= 50 AND p14 >= 95"
+  },
+  {
+    "name": "candidato_34",
+    "given": "p4 <= 50 AND p13 >= 25 AND p1 <= 60",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p12 <= 60 AND p15 >= 60 AND p13 <= 90 AND p8 >= 40 AND p10 <= 95 AND p9 <= 50"
+  },
+  {
+    "name": "candidato_35",
+    "given": "p5 >= 60 AND p14 >= 10 AND p1 <= 50 AND p12 <= 90 AND p2 >= 40 AND p3 >= 90",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p15 <= 10 AND p12 >= 40"
+  },
+  {
+    "name": "candidato_36",
+    "given": "p14 >= 10",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p9 <= 75 AND p15 >= 60 AND p6 >= 80 AND p14 <= 25 AND p12 <= 10 AND p8 >= 50"
+  },
+  {
+    "name": "candidato_37",
+    "given": "p4 >= 10 AND p14 >= 90 AND p2 <= 80 AND p12 <= 95",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p8 >= 40 AND p14 >= 95 AND p12 <= 90 AND p6 >= 75 AND p7 <= 25"
+  },
+  {
+    "name": "candidato_38",
+    "given": "p1 <= 60 AND p4 >= 50 AND p12 >= 10 AND p5 >= 50",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p14 <= 25 AND p15 <= 75 AND p13 >= 50 AND p9 <= 60"
+  },
+  {
+    "name": "candidato_39",
+    "given": "p14 <= 40 AND p5 >= 10 AND p3 <= 10 AND p12 >= 95",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p7 >= 10"
+  },
+  {
+    "name": "candidato_40",
+    "given": "p5 <= 50 AND p13 >= 80 AND p2 <= 40 AND p4 >= 25 AND p14 <= 90 AND p1 <= 60",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p6 >= 75"
+  },
+  {
+    "name": "candidato_41",
+    "given": "p4 >= 25",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p15 >= 75"
+  },
+  {
+    "name": "candidato_42",
+    "given": "p4 <= 25 AND p12 <= 60 AND p13 >= 90",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 >= 80 AND p15 >= 40 AND p12 >= 10"
+  },
+  {
+    "name": "candidato_43",
+    "given": "p1 >= 25 AND p13 >= 40 AND p5 <= 60 AND p3 <= 95 AND p14 >= 90 AND p12 <= 60",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p14 >= 75 AND p13 <= 95 AND p9 >= 25 AND p12 >= 90 AND p6 <= 10"
+  },
+  {
+    "name": "candidato_44",
+    "given": "p14 >= 60",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 >= 50 AND p12 <= 10 AND p7 <= 90 AND p8 >= 60 AND p6 >= 50"
+  },
+  {
+    "name": "candidato_45",
+    "given": "p2 >= 95 AND p5 <= 25 AND p14 >= 75 AND p1 <= 10",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p15 <= 10"
+  },
+  {
+    "name": "candidato_46",
+    "given": "p12 >= 25 AND p1 <= 60 AND p2 >= 90 AND p15 <= 50 AND p13 <= 10 AND p14 <= 80",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p9 >= 75 AND p6 >= 95 AND p8 <= 25 AND p12 <= 80 AND p7 >= 90 AND p10 >= 50"
+  },
+  {
+    "name": "candidato_47",
+    "given": "p12 <= 40 AND p2 <= 90 AND p5 >= 60 AND p4 >= 80 AND p14 >= 25 AND p15 <= 25",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p14 <= 25 AND p10 >= 80 AND p9 <= 10 AND p13 >= 10"
+  },
+  {
+    "name": "candidato_48",
+    "given": "p15 <= 80",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p8 <= 25 AND p12 <= 90"
+  },
+  {
+    "name": "candidato_49",
+    "given": "p12 <= 75 AND p14 <= 40",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p15 <= 10 AND p12 <= 50 AND p13 <= 50 AND p14 >= 95 AND p7 >= 80 AND p6 <= 25"
+  },
+  {
+    "name": "candidato_50",
+    "given": "p14 <= 40 AND p2 <= 50 AND p5 <= 50",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p14 <= 75 AND p10 >= 10"
+  },
+  {
+    "name": "candidato_51",
+    "given": "p3 <= 90 AND p15 >= 40 AND p14 >= 25 AND p5 <= 25",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p7 <= 50 AND p12 >= 80"
+  },
+  {
+    "name": "candidato_52",
+    "given": "p5 >= 75 AND p13 >= 40 AND p15 <= 90 AND p4 >= 75",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p9 <= 50 AND p12 <= 60 AND p14 >= 95 AND p7 >= 90 AND p13 <= 80"
+  },
+  {
+    "name": "candidato_53",
+    "given": "p2 >= 10 AND p4 <= 25 AND p14 <= 60",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p15 <= 10"
+  },
+  {
+    "name": "candidato_54",
+    "given": "p14 >= 25",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p7 <= 95 AND p8 <= 60 AND p9 <= 60 AND p6 >= 75"
+  },
+  {
+    "name": "candidato_55",
+    "given": "p12 <= 50 AND p3 <= 60 AND p4 >= 50 AND p13 >= 50 AND p5 >= 75 AND p2 >= 10",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p6 <= 50 AND p13 >= 90 AND p7 >= 75 AND p15 >= 90"
+  },
+  {
+    "name": "candidato_56",
+    "given": "p1 <= 75",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p8 <= 75 AND p7 >= 95 AND p6 >= 75 AND p9 <= 25"
+  },
+  {
+    "name": "candidato_57",
+    "given": "p14 >= 95 AND p4 <= 75 AND p13 >= 80",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p14 <= 25 AND p15 >= 80 AND p6 <= 40"
+  },
+  {
+    "name": "candidato_58",
+    "given": "p2 >= 75 AND p13 >= 10 AND p5 >= 95 AND p4 >= 60 AND p12 <= 50 AND p15 >= 95",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p7 <= 80 AND p10 <= 75 AND p14 <= 90 AND p13 >= 40"
+  },
+  {
+    "name": "candidato_59",
+    "given": "p4 <= 60 AND p14 >= 10 AND p2 >= 90 AND p12 <= 75 AND p13 >= 90",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p6 >= 90 AND p9 >= 80 AND p7 <= 75 AND p14 <= 60 AND p13 >= 80 AND p10 <= 60"
+  },
+  {
+    "name": "candidato_60",
+    "given": "p12 >= 95 AND p15 >= 75 AND p13 <= 25 AND p5 <= 40",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p8 >= 95"
+  },
+  {
+    "name": "candidato_61",
+    "given": "p5 <= 60 AND p12 <= 10",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p7 <= 60 AND p15 <= 50 AND p8 <= 80"
+  },
+  {
+    "name": "candidato_62",
+    "given": "p14 >= 10 AND p2 <= 90 AND p15 <= 80 AND p4 >= 10 AND p1 <= 80",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p12 <= 95 AND p8 <= 90 AND p7 >= 60 AND p15 <= 90 AND p6 >= 95 AND p10 <= 90"
+  },
+  {
+    "name": "candidato_63",
+    "given": "p2 >= 75",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 <= 80 AND p13 <= 80 AND p7 <= 95 AND p6 >= 40 AND p14 <= 95"
+  },
+  {
+    "name": "candidato_64",
+    "given": "p5 <= 90 AND p14 >= 40 AND p1 >= 50 AND p2 <= 40 AND p12 <= 40 AND p4 >= 25",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p14 <= 10 AND p10 <= 75 AND p12 <= 75 AND p7 <= 90 AND p15 >= 10"
+  },
+  {
+    "name": "candidato_65",
+    "given": "p4 <= 10 AND p3 <= 60 AND p2 <= 90",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p12 >= 60 AND p13 <= 95"
+  },
+  {
+    "name": "candidato_66",
+    "given": "p1 <= 95 AND p3 >= 90 AND p2 <= 50 AND p14 <= 10 AND p13 >= 40 AND p15 <= 25",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p15 >= 95 AND p12 <= 80 AND p8 <= 80 AND p9 <= 60 AND p10 >= 50 AND p7 <= 80"
+  },
+  {
+    "name": "candidato_67",
+    "given": "p2 <= 10",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p8 <= 95 AND p13 <= 40 AND p9 >= 10 AND p10 <= 90"
+  },
+  {
+    "name": "candidato_68",
+    "given": "p2 >= 60 AND p12 <= 40 AND p3 >= 75 AND p13 >= 40 AND p14 <= 80 AND p1 <= 90",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p8 <= 75"
+  },
+  {
+    "name": "candidato_69",
+    "given": "p3 >= 80 AND p12 <= 10 AND p2 <= 75",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 >= 90 AND p15 <= 60 AND p7 >= 80 AND p14 <= 80 AND p8 <= 75 AND p6 <= 90"
+  },
+  {
+    "name": "candidato_70",
+    "given": "p5 >= 95 AND p4 <= 90 AND p15 <= 10 AND p2 >= 50 AND p14 >= 10 AND p13 <= 60",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p9 >= 80 AND p8 <= 10"
+  },
+  {
+    "name": "candidato_71",
+    "given": "p4 <= 60 AND p2 >= 10 AND p14 >= 80 AND p3 <= 95 AND p1 >= 40 AND p15 >= 80",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p14 >= 40 AND p13 >= 40 AND p12 <= 75 AND p10 <= 80"
+  },
+  {
+    "name": "candidato_72",
+    "given": "p1 >= 75 AND p2 >= 75 AND p14 >= 90 AND p4 >= 60 AND p15 <= 40",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p9 <= 50 AND p8 >= 60 AND p14 >= 75 AND p12 >= 80 AND p10 <= 10 AND p7 >= 60"
+  },
+  {
+    "name": "candidato_73",
+    "given": "p1 >= 50 AND p15 >= 25 AND p3 >= 25 AND p14 >= 95",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p9 <= 25"
+  },
+  {
+    "name": "candidato_74",
+    "given": "p1 <= 95 AND p14 <= 90 AND p2 >= 50 AND p12 >= 90",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p7 >= 75 AND p9 <= 90 AND p14 <= 50 AND p13 >= 95"
+  },
+  {
+    "name": "candidato_75",
     "given": "p3 >= 50",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50"
+    "then": "p8 >= 80 AND p10 >= 90 AND p6 >= 60"
   },
   {
-    "name": "diagnosed32",
-    "given": "p3 >= 50",
+    "name": "candidato_76",
+    "given": "p13 >= 10 AND p1 >= 60 AND p14 >= 95 AND p5 <= 25 AND p3 >= 60 AND p2 >= 75",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50"
+    "then": "p10 <= 95"
   },
   {
-    "name": "diagnosed33",
-    "given": "p3 >= 50",
+    "name": "candidato_77",
+    "given": "p15 <= 40 AND p1 >= 90 AND p3 >= 10 AND p13 >= 95 AND p2 <= 75 AND p12 <= 25",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p4 >= 50"
+    "then": "p15 <= 40 AND p6 <= 10 AND p9 >= 40"
   },
   {
-    "name": "diagnosed34",
-    "given": "p3 >= 50",
+    "name": "candidato_78",
+    "given": "p13 >= 40 AND p3 <= 90 AND p2 >= 40 AND p4 <= 50 AND p14 >= 50 AND p1 >= 40",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p5 >= 50"
+    "then": "p13 >= 10 AND p7 <= 50 AND p9 <= 95 AND p12 >= 80 AND p8 >= 60 AND p15 <= 60"
   },
   {
-    "name": "diagnosed35",
-    "given": "p3 >= 50",
+    "name": "candidato_79",
+    "given": "p14 <= 95 AND p4 >= 75 AND p3 >= 60 AND p15 <= 25",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50"
+    "then": "p14 <= 90 AND p13 <= 50 AND p8 >= 75 AND p9 <= 90"
   },
   {
-    "name": "diagnosed36",
-    "given": "p3 >= 50",
+    "name": "candidato_80",
+    "given": "p5 >= 10 AND p12 <= 40 AND p2 >= 75",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p4 >= 50"
+    "then": "p8 >= 40 AND p15 <= 95 AND p9 <= 95"
   },
   {
-    "name": "diagnosed37",
-    "given": "p3 >= 50",
+    "name": "candidato_81",
+    "given": "p3 >= 90 AND p4 <= 50 AND p2 <= 25 AND p13 <= 80 AND p1 >= 40",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p5 >= 50"
+    "then": "p8 >= 60 AND p15 <= 80 AND p9 >= 75 AND p7 <= 50 AND p13 <= 90 AND p12 <= 75"
   },
   {
-    "name": "diagnosed38",
-    "given": "p3 >= 50",
+    "name": "candidato_82",
+    "given": "p1 >= 80 AND p3 >= 90 AND p4 <= 10",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50 AND p4 >= 50"
+    "then": "p9 <= 80 AND p10 <= 90"
   },
   {
-    "name": "diagnosed39",
-    "given": "p3 >= 50",
+    "name": "candidato_83",
+    "given": "p1 <= 60",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50 AND p5 >= 50"
+    "then": "p12 <= 60 AND p6 <= 10 AND p15 <= 80 AND p7 >= 75"
   },
   {
-    "name": "diagnosed40",
-    "given": "p3 >= 50",
+    "name": "candidato_84",
+    "given": "p12 >= 95 AND p15 <= 80 AND p13 >= 75 AND p3 <= 90 AND p4 >= 80 AND p5 >= 10",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p4 >= 50 AND p5 >= 50"
+    "then": "p6 <= 10 AND p14 >= 50"
   },
   {
-    "name": "diagnosed41",
-    "given": "p3 >= 50",
+    "name": "candidato_85",
+    "given": "p5 >= 25 AND p1 >= 50 AND p13 <= 75 AND p3 <= 25",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50 AND p4 >= 50"
+    "then": "p7 <= 40"
   },
   {
-    "name": "diagnosed42",
-    "given": "p3 >= 50",
+    "name": "candidato_86",
+    "given": "p14 <= 80 AND p1 <= 95 AND p13 <= 25",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50 AND p5 >= 50"
+    "then": "p13 >= 50"
   },
   {
-    "name": "diagnosed43",
-    "given": "p3 >= 50",
+    "name": "candidato_87",
+    "given": "p12 >= 75 AND p15 >= 90 AND p3 >= 50 AND p13 <= 75 AND p2 <= 40 AND p14 <= 75",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p4 >= 50 AND p5 >= 50"
+    "then": "p9 <= 25 AND p8 >= 40"
   },
   {
-    "name": "diagnosed44",
-    "given": "p3 >= 50",
+    "name": "candidato_88",
+    "given": "p1 <= 10 AND p3 <= 25 AND p2 <= 95",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50 AND p4 >= 50 AND p5 >= 50"
+    "then": "p10 >= 50"
   },
   {
-    "name": "diagnosed45",
-    "given": "p3 >= 50",
+    "name": "candidato_89",
+    "given": "p5 >= 80 AND p4 <= 25 AND p15 <= 95",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50 AND p4 >= 50 AND p5 >= 50"
+    "then": "p10 >= 95 AND p6 <= 80"
   },
   {
-    "name": "diagnosed46",
-    "given": "p4 >= 50",
+    "name": "candidato_90",
+    "given": "p3 <= 25 AND p12 <= 90 AND p14 <= 80 AND p4 >= 40 AND p15 <= 60",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50"
+    "then": "p10 >= 25 AND p7 >= 80 AND p8 >= 50 AND p15 >= 25"
   },
   {
-    "name": "diagnosed47",
-    "given": "p4 >= 50",
+    "name": "candidato_91",
+    "given": "p4 >= 50 AND p15 >= 10 AND p14 <= 90 AND p3 <= 80 AND p12 <= 40 AND p2 >= 50",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50"
+    "then": "p9 <= 10 AND p15 <= 75 AND p8 <= 10"
   },
   {
-    "name": "diagnosed48",
-    "given": "p4 >= 50",
+    "name": "candidato_92",
+    "given": "p3 <= 25 AND p5 >= 75 AND p14 <= 60",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p3 >= 50"
+    "then": "p12 >= 10 AND p10 >= 60 AND p13 <= 50"
   },
   {
-    "name": "diagnosed49",
-    "given": "p4 >= 50",
+    "name": "candidato_93",
+    "given": "p5 <= 90 AND p12 >= 25",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p5 >= 50"
+    "then": "p8 <= 40"
   },
   {
-    "name": "diagnosed50",
-    "given": "p4 >= 50",
+    "name": "candidato_94",
+    "given": "p3 <= 95 AND p13 >= 95 AND p1 <= 25",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50"
+    "then": "p12 <= 95 AND p10 >= 50 AND p15 <= 95 AND p14 <= 50 AND p9 <= 75 AND p13 >= 90"
   },
   {
-    "name": "diagnosed51",
-    "given": "p4 >= 50",
+    "name": "candidato_95",
+    "given": "p4 >= 90 AND p1 <= 95 AND p5 >= 80",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50"
+    "then": "p8 >= 25"
   },
   {
-    "name": "diagnosed52",
-    "given": "p4 >= 50",
+    "name": "candidato_96",
+    "given": "p13 >= 95 AND p14 <= 60 AND p1 >= 75",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p5 >= 50"
+    "then": "p10 >= 60"
   },
   {
-    "name": "diagnosed53",
-    "given": "p4 >= 50",
+    "name": "candidato_97",
+    "given": "p12 <= 95 AND p4 >= 25 AND p1 <= 50 AND p3 >= 90 AND p5 <= 80",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50"
+    "then": "p15 <= 95 AND p14 <= 10 AND p12 >= 60"
   },
   {
-    "name": "diagnosed54",
-    "given": "p4 >= 50",
+    "name": "candidato_98",
+    "given": "p4 <= 60",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p2 >= 50 AND p5 >= 50"
+    "then": "p9 <= 10 AND p15 >= 50 AND p10 <= 90 AND p12 <= 10 AND p7 >= 60"
   },
   {
-    "name": "diagnosed55",
-    "given": "p4 >= 50",
+    "name": "candidato_99",
+    "given": "p5 <= 80 AND p4 <= 60",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p3 >= 50 AND p5 >= 50"
+    "then": "p9 <= 95"
   },
   {
-    "name": "diagnosed56",
-    "given": "p4 >= 50",
+    "name": "candidato_100",
+    "given": "p13 <= 90 AND p12 <= 75 AND p1 >= 80 AND p4 >= 40 AND p3 >= 80",
     "when": "p11 >= 0",
     "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed57",
-    "given": "p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed58",
-    "given": "p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed59",
-    "given": "p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed60",
-    "given": "p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50 AND p3 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed61",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50"
-  },
-  {
-    "name": "diagnosed62",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50"
-  },
-  {
-    "name": "diagnosed63",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50"
-  },
-  {
-    "name": "diagnosed64",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50"
-  },
-  {
-    "name": "diagnosed65",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50"
-  },
-  {
-    "name": "diagnosed66",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed67",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed68",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed69",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed70",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed71",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed72",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed73",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed74",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed75",
-    "given": "p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed76",
-    "given": "p1 >= 50 AND p2 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50"
-  },
-  {
-    "name": "diagnosed77",
-    "given": "p1 >= 50 AND p2 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50"
-  },
-  {
-    "name": "diagnosed78",
-    "given": "p1 >= 50 AND p2 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p5 >= 50"
-  },
-  {
-    "name": "diagnosed79",
-    "given": "p1 >= 50 AND p2 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed80",
-    "given": "p1 >= 50 AND p2 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed81",
-    "given": "p1 >= 50 AND p2 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed82",
-    "given": "p1 >= 50 AND p2 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50 AND p4 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed83",
-    "given": "p1 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50"
-  },
-  {
-    "name": "diagnosed84",
-    "given": "p1 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50"
-  },
-  {
-    "name": "diagnosed85",
-    "given": "p1 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p5 >= 50"
-  },
-  {
-    "name": "diagnosed86",
-    "given": "p1 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed87",
-    "given": "p1 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed88",
-    "given": "p1 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed89",
-    "given": "p1 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p4 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed90",
-    "given": "p1 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50"
-  },
-  {
-    "name": "diagnosed91",
-    "given": "p1 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50"
-  },
-  {
-    "name": "diagnosed92",
-    "given": "p1 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p5 >= 50"
-  },
-  {
-    "name": "diagnosed93",
-    "given": "p1 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed94",
-    "given": "p1 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed95",
-    "given": "p1 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed96",
-    "given": "p1 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed97",
-    "given": "p1 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50"
-  },
-  {
-    "name": "diagnosed98",
-    "given": "p1 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50"
-  },
-  {
-    "name": "diagnosed99",
-    "given": "p1 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50"
-  },
-  {
-    "name": "diagnosed100",
-    "given": "p1 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed101",
-    "given": "p1 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed102",
-    "given": "p1 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed103",
-    "given": "p1 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed104",
-    "given": "p2 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50"
-  },
-  {
-    "name": "diagnosed105",
-    "given": "p2 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50"
-  },
-  {
-    "name": "diagnosed106",
-    "given": "p2 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p5 >= 50"
-  },
-  {
-    "name": "diagnosed107",
-    "given": "p2 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed108",
-    "given": "p2 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed109",
-    "given": "p2 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed110",
-    "given": "p2 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p4 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed111",
-    "given": "p2 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50"
-  },
-  {
-    "name": "diagnosed112",
-    "given": "p2 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50"
-  },
-  {
-    "name": "diagnosed113",
-    "given": "p2 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p5 >= 50"
-  },
-  {
-    "name": "diagnosed114",
-    "given": "p2 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed115",
-    "given": "p2 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed116",
-    "given": "p2 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed117",
-    "given": "p2 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed118",
-    "given": "p2 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50"
-  },
-  {
-    "name": "diagnosed119",
-    "given": "p2 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50"
-  },
-  {
-    "name": "diagnosed120",
-    "given": "p2 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50"
-  },
-  {
-    "name": "diagnosed121",
-    "given": "p2 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed122",
-    "given": "p2 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed123",
-    "given": "p2 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed124",
-    "given": "p2 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed125",
-    "given": "p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50"
-  },
-  {
-    "name": "diagnosed126",
-    "given": "p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50"
-  },
-  {
-    "name": "diagnosed127",
-    "given": "p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p5 >= 50"
-  },
-  {
-    "name": "diagnosed128",
-    "given": "p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50"
-  },
-  {
-    "name": "diagnosed129",
-    "given": "p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed130",
-    "given": "p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed131",
-    "given": "p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed132",
-    "given": "p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50"
-  },
-  {
-    "name": "diagnosed133",
-    "given": "p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50"
-  },
-  {
-    "name": "diagnosed134",
-    "given": "p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50"
-  },
-  {
-    "name": "diagnosed135",
-    "given": "p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50"
-  },
-  {
-    "name": "diagnosed136",
-    "given": "p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed137",
-    "given": "p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed138",
-    "given": "p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed139",
-    "given": "p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50"
-  },
-  {
-    "name": "diagnosed140",
-    "given": "p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50"
-  },
-  {
-    "name": "diagnosed141",
-    "given": "p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50"
-  },
-  {
-    "name": "diagnosed142",
-    "given": "p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50"
-  },
-  {
-    "name": "diagnosed143",
-    "given": "p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed144",
-    "given": "p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed145",
-    "given": "p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed146",
-    "given": "p1 >= 50 AND p2 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50"
-  },
-  {
-    "name": "diagnosed147",
-    "given": "p1 >= 50 AND p2 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p5 >= 50"
-  },
-  {
-    "name": "diagnosed148",
-    "given": "p1 >= 50 AND p2 >= 50 AND p3 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed149",
-    "given": "p1 >= 50 AND p2 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50"
-  },
-  {
-    "name": "diagnosed150",
-    "given": "p1 >= 50 AND p2 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p5 >= 50"
-  },
-  {
-    "name": "diagnosed151",
-    "given": "p1 >= 50 AND p2 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed152",
-    "given": "p1 >= 50 AND p2 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50"
-  },
-  {
-    "name": "diagnosed153",
-    "given": "p1 >= 50 AND p2 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50"
-  },
-  {
-    "name": "diagnosed154",
-    "given": "p1 >= 50 AND p2 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed155",
-    "given": "p1 >= 50 AND p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50"
-  },
-  {
-    "name": "diagnosed156",
-    "given": "p1 >= 50 AND p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p5 >= 50"
-  },
-  {
-    "name": "diagnosed157",
-    "given": "p1 >= 50 AND p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed158",
-    "given": "p1 >= 50 AND p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50"
-  },
-  {
-    "name": "diagnosed159",
-    "given": "p1 >= 50 AND p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50"
-  },
-  {
-    "name": "diagnosed160",
-    "given": "p1 >= 50 AND p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed161",
-    "given": "p1 >= 50 AND p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50"
-  },
-  {
-    "name": "diagnosed162",
-    "given": "p1 >= 50 AND p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50"
-  },
-  {
-    "name": "diagnosed163",
-    "given": "p1 >= 50 AND p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed164",
-    "given": "p2 >= 50 AND p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50"
-  },
-  {
-    "name": "diagnosed165",
-    "given": "p2 >= 50 AND p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p5 >= 50"
-  },
-  {
-    "name": "diagnosed166",
-    "given": "p2 >= 50 AND p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p5 >= 50"
-  },
-  {
-    "name": "diagnosed167",
-    "given": "p2 >= 50 AND p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50"
-  },
-  {
-    "name": "diagnosed168",
-    "given": "p2 >= 50 AND p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50"
-  },
-  {
-    "name": "diagnosed169",
-    "given": "p2 >= 50 AND p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p4 >= 50"
-  },
-  {
-    "name": "diagnosed170",
-    "given": "p2 >= 50 AND p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50"
-  },
-  {
-    "name": "diagnosed171",
-    "given": "p2 >= 50 AND p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50"
-  },
-  {
-    "name": "diagnosed172",
-    "given": "p2 >= 50 AND p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p3 >= 50"
-  },
-  {
-    "name": "diagnosed173",
-    "given": "p3 >= 50 AND p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50"
-  },
-  {
-    "name": "diagnosed174",
-    "given": "p3 >= 50 AND p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50"
-  },
-  {
-    "name": "diagnosed175",
-    "given": "p3 >= 50 AND p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50 AND p2 >= 50"
-  },
-  {
-    "name": "diagnosed176",
-    "given": "p1 >= 50 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p5 >= 50"
-  },
-  {
-    "name": "diagnosed177",
-    "given": "p1 >= 50 AND p2 >= 50 AND p3 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p4 >= 50"
-  },
-  {
-    "name": "diagnosed178",
-    "given": "p1 >= 50 AND p2 >= 50 AND p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p3 >= 50"
-  },
-  {
-    "name": "diagnosed179",
-    "given": "p1 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p2 >= 50"
-  },
-  {
-    "name": "diagnosed180",
-    "given": "p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
-    "when": "p11 >= 0",
-    "do": "action_x",
-    "then": "p1 >= 50"
+    "then": "p15 <= 50 AND p10 <= 40 AND p6 >= 50 AND p9 <= 50 AND p14 <= 50"
   }
 ]
