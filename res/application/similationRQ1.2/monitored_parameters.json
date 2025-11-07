@@ -54,11 +54,6 @@
     "max_value": 100,
     "type": "float"
   },
-   "p11": {
-    "min_value": 0,
-    "max_value": 100,
-    "type": "float"
-  },
 
   "p50": {
     "min_value": 0,
