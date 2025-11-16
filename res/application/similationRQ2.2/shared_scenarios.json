@@ -1,0 +1,177 @@
+[
+  {
+    "name": "cand_baseline",
+    "given": "p1 >= 50 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 50"
+  },
+  {
+    "name": "1",
+    "given": "p1 <= 40 AND p2 >= 55 AND p3 >= 50 AND p4 <= 60 AND p5 <= 50",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 >= 55 AND p16 > 60 AND p6 < 65 AND p7 <= 50 AND p8 <= 40 AND p9 > 40"
+  },
+  {
+    "name": "2",
+    "given": "p4 < 60 AND p8 > 55 AND p1 >= 50 AND p14 <= 40",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p14 > 65 AND p17 <= 60 AND p1 > 40 AND p6 >= 50 AND p13 > 60"
+  },
+  {
+    "name": "3",
+    "given": "p1 < 40 AND p2 > 55 AND p3 < 60 AND p4 > 60 AND p5 < 45",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 > 65 AND p6 <= 65 AND p7 < 40 AND p8 > 65 AND p9 < 45"
+  },
+  {
+    "name": "4",
+    "given": "p9 < 65 AND p20 < 50 AND p2 >= 45 AND p16 >= 60 AND p4 > 65 AND p19 > 60",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p3 < 65 AND p16 < 40 AND p8 >= 55 AND p18 >= 45 AND p15 > 50 AND p12 > 50"
+  },
+  {
+    "name": "5",
+    "given": "p1 >= 45 AND p2 < 65 AND p3 >= 55 AND p4 >= 40 AND p5 >= 45",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 < 45 AND p6 <= 50 AND p7 >= 40 AND p8 >= 45 AND p9 >= 40"
+  },
+  {
+    "name": "6",
+    "given": "p1 >= 55 AND p18 >= 55 AND p2 >= 60 AND p3 >= 50 AND p4 >= 50 AND p5 >= 60",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 >= 60 AND p6 >= 60 AND p7 >= 55 AND p8 >= 55 AND p9 >= 60"
+  },
+  {
+    "name": "7",
+    "given": "p1 >= 50 AND p2 >= 50 AND p20 >= 60 AND p3 >= 55 AND p4 >= 55 AND p5 >= 55",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 >= 50 AND p6 >= 50 AND p7 >= 60 AND p8 >= 50 AND p9 >= 60"
+  },
+  {
+    "name": "8",
+    "given": "p1 >= 60 AND p2 > 60 AND p3 >= 65 AND p4 < 40 AND p5 <= 45",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 >= 50 AND p6 < 55 AND p7 > 45 AND p8 > 40 AND p9 <= 60"
+  },
+  {
+    "name": "9",
+    "given": "p1 >= 55 AND p17 <= 60 AND p2 > 60 AND p3 > 45 AND p4 >= 45 AND p5 < 55",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 < 55 AND p6 < 60 AND p7 >= 65 AND p8 > 65 AND p9 >= 65"
+  },
+  {
+    "name": "10",
+    "given": "p1 >= 40 AND p3 > 45 AND p5 > 55 AND p17 > 55 AND p18 < 65",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p15 > 65 AND p6 > 45 AND p17 > 60 AND p10 > 50"
+  },
+  {
+    "name": "11",
+    "given": "p17 <= 45 AND p18 < 60 AND p4 > 55",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p13 < 60 AND p19 <= 50 AND p15 >= 55 AND p16 >= 60 AND p12 < 60 AND p8 > 60"
+  },
+  {
+    "name": "12",
+    "given": "p1 >= 60 AND p2 >= 60 AND p3 >= 60 AND p4 >= 60 AND p5 >= 55",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 >= 55 AND p16 >= 60 AND p6 >= 60 AND p7 >= 50 AND p8 >= 60 AND p9 >= 50"
+  },
+  {
+    "name": "13",
+    "given": "p16 <= 45 AND p13 < 45 AND p1 >= 50 AND p3 < 55 AND p14 >= 50",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p8 < 60 AND p18 >= 45 AND p19 < 50"
+  },
+  {
+    "name": "14",
+    "given": "p7 > 55 AND p6 > 45 AND p19 < 55 AND p18 <= 40 AND p11 > 40 AND p8 <= 55",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p3 >= 55 AND p7 > 40 AND p11 <= 65 AND p10 < 50"
+  },
+  {
+    "name": "15",
+    "given": "p1 >= 55 AND p13 >= 50 AND p2 >= 60 AND p3 >= 55 AND p4 >= 60 AND p5 >= 60",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 >= 55 AND p16 >= 60 AND p7 >= 55 AND p8 >= 50 AND p9 >= 60"
+  },
+  {
+    "name": "16",
+    "given": "p1 > 40 AND p19 <= 65 AND p2 > 65 AND p3 >= 65 AND p4 >= 50 AND p5 < 65",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 <= 65 AND p6 <= 65 AND p7 >= 55 AND p8 <= 45 AND p9 < 55"
+  },
+  {
+    "name": "17",
+    "given": "p3 > 50 AND p18 <= 65 AND p4 >= 50 AND p13 >= 45",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p9 > 65 AND p2 <= 55 AND p17 >= 60"
+  },
+  {
+    "name": "18",
+    "given": "p1 >= 50 AND p19 >= 50 AND p3 >= 55 AND p4 >= 60 AND p5 >= 55",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 >= 60 AND p18 >= 55 AND p6 >= 50 AND p7 >= 55 AND p8 >= 50 AND p9 >= 50"
+  },
+  {
+    "name": "19",
+    "given": "p1 > 40 AND p2 > 65 AND p3 >= 65 AND p4 > 50 AND p5 > 60",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 > 45 AND p6 > 50 AND p7 >= 55 AND p8 <= 55 AND p9 < 65"
+  },
+  {
+    "name": "20",
+    "given": "p7 < 45 AND p18 < 55 AND p12 < 60 AND p10 <= 55",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p17 > 45 AND p9 < 55 AND p2 <= 40 AND p1 > 65 AND p10 > 40"
+  },
+  {
+    "name": "21",
+    "given": "p1 >= 60 AND p2 >= 45 AND p3 > 45 AND p4 <= 50 AND p5 <= 65",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 <= 60 AND p6 > 60 AND p7 <= 50 AND p8 < 60 AND p9 >= 55"
+  },
+  {
+    "name": "22",
+    "given": "p1 < 40 AND p2 > 65 AND p3 >= 45 AND p4 >= 55 AND p5 >= 40",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p10 >= 45 AND p20 >= 45 AND p6 <= 50 AND p7 > 50 AND p8 <= 65 AND p9 >= 65"
+  },
+  {
+    "name": "23",
+    "given": "p18 >= 50 AND p3 < 45 AND p1 > 45 AND p5 > 50 AND p20 > 40 AND p2 <= 45 AND p19 >= 50",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p7 >= 50 AND p13 <= 45 AND p12 <= 50 AND p19 < 50 AND p10 <= 45 AND p14 <= 55 AND p9 > 60"
+  },
+  {
+    "name": "24",
+    "given": "p4 < 60 AND p14 <= 65 AND p10 < 45 AND p13 > 55 AND p3 >= 40 AND p1 >= 40",
+    "when": "p11 >= 0",
+    "do": "action_x",
+    "then": "p14 >= 60 AND p1 <= 65 AND p9 > 65 AND p10 > 55 AND p7 > 40"
+  }
+]
