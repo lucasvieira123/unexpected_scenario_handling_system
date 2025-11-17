@@ -7,8 +7,7 @@ from logger import setup_logger, trace
 from scenario.candidate_scenario import CandidateScenario
 from scenario.diagnosed_scenario import DiagnosedScenario
 from similarity.dejavu_similarity import calculate_scenario_similarity
-from simulation_utils import generate_full_grid_search
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from simulation_utils import generate_weight_grid
 from concurrent.futures import ProcessPoolExecutor
 import json
 from tqdm import tqdm  # pip install tqdm (opcional, mas super útil)
@@ -133,8 +132,8 @@ def simulation_mode(name_app):
     monitored_parameters_dict = get_monitored_parameters(name_app)
 
     # --- Generate grid of parameter configurations ---
-    grid_search_configs = generate_full_grid_search(weight_configs_dict)
-
+    # grid_search_configs = generate_full_grid_search(weight_configs_dict)
+    grid_search_configs = generate_weight_grid(weight_configs_dict)
     tasks = []
     count = 0
     for current_config in grid_search_configs:
