@@ -1,37 +1,61 @@
 [
   {
-    "name": "cand_A1_full_match_all_given_then",
+    "name": "baseline",
     "given": "p1 >= 50 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
     "when": "p11 >= 0",
     "do": "action_A1",
     "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 50"
   },
   {
-    "name": "cand_B1_error_only_p1_threshold_low",
-    "given": "p1 >= 20 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
+    "name": "high_p1",
+    "given": "p1 >= 80 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
     "when": "p11 >= 0",
-    "do": "action_B1",
+    "do": "action_A1",
     "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 50"
   },
   {
-    "name": "cand_C1_error_only_p10_threshold_low",
-    "given": "p1 >= 50 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
+    "name": "low_p1",
+    "given": "p1 >= 20 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
     "when": "p11 >= 0",
-    "do": "action_C1",
-    "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 20"
+    "do": "action_A1",
+    "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 50"
   },
-  {
-    "name": "cand_D1_errors_other_params_p2_low_p1_p10_correct",
+   {
+    "name": "without_p1",
+    "given": "p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
+    "when": "p11 >= 0",
+    "do": "action_A1",
+    "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 50"
+  },
+   {
+    "name": "high_p2",
+    "given": "p1 >= 50 AND p2 >= 80 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
+    "when": "p11 >= 0",
+    "do": "action_A1",
+    "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 50"
+  },
+    {
+    "name": "low_p2",
     "given": "p1 >= 50 AND p2 >= 20 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
     "when": "p11 >= 0",
-    "do": "action_D1",
+    "do": "action_A1",
     "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 50"
   },
-  {
-    "name": "cand_E1_errors_p1_p10_both_threshold_low",
-    "given": "p1 >= 20 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
+   {
+    "name": "without_p2",
+    "given": "p1 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
     "when": "p11 >= 0",
-    "do": "action_E1",
-    "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 20"
+    "do": "action_A1",
+    "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 50"
+  },
+    {
+    "name": "extra_p12",
+    "given": "p1 >= 50 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50 AND p12 >= 50",
+    "when": "p11 >= 0",
+    "do": "action_A1",
+    "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 50"
   }
+    
+ 
+  
 ]
