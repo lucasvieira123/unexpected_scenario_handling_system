@@ -1,0 +1,51 @@
+[
+  {
+    "name": "cand_baseline",
+    "given": "p1 >= 50 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
+    "when": "p11 >= 0",
+    "do": "action_baseline",
+    "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 50"
+  },
+  {
+    "name": "cand_given_low",
+    "given": "p1 >= 20 AND p2 >= 20 AND p3 >= 20 AND p4 >= 20 AND p5 >= 20",
+    "when": "p11 >= 0",
+    "do": "action_given_low",
+    "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 50"
+  },
+  {
+    "name": "cand_given_high",
+    "given": "p1 >= 80 AND p2 >= 80 AND p3 >= 80 AND p4 >= 80 AND p5 >= 80",
+    "when": "p11 >= 0",
+    "do": "action_given_high",
+    "then": "p6 >= 50 AND p7 >= 50 AND p8 >= 50 AND p9 >= 50 AND p10 >= 50"
+  },
+  {
+    "name": "cand_then_low",
+    "given": "p1 >= 50 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
+    "when": "p11 >= 0",
+    "do": "action_then_low",
+    "then": "p6 >= 20 AND p7 >= 20 AND p8 >= 20 AND p9 >= 20 AND p10 >= 20"
+  },
+  {
+    "name": "cand_then_high",
+    "given": "p1 >= 50 AND p2 >= 50 AND p3 >= 50 AND p4 >= 50 AND p5 >= 50",
+    "when": "p11 >= 0",
+    "do": "action_then_high",
+    "then": "p6 >= 80 AND p7 >= 80 AND p8 >= 80 AND p9 >= 80 AND p10 >= 80"
+  },
+  {
+    "name": "cand_given_then_low",
+    "given": "p1 >= 20 AND p2 >= 20 AND p3 >= 20 AND p4 >= 20 AND p5 >= 20",
+    "when": "p11 >= 0",
+    "do": "action_given_then_low",
+    "then": "p6 >= 20 AND p7 >= 20 AND p8 >= 20 AND p9 >= 20 AND p10 >= 20"
+  },
+  {
+    "name": "cand_given_then_high",
+    "given": "p1 >= 80 AND p2 >= 80 AND p3 >= 80 AND p4 >= 80 AND p5 >= 80",
+    "when": "p11 >= 0",
+    "do": "action_given_then_high",
+    "then": "p6 >= 80 AND p7 >= 80 AND p8 >= 80 AND p9 >= 80 AND p10 >= 80"
+  }
+]
