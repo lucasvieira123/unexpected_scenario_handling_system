@@ -1,0 +1,109 @@
+@startuml
+title ScenarioStateMachine (versão textual do PDF)
+
+state "1\nh == 0" as S1
+state "2\nφ" as S2
+state "3\nh >= 100" as S3
+
+state "4\n\n*" as S4
+state "5\n\n*" as S5
+
+state "6\nφ" as S6
+state "7\nh >= 100" as S7
+state "8\nφ" as S8
+
+state "9\ndt - dt' >= 10  AND h >= 100" as S9
+
+state "10\nφ" as S10
+state "11\nh >= 100" as S11
+state "12\nφ" as S12
+state "13\nh == 0" as S13
+
+state "14\nφ" as S14
+state "15\narmed == true" as S15
+state "16\nφ" as S16
+state "17\narmed == false" as S17
+
+state "18\nφ" as S18
+state "19\nh >= 100" as S19
+state "20\nφ" as S20
+state "21\nh == 0" as S21
+
+state "22\nφ" as S22
+
+' ===== estados de erro locais (todos rotulados como ERROR) =====
+state "ERROR" as ERR_2
+state "ERROR" as ERR_8
+state "ERROR" as ERR_6
+state "ERROR" as ERR_10
+state "ERROR" as ERR_12
+state "ERROR" as ERR_14
+state "ERROR" as ERR_16
+state "ERROR" as ERR_18
+state "ERROR" as ERR_20
+state "ERROR" as ERR_22
+
+
+[*] --> S1 : [armed == true]
+
+
+' -------- bloco decolagem --------
+S1 --> S2 : takeoff_act\n(Takeoff)
+
+S2 --> ERR_2 : [!(h >= 100)]
+S2 --> S3    : [h >= 100]
+
+S3 --> S4 : [h >= 100]
+
+
+' -------- checagem de status / manobra --------
+S4 --> S5 : checkstatus_act\n(Checkstatus)
+
+S5 --> S10 : [dt == 0 AND b > 10]
+
+S5 --> S18 : [b <= 10]
+
+S5 --> S6 : [b > 10 AND dt > 0]
+
+S6 --> ERR_6 : [!(h >= 100)]
+S6 --> S7    : [h >= 100]
+
+S7 --> S8    : manoeuvre_act\n(Flying)
+S8 --> S9 : [dt - dt' >= 10 AND h >= 100]
+S8 --> ERR_8 : [!(dt - dt' >= 10 AND h >= 100)]
+S9 --> S4 : [h >= 100]
+
+S10 --> ERR_10 : [!(h >= 100)]
+S10 --> S11    : [h >= 100]
+
+S11 --> S12 : land_act\n(Landing)
+
+S12 --> ERR_12 : [!(h == 0)]
+S12 --> S13    : [h == 0]
+
+S13 --> S14     : [h == 0]
+
+S14 --> ERR_14 : [!(armed == true)]
+S14 --> S15    : [armed == true]
+
+S15 --> S16 : shutdown_act\n(ShutDown)
+
+S16 --> ERR_16 : [!(armed == false)]
+S16 --> S17    : [armed == false]
+
+S17 --> [*]
+
+S18 --> ERR_18 : [!(h >= 100)]
+S18 --> S19    : [h >= 100]
+
+S19 --> S20 : safeland_act\n(SafeLand)
+
+S20 --> ERR_20 : [!(h == 0)]
+S20 --> S21    : [h == 0]
+
+S21 --> S22 : [h == 0]
+
+S15 --> S22     : [armed == true]
+S22 --> ERR_22 : [!(armed == true)]
+
+@enduml
