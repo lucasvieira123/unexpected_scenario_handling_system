@@ -1,0 +1,46 @@
+{
+  "application": "xxxxxxxxxxxxxxxxxxx",
+  "anticipated": {
+    "name": "xxxxxxxxxxxxxxxxxxx",
+    "given": "xxxxxxxxxxxxxxxxxxx",
+    "when": "xxxxxxxxxxxxxxxxxxx",
+    "do": "xxxxxxxxxxxxxxxxxxx",
+    "then": "xxxxxxxxxxxxxxxxxxx"
+  },
+  "unanticipated": [
+    {
+      "name": "xxxxxxxxxxxxxxxxxxx",
+      "given": "xxxxxxxxxxxxxxxxxxx",
+      "when": "xxxxxxxxxxxxxxxxxxx",
+      "do": "xxxxxxxxxxxxxxxxxxx",
+      "then": "xxxxxxxxxxxxxxxxxxx"
+    }
+  ],
+  "diagnosed": [
+    {
+      "name": "diagnosed",
+      "given": "h < 100 AND vibration >= 63",
+      "when": "b > 10 AND dt > 0",
+      "do": "action_x",
+      "then": "delta_dt >= 10 AND h >= 100"
+    }
+  ],
+  "candidate": [
+    {
+      "name": "xxxxxxxxxxxxxxxxxxx",
+      "given": "xxxxxxxxxxxxxxxxxxx",
+      "when": "xxxxxxxxxxxxxxxxxxx",
+      "do": "xxxxxxxxxxxxxxxxxxx",
+      "then": "xxxxxxxxxxxxxxxxxxx"
+    }
+  ],
+  "adapted": [
+    {
+      "name": "xxxxxxxxxxxxxxxxxxx",
+      "given": "xxxxxxxxxxxxxxxxxxx",
+      "when": "xxxxxxxxxxxxxxxxxxx",
+      "do": "xxxxxxxxxxxxxxxxxxx",
+      "then": "xxxxxxxxxxxxxxxxxxx"
+    }
+  ]
+}
