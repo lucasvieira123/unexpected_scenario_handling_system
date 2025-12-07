@@ -1,63 +1,48 @@
 {
-  "p0": {
+  "h": {
     "min_value": 0,
     "max_value": 100,
-    "type": "float"
+    "type": "int"
   },
-  "p1": {
+  "b": {
     "min_value": 0,
     "max_value": 100,
-    "type": "float"
+    "type": "int"
   },
-  "p2": {
+  "dt": {
     "min_value": 0,
     "max_value": 100,
-    "type": "float"
+    "type": "int"
   },
-  "p3": {
+  "vibration": {
     "min_value": 0,
     "max_value": 100,
-    "type": "float"
+    "type": "int"
   },
-  "p4": {
+  "wind_speed": {
     "min_value": 0,
-    "max_value": 100,
-    "type": "float"
+    "max_value": 360,
+    "type": "int"
   },
-  "p5": {
+  "dt_delta": {
     "min_value": 0,
     "max_value": 100,
-    "type": "float"
+    "type": "int"
   },
-  "p6": {
+   "payload": {
     "min_value": 0,
     "max_value": 100,
-    "type": "float"
+    "type": "int"
   },
-  "p7": {
+   "satellites": {
     "min_value": 0,
-    "max_value": 100,
-    "type": "float"
+    "max_value": 17,
+    "type": "int"
   },
-  "p8": {
+  "temp": {
     "min_value": 0,
     "max_value": 100,
-    "type": "float"
-  },
-  "p9": {
-    "min_value": 0,
-    "max_value": 100,
-    "type": "float"
-  },
-  "p10": {
-    "min_value": 0,
-    "max_value": 100,
-    "type": "float"
-  },
-
-  "p50": {
-    "min_value": 0,
-    "max_value": 100,
-    "type": "float"
+    "type": "int"
   }
+
 }
