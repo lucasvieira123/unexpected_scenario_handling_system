@@ -26,31 +26,31 @@
     },
     {
       "name": "diagnosed_plus_25",
-      "given": "h < 100 AND vibration >= 88",
+      "given": "h < 10 AND vibration >= 0",
       "when": "b > 10 AND dt > 0",
       "do": "action_x",
-      "then": "delta_dt >= 35 AND h >= 100"
+      "then": "delta_dt >= 10 AND h >= 100"
     },
-    {
+     {
       "name": "diagnosed_plus_50",
-      "given": "h < 100 AND vibration >= 100",
+      "given": "h < 10 AND vibration >= 10",
       "when": "b > 10 AND dt > 0",
       "do": "action_x",
-      "then": "delta_dt >= 60 AND h >= 100"
+      "then": "delta_dt >= 10 AND h >= 100"
     },
     {
       "name": "diagnosed_plus_75",
-      "given": "h < 100 AND vibration >= 100",
+      "given": "h < 10 AND vibration >= 10",
       "when": "b > 10 AND dt > 0",
       "do": "action_x",
-      "then": "delta_dt >= 85 AND h >= 100"
+       "then": "delta_dt >= 10 AND h >= 20"
     },
     {
       "name": "diagnosed_plus_100",
       "given": "h < 100 AND vibration >= 100",
       "when": "b > 10 AND dt > 0",
       "do": "action_x",
-      "then": "delta_dt >= 100 AND h >= 100"
+      "then": "delta_dt >= 10 AND h >= 50 AND delta_flight_time < 60"
     },
     {
       "name": "diagnosed_minus_25",
