@@ -1,0 +1,97 @@
+@startuml
+title ScenarioStateMachine
+state "root" as root {
+  [*] --> INIT
+  S17 --> [*]
+  state "ERR_22" as ERR22
+  state "ERR_20" as ERR20
+  state "ERR_18" as ERR18
+  state "ERR_16" as ERR16
+  state "ERR_14" as ERR14
+  state "ERR_12" as ERR12
+  state "ERR_10" as ERR10
+  state "ERR_8" as ERR8
+  state "ERR_6" as ERR6
+  state "ERR_2" as ERR2
+  state "S22" as S22
+S22 : **inv:** neutral
+S22 --> ERR22 : [not (armed == True)]
+  state "S21" as S21
+S21 : **inv:** h == 0
+S21 --> S22 : [h == 0]
+  state "S20" as S20
+S20 : **inv:** neutral
+S20 --> ERR20 : [not (h == 0)]
+S20 --> S21 : [h == 0]
+  state "S19" as S19
+S19 : **inv:** h >= 100
+S19 --> S20 : safeland_act (SafeLand)
+  state "S18" as S18
+S18 : **inv:** neutral
+S18 --> ERR18 : [not (h >= 100)]
+S18 --> S19 : [h >= 100]
+  state "S17" as S17
+S17 : **inv:** armed == False
+  state "S16" as S16
+S16 : **inv:** neutral
+S16 --> ERR16 : [not (armed == False)]
+S16 --> S17 : [armed == False]
+  state "S15" as S15
+S15 : **inv:** armed == True
+S15 --> S16 : shutdown_act (Shutdown)
+S15 --> S22 : [armed == True]
+  state "S14" as S14
+S14 : **inv:** neutral
+S14 --> ERR14 : [not (armed == True)]
+S14 --> S15 : [armed == True]
+  state "S13" as S13
+S13 : **inv:** h == 0
+S13 --> S14 : [h == 0]
+  state "S12" as S12
+S12 : **inv:** neutral
+S12 --> ERR12 : [not (h == 0)]
+S12 --> S13 : [h == 0]
+  state "S11" as S11
+S11 : **inv:** h >= 100
+S11 --> S12 : land_act (Landing)
+  state "S10" as S10
+S10 : **inv:** neutral
+S10 --> ERR10 : [not (h >= 100)]
+S10 --> S11 : [h >= 100]
+  state "S9" as S9
+S9 : **inv:** (delta_dt) >= 10 and h >= 100
+S9 --> S4 : [h >= 100]
+  state "S8" as S8
+S8 : **inv:** neutral
+S8 --> S9 : [(delta_dt) >= 10 and h >= 100]
+S8 --> ERR8 : [not ((delta_dt) >= 10 and h >= 100)]
+  state "S7" as S7
+S7 : **inv:** h >= 100
+S7 --> S8 : manoeuvre_act (Flying)
+  state "S6" as S6
+S6 : **inv:** neutral
+S6 --> ERR6 : [not (h >= 100)]
+S6 --> S7 : [h >= 100]
+  state "S5" as S5
+S5 : **inv:** asterisk
+S5 --> S10 : [dt == 0 and b > 10]
+S5 --> S18 : [b <= 10]
+S5 --> S6 : [b > 10 and dt > 0]
+  state "S4" as S4
+S4 : **inv:** asterisk
+S4 --> S5 : checkstatus_act (Checkstatus)
+  state "S3" as S3
+S3 : **inv:** h >= 100
+S3 --> S4 : [h >= 100]
+  state "S2" as S2
+S2 : **inv:** neutral
+S2 --> ERR2 : [not (h >= 100)]
+S2 --> S3 : [h >= 100]
+  state "S1" as S1
+S1 : **inv:** h == 0
+S1 --> S2 : takeoff_act (Takeoff)
+  state "INIT" as INIT
+INIT : **inv:** neutral
+INIT --> S1 : [armed == True]
+}
+@enduml

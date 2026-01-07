@@ -1,0 +1,212 @@
+statechart:
+  name: ScenarioStateMachine
+  description: Generated from scenario_state_machine.puml (PlantUML)
+
+  root state:
+    name: root
+    initial: INIT
+    states:
+
+      # Pseudoinicial do PlantUML: [*] --> S1 : [armed == true]
+      - name: INIT
+        contract:
+          - always: neutral
+        transitions:
+          - target: S1
+            guard: armed == True
+
+      # ====== Estados funcionais ======
+      - name: S1
+        contract:
+          - always: h == 0
+        transitions:
+          - target: S2
+            event: takeoff_act (Takeoff)
+
+      - name: S2
+        contract:
+          - always: neutral
+        transitions:
+          - target: ERR_2
+            guard: not (h >= 100)
+          - target: S3
+            guard: h >= 100
+
+      - name: S3
+        contract:
+          - always: h >= 100
+        transitions:
+          - target: S4
+            guard: h >= 100
+
+      - name: S4
+        contract:
+          - always: asterisk
+        transitions:
+          - target: S5
+            event: checkstatus_act (Checkstatus)
+
+      - name: S5
+        contract:
+          - always: asterisk
+        transitions:
+          - target: S10
+            guard: dt == 0 and b > 10
+          - target: S18
+            guard: b <= 10
+          - target: S6
+            guard: b > 10 and dt > 0
+
+      - name: S6
+        contract:
+          - always: neutral
+        transitions:
+          - target: ERR_6
+            guard: not (h >= 100)
+          - target: S7
+            guard: h >= 100
+
+      - name: S7
+        contract:
+          - always: h >= 100
+        transitions:
+          - target: S8
+            event: manoeuvre_act (Flying)
+
+      - name: S8
+        contract:
+          - always: neutral
+        transitions:
+          - target: S9
+            guard: (delta_dt) >= 10 and h >= 100
+          - target: ERR_8
+            guard: not ((delta_dt) >= 10 and h >= 100)
+
+      - name: S9
+        contract:
+          - always: (delta_dt) >= 10 and h >= 100
+        transitions:
+          - target: S4
+            guard: h >= 100
+
+      - name: S10
+        contract:
+          - always: neutral
+        transitions:
+          - target: ERR_10
+            guard: not (h >= 100)
+          - target: S11
+            guard: h >= 100
+
+      - name: S11
+        contract:
+          - always: h >= 100
+        transitions:
+          - target: S12
+            event: land_act (Landing)
+
+      - name: S12
+        contract:
+          - always: neutral
+        transitions:
+          - target: ERR_12
+            guard: not (h == 0)
+          - target: S13
+            guard: h == 0
+
+      - name: S13
+        contract:
+          - always: h == 0
+        transitions:
+          - target: S14
+            guard: h == 0
+
+      - name: S14
+        contract:
+          - always: neutral
+        transitions:
+          - target: ERR_14
+            guard: not (armed == True)
+          - target: S15
+            guard: armed == True
+
+      - name: S15
+        contract:
+          - always: armed == True
+        transitions:
+          - target: S16
+            event: shutdown_act (Shutdown)
+
+          # Transição adicional presente no PUML:
+          - target: S22
+            guard: armed == True
+
+      - name: S16
+        contract:
+          - always: neutral
+        transitions:
+          - target: ERR_16
+            guard: not (armed == False)
+          - target: S17
+            guard: armed == False
+
+      - name: S17
+        contract:
+          - always: armed == False
+        transitions:
+          - target: FINAL
+
+      - name: S18
+        contract:
+          - always: neutral
+        transitions:
+          - target: ERR_18
+            guard: not (h >= 100)
+          - target: S19
+            guard: h >= 100
+
+      - name: S19
+        contract:
+          - always: h >= 100
+        transitions:
+          - target: S20
+            event: safeland_act (SafeLand)
+
+      - name: S20
+        contract:
+          - always: neutral
+        transitions:
+          - target: ERR_20
+            guard: not (h == 0)
+          - target: S21
+            guard: h == 0
+
+      - name: S21
+        contract:
+          - always: h == 0
+        transitions:
+          - target: S22
+            guard: h == 0
+
+      - name: S22
+        contract:
+          - always: neutral
+        transitions:
+          - target: ERR_22
+            guard: not (armed == True)
+
+      # ====== Estados de erro ======
+      - name: ERR_2
+      - name: ERR_6
+      - name: ERR_8
+      - name: ERR_10
+      - name: ERR_12
+      - name: ERR_14
+      - name: ERR_16
+      - name: ERR_18
+      - name: ERR_20
+      - name: ERR_22
+
+      # ====== Final ======
+      - name: FINAL
+        type: final
