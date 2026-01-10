@@ -1,3 +1,4 @@
+from os import PathLike
 from schema import Optional
 from typing import Optional, List
 
@@ -23,11 +24,12 @@ class StateMachineEngine:
             "wind_speed": runtime_data_tick.wind_speed,
             "humidity": runtime_data_tick.humidity,
             "vibration": runtime_data_tick.vibration,
-            "delta_dt": runtime_data_tick.dt,
+            "delta_dt": runtime_data_tick.delta_dt,
             "action": runtime_data_tick.action})
 
         print(runtime_data_tick)
 
+        # Execute the transitions with label
         if self.itp._external_queue:
             for _ in range(2):
                 ms = self.itp.execute_once()
@@ -37,11 +39,10 @@ class StateMachineEngine:
                 
                 if ms is None:
                     break
+                    # return self.itp.configuration
                 
             
-            
-
-        # Execute the state machine
+        # Execute the state
         for _ in range(2):
             ms = self.itp.execute_once()
             print("MACROSTEP:", ms)
@@ -61,7 +62,7 @@ class StateMachineEngine:
 
 
 class AntecipatedScenarioMonitor:
-    def __init__(self, state_machine_yaml_path: str) -> None:
+    def __init__(self, state_machine_yaml_path: PathLike) -> None:
         self.latest: Optional[TelemetryTick] = None
         self.history_runtime_data: List[TelemetryTick] = []  # opcional (pode desligar se ficar grande)
         self.state_machine_engine = StateMachineEngine(state_machine_yaml_path)
