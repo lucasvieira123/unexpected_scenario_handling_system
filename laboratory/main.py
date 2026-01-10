@@ -1,10 +1,12 @@
 # %%
 from drone_behavior_simulator import DroneBehaviorSimulator, TelemetryBus
 from antecipated_scenario_monitor import AntecipatedScenarioMonitor
+import os
+SCENARIO_STATE_MACHINE_YAML_PATH = os.path.join("laboratory", "scenario_state_machine.yaml")
+CSV_PATH = os.path.join("laboratory", "drone_trace_simulation.csv")
+
 if __name__ == "__main__":
-    SCENARIO_STATE_MACHINE_YAML_PATH = "unexpected_scenario_handling_system/laboratory/scenario_state_machine.yaml"
-    CSV_PATH = "unexpected_scenario_handling_system/laboratory/drone_trace_simulation.csv"
-    EXECUTION_ID = 2                    # 1..4
+    EXECUTION_ID = 1                    # 1..4
     TICK_SECONDS = 1.0                  # 0 = sem delay
     bus = TelemetryBus()
 

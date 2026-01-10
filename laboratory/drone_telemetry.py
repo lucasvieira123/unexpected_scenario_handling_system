@@ -9,6 +9,7 @@ class TelemetryTick:
     t: int
     h: float
     dt: float
+    delta_dt: float
     b: float
     armed: bool
     wind_speed: float

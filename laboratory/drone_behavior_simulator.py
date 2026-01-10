@@ -1,11 +1,12 @@
 # from __future__ import annotations
+from os import PathLike
 from typing import  List
 import time
 import pandas as pd
 from drone_telemetry import TelemetryBus, TelemetryTick
 
 class DroneBehaviorSimulator:
-    def __init__(self, bus: TelemetryBus, csv_path: str, execution_id: int, tick_seconds: float) -> None:
+    def __init__(self, bus: TelemetryBus, csv_path: PathLike, execution_id: int, tick_seconds: float) -> None:
         self.csv_path = csv_path
         self.execution_id = execution_id
         self.tick_seconds = tick_seconds
@@ -28,6 +29,7 @@ class DroneBehaviorSimulator:
                     t=int(r["t"]),
                     h=float(r["h"]),
                     dt=float(r["dt"]),
+                    delta_dt=float(r["delta_dt"]),
                     b=float(r["b"]),
                     armed=bool(r["Armed_Status"]),
                     wind_speed=float(r["Wind_Speed"]),
