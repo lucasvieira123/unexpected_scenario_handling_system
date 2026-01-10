@@ -1,212 +1,298 @@
 statechart:
   name: ScenarioStateMachine
-  description: Generated from scenario_state_machine.puml (PlantUML)
+  description: Generated from flow-state-machine.drawio (diagram with nodes 1..24 and φ-nodes)
+
+  # Observação:
+  # - φ-nodes foram modelados como estados "PHI_x"
+  # - "delta_dt" deve existir no contexto (ex.: delta_dt = dt - dt_prev)
 
   root state:
     name: root
     initial: INIT
     states:
 
-      # Pseudoinicial do PlantUML: [*] --> S1 : [armed == true]
+      # =========================
+      # Pseudoinicial
+      # =========================
       - name: INIT
         contract:
-          - always: neutral
+          - always: True
         transitions:
-          - target: S1
+          # [*] --> φ1 : [armed == true]
+          - target: PHI_1
             guard: armed == True
 
-      # ====== Estados funcionais ======
-      - name: S1
+      # =========================
+      # φ1 / 2 / φ3 / 4  (takeoff)
+      # =========================
+      - name: PHI_1
         contract:
-          - always: h == 0
+          - always: True
         transitions:
+          # φ1 --> 2 : [h == 0]
           - target: S2
-            event: takeoff_act (Takeoff)
+            guard: h == 0
+          # φ1 --> ERROR : ![h == 0]
+          - target: ERR_1
+            guard: not (h == 0)
 
       - name: S2
         contract:
-          - always: neutral
+          - always: h == 0
         transitions:
-          - target: ERR_2
-            guard: not (h >= 100)
-          - target: S3
-            guard: h >= 100
+          # 2 --> φ3 : takeoff_act (Takeoff)  (SEM guarda na aresta)
+          - target: PHI_3
+            event: takeoff_act (Takeoff)
 
-      - name: S3
+      - name: PHI_3
         contract:
-          - always: h >= 100
+          - always: True
         transitions:
+          # φ3 --> 4 : [h >= 100]
           - target: S4
             guard: h >= 100
+          # φ3 --> ERROR : ![h >= 100]
+          - target: ERR_3
+            guard: not (h >= 100)
 
       - name: S4
         contract:
-          - always: asterisk
+          - always: h >= 100
         transitions:
-          - target: S5
-            event: checkstatus_act (Checkstatus)
+          # 4 --> φ5 : [h >= 100]
+          - target: PHI_5
+            guard: h >= 100
 
-      - name: S5
+      # =========================
+      # φ5 / 6 / φ7 / 8 (loop + decisão)
+      # =========================
+      - name: PHI_5
         contract:
-          - always: asterisk
+          - always: True
         transitions:
-          - target: S10
-            guard: dt == 0 and b > 10
-          - target: S18
-            guard: b <= 10
+          # φ5 --> 6 : [*]
           - target: S6
-            guard: b > 10 and dt > 0
+            guard: True
+          # φ5 --> ERROR : ![*]
+          - target: ERR_5
+            guard: not (True)
 
       - name: S6
         contract:
-          - always: neutral
+          - always: True
         transitions:
-          - target: ERR_6
-            guard: not (h >= 100)
-          - target: S7
-            guard: h >= 100
+          # 6 --> φ7 : checkstatus_act (Checkstatus) (SEM guarda na aresta)
+          - target: PHI_7
+            event: checkstatus_act (Checkstatus)
 
-      - name: S7
+      - name: PHI_7
         contract:
-          - always: h >= 100
+          - always: True
         transitions:
+          # φ7 --> 8 : [*]
           - target: S8
-            event: manoeuvre_act (Flying)
+            guard: True
+          # φ7 --> ERROR : ![*]
+          - target: ERR_7
+            guard: not (True)
 
       - name: S8
         contract:
-          - always: neutral
+          - always: True
         transitions:
-          - target: S9
-            guard: (delta_dt) >= 10 and h >= 100
-          - target: ERR_8
-            guard: not ((delta_dt) >= 10 and h >= 100)
+          # 8 --> (ramo A) : [b > 10 and dt > 0]
+          - target: PHI_9
+            guard: (b > 10) and (dt > 0)
 
-      - name: S9
+          # 8 --> (ramo B) : [dt == 0.0 & b > 10]
+          - target: PHI_13
+            guard: (dt == 0) and (b > 10)
+
+          # 8 --> (ramo C) : [b <= 10]
+          - target: PHI_21
+            guard: b <= 10
+
+      # =========================
+      # Ramo A: Flight loop  (φ9 / 10 / φ11 / 12 -> φ5)
+      # =========================
+      - name: PHI_9
         contract:
-          - always: (delta_dt) >= 10 and h >= 100
+          - always: True
         transitions:
-          - target: S4
+          # φ9 --> 10 : [h >= 100]
+          - target: S10
             guard: h >= 100
+          # φ9 --> ERROR : ![h >= 100]
+          - target: ERR_9
+            guard: not (h >= 100)
 
       - name: S10
         contract:
-          - always: neutral
-        transitions:
-          - target: ERR_10
-            guard: not (h >= 100)
-          - target: S11
-            guard: h >= 100
-
-      - name: S11
-        contract:
           - always: h >= 100
         transitions:
+          # 10 --> φ11 : manoeuvre_act (Flying) (SEM guarda na aresta)
+          - target: PHI_11
+            event: manoeuvre_act (Flying)
+
+      - name: PHI_11
+        contract:
+          - always: True
+        transitions:
+          # φ11 --> 12 : [dt - dt' >= 10 AND h >= 100]
           - target: S12
-            event: land_act (Landing)
+            guard: (delta_dt >= 10) and (h >= 100)
+          # φ11 --> ERROR : ![dt - dt' >= 10 AND h >= 100]
+          - target: ERR_11
+            guard: not ((delta_dt >= 10) and (h >= 100))
 
       - name: S12
         contract:
-          - always: neutral
+          - always: (delta_dt >= 10) and (h >= 100)
         transitions:
-          - target: ERR_12
-            guard: not (h == 0)
-          - target: S13
-            guard: h == 0
+          # 12 --> φ5 : retorno do loop (re-entra no ciclo)
+          - target: PHI_5
+            # guard: True
+            guard: h >= 100
 
-      - name: S13
+      # =========================
+      # Ramo B: Landing normal (φ13 / 14 / φ15 / 16 -> φ17)
+      # =========================
+      - name: PHI_13
         contract:
-          - always: h == 0
+          - always: True
         transitions:
+          # φ13 --> 14 : [h >= 100]
           - target: S14
-            guard: h == 0
+            guard: h >= 100
+          # φ13 --> ERROR : ![h >= 100]
+          - target: ERR_13
+            guard: not (h >= 100)
 
       - name: S14
         contract:
-          - always: neutral
+          - always: h >= 100
         transitions:
-          - target: ERR_14
-            guard: not (armed == True)
-          - target: S15
-            guard: armed == True
+          # 14 --> φ15 : land_act (Landing) (SEM guarda na aresta)
+          - target: PHI_15
+            event: land_act (Landing)
 
-      - name: S15
+      - name: PHI_15
         contract:
-          - always: armed == True
+          - always: True
         transitions:
+          # φ15 --> 16 : [h == 0]
           - target: S16
-            event: shutdown_act (Shutdown)
-
-          # Transição adicional presente no PUML:
-          - target: S22
-            guard: armed == True
+            guard: h == 0
+          # φ15 --> ERROR : ![h == 0]
+          - target: ERR_15
+            guard: not (h == 0)
 
       - name: S16
         contract:
-          - always: neutral
+          - always: h == 0
         transitions:
-          - target: ERR_16
-            guard: not (armed == False)
-          - target: S17
-            guard: armed == False
+          # 16 --> φ17 : [h == 0]
+          - target: PHI_17
+            guard: h == 0
 
-      - name: S17
+      # =========================
+      # Ramo C: SafeLand (φ21 / 22 / φ23 / 24 -> φ17)
+      # =========================
+      - name: PHI_21
+        contract:
+          - always: True
+        transitions:
+          # φ21 --> 22 : [h >= 100]
+          - target: S22
+            guard: h >= 100
+          # # φ21 --> ERROR : ![h >= 100]
+          # - target: ERR_21
+          #   guard: not (h >= 100)
+
+      - name: S22
+        contract:
+          - always: h >= 100
+        transitions:
+          # 22 --> φ23 : safeland_act (Safeland) (SEM guarda na aresta)
+          - target: PHI_23
+            event: safeland_act (Safeland)
+
+      - name: PHI_23
+        contract:
+          - always: True
+        transitions:
+          # φ23 --> 24 : [h == 0]
+          - target: S24
+            guard: h == 0
+          # φ23 --> ERROR : ![h == 0]
+          - target: ERR_23
+            guard: not (h == 0)
+
+      - name: S24
+        contract:
+          - always: h == 0
+        transitions:
+          # 24 --> φ17 : [h == 0]
+          - target: PHI_17
+            guard: h == 0
+
+      # =========================
+      # Shutdown (φ17 / 18 / φ19 / 20 -> FINAL)
+      # =========================
+      - name: PHI_17
+        contract:
+          - always: True
+        transitions:
+          # φ17 --> 18 : [armed == true]
+          - target: S18
+            guard: armed == True
+          # φ17 --> ERROR : ![armed == true]
+          - target: ERR_17
+            guard: not (armed == True)
+
+      - name: S18
+        contract:
+          - always: armed == True
+        transitions:
+          # 18 --> φ19 : shutdown_act (Shutdown) [h == 0]
+          - target: PHI_19
+            event: shutdown_act (Shutdown)
+
+      - name: PHI_19
+        contract:
+          - always: True
+        transitions:
+          # φ19 --> 20 : [armed == false]
+          - target: S20
+            guard: armed == False
+          # φ19 --> ERROR : ![armed == false]
+          - target: ERR_19
+            guard: not (armed == False)
+
+      - name: S20
         contract:
           - always: armed == False
         transitions:
           - target: FINAL
+            guard: True
 
-      - name: S18
-        contract:
-          - always: neutral
-        transitions:
-          - target: ERR_18
-            guard: not (h >= 100)
-          - target: S19
-            guard: h >= 100
+      # =========================
+      # Estados de erro (terminais na prática)
+      # =========================
+      - name: ERR_1
+      - name: ERR_3
+      - name: ERR_5
+      - name: ERR_7
+      - name: ERR_9
+      - name: ERR_11
+      - name: ERR_13
+      - name: ERR_15
+      - name: ERR_17
+      - name: ERR_19
+      - name: ERR_23
 
-      - name: S19
-        contract:
-          - always: h >= 100
-        transitions:
-          - target: S20
-            event: safeland_act (SafeLand)
-
-      - name: S20
-        contract:
-          - always: neutral
-        transitions:
-          - target: ERR_20
-            guard: not (h == 0)
-          - target: S21
-            guard: h == 0
-
-      - name: S21
-        contract:
-          - always: h == 0
-        transitions:
-          - target: S22
-            guard: h == 0
-
-      - name: S22
-        contract:
-          - always: neutral
-        transitions:
-          - target: ERR_22
-            guard: not (armed == True)
-
-      # ====== Estados de erro ======
-      - name: ERR_2
-      - name: ERR_6
-      - name: ERR_8
-      - name: ERR_10
-      - name: ERR_12
-      - name: ERR_14
-      - name: ERR_16
-      - name: ERR_18
-      - name: ERR_20
-      - name: ERR_22
-
-      # ====== Final ======
+      # =========================
+      # Final
+      # =========================
       - name: FINAL
         type: final
