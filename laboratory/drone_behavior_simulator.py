@@ -4,6 +4,7 @@ from typing import  List
 import time
 import pandas as pd
 from drone_telemetry import TelemetryBus, TelemetryTick
+import pandas as pd
 
 class DroneBehaviorSimulator:
     def __init__(self, bus: TelemetryBus, csv_path: PathLike, execution_id: int, tick_seconds: float) -> None:
@@ -20,7 +21,7 @@ class DroneBehaviorSimulator:
 
         ticks: List[TelemetryTick] = []
         for _, r in df.iterrows():
-            action = r["Action"]
+            action = r["action"]
             action = None if action == "-" else str(action)
 
             ticks.append(
@@ -31,10 +32,10 @@ class DroneBehaviorSimulator:
                     dt=float(r["dt"]),
                     delta_dt=float(r["delta_dt"]),
                     b=float(r["b"]),
-                    armed=bool(r["Armed_Status"]),
-                    wind_speed=float(r["Wind_Speed"]),
-                    humidity=float(r["Humidity"]),
-                    vibration=float(r["Vibration"]),
+                    armed=bool(r["armed"]),
+                    wind_speed=float(r["wind_speed"]),
+                    humidity=float(r["humidity"]),
+                    vibration=float(r["vibration"]),
                     action=action,
                 )
             )
@@ -46,5 +47,11 @@ class DroneBehaviorSimulator:
             self.bus.publish(tick)
             if self.tick_seconds > 0:
                 time.sleep(self.tick_seconds)
+    
+    def get_initial_context(self):
+        df = pd.read_csv(self.csv_path)
+        df.drop(columns=["execution", "t"], inplace=True)
+        initial_context=df.iloc[0].to_dict()
         
+        return initial_context
     

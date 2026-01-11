@@ -6,19 +6,20 @@ SCENARIO_STATE_MACHINE_YAML_PATH = os.path.join("laboratory", "scenario_state_ma
 CSV_PATH = os.path.join("laboratory", "drone_trace_simulation.csv")
 
 if __name__ == "__main__":
-    EXECUTION_ID = 1                    # 1..4
-    TICK_SECONDS = 1.0                  # 0 = sem delay
+    EXECUTION_ID = 3                    # 1..4
+    TICK_SECONDS = 0.1                  # 0 = sem delay
     bus = TelemetryBus()
 
     simulator = DroneBehaviorSimulator(bus, CSV_PATH, EXECUTION_ID, TICK_SECONDS)
-    monitor = AntecipatedScenarioMonitor(SCENARIO_STATE_MACHINE_YAML_PATH)
+    initial_context = simulator.get_initial_context()
+    monitor = AntecipatedScenarioMonitor(SCENARIO_STATE_MACHINE_YAML_PATH, initial_context)
     bus.subscribe(monitor.handle_runtime_data)
     simulator.run()
 
     # em qualquer momento você pode consultar:
-    print("\nÚltimo tick visto pelo monitor:")
-    print(monitor.latest)
-    print(monitor.history_runtime_data)
+    # print("\nÚltimo tick visto pelo monitor:")
+    # print(monitor.latest)
+    # print(monitor.history_runtime_data)
     
 
     # ticks = load_ticks(CSV_PATH, execution=EXECUTION_ID)
