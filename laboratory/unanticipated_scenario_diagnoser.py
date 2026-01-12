@@ -99,7 +99,7 @@ class UnanticipatedScenarioDiagnoser:
 
         filtered_df = self.filter_scenario_and_next(violated_scenario_name)
         train_df = filtered_df.drop(columns=["action","anticipated_scenario","execution"])
-        train_df["SAT"] = train_df["SAT"].fillna(False)
+        train_df["SAT"] = train_df["SAT"].astype("boolean").fillna(False)
         
         X = train_df.drop(columns=["SAT"])
         y = train_df["SAT"]

@@ -14,7 +14,7 @@ def load_config(path: str) -> dict:
     with open(path, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
     
-cfg = load_config("laboratory/dejavu-conf.yaml")
+cfg = load_config("unexpected_scenario_handling_system/laboratory/dejavu-conf.yaml")
 
 
 def detected_unanticipated_scenario() -> pd.DataFrame:
