@@ -10,16 +10,14 @@ from sismic.interpreter import Interpreter
 import re
 
 PATTERN = re.compile(r"^\s*(?P<action>.*?)\s*\(\s*(?P<scenario>.*?)\s*\)\s*$")
-CHECKED_SCENARIOS_FOLDER_PATH = Path("laboratory/checked_scenarios/")
-
 RED   = "\033[31m"
 GREEN = "\033[32m"
 RESET = "\033[0m"
 
 
 class StateMachineEngine:
-    def __init__(self, state_machine_yaml_path, _initial_context: dict):
-        self.state_machine = import_from_yaml(filepath=state_machine_yaml_path)
+    def __init__(self, _initial_context: dict, config: dict) -> None:
+        self.state_machine = import_from_yaml(filepath=config["scenario_state_machine_yaml"])
         self.itp = Interpreter(self.state_machine, initial_context=_initial_context)
 
         self.monitored_scenarios_df = pd.DataFrame(columns=_initial_context.keys())
@@ -181,16 +179,17 @@ class StateMachineEngine:
 
 class AntecipatedScenarioMonitor:
     
-    def __init__(self, state_machine_yaml_path: PathLike, initial_context: dict) -> None:
+    def __init__(self, initial_context: dict, config) -> None:
         self.latest: Optional[TelemetryTick] = None
         self.history_runtime_data: List[TelemetryTick] = []  # opcional (pode desligar se ficar grande)
-        self.state_machine_engine = StateMachineEngine(state_machine_yaml_path, initial_context)
+        self.state_machine_engine = StateMachineEngine(initial_context, config)
 
-        self.new_csv = self.next_csv_path(CHECKED_SCENARIOS_FOLDER_PATH)
+        self.new_csv = self.next_csv_path(config["checked_scenarios_folder"])
         self.new_csv.write_text("", encoding="utf-8")
 
 
-    def next_csv_path(self, folder: Path, prefix: str = "checked_scenarios_", digits: int = 3) -> Path:
+    def next_csv_path(self, folder: str, prefix: str = "checked_scenarios_", digits: int = 3) -> Path:
+        folder = Path(folder)
         folder.mkdir(parents=True, exist_ok=True)          # cria o diretório se não existir
         n_csv = len(list(folder.glob("*.csv")))            # conta quantos CSV existem
         next_n = n_csv + 1
@@ -202,6 +201,11 @@ class AntecipatedScenarioMonitor:
 
         checked_scenarios_df = self.state_machine_engine.check_state_machine(runtime_data_tick)
         checked_scenarios_df.to_csv(self.new_csv, index=False)
+
+        rows_false = checked_scenarios_df[checked_scenarios_df["SAT"] == False]
+        if not rows_false.empty:
+            print(f"{RED}=== ALERT: Unexpected Scenario Detected! ==={RESET}")
+            print(f"{RED} {rows_false} {RESET}")
 
 
         # act = runtime_data_tick.action if runtime_data_tick.action else "-"

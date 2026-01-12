@@ -1,0 +1,8 @@
+anticipated_scenarios_yaml: "laboratory/anticipated_scenarios.yaml"
+scenario_state_machine_yaml: "laboratory/scenario_state_machine.yaml"
+checked_scenarios_folder: "laboratory/checked_scenarios/"
+
+simulation:
+  csv_trace: "laboratory/drone_trace_simulation.csv"
+  execution_id: 3        # 1..4
+  tick_seconds: 0.01      # 0 = sem delay

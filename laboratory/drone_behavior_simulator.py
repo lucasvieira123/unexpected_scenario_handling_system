@@ -6,12 +6,16 @@ import pandas as pd
 from drone_telemetry import TelemetryBus, TelemetryTick
 import pandas as pd
 
+
+
 class DroneBehaviorSimulator:
-    def __init__(self, bus: TelemetryBus, csv_path: PathLike, execution_id: int, tick_seconds: float) -> None:
-        self.csv_path = csv_path
-        self.execution_id = execution_id
-        self.tick_seconds = tick_seconds
+    def __init__(self, bus: TelemetryBus, cfg) -> None:
         self.bus = bus
+        self.csv_path = cfg["simulation"]["csv_trace"]
+        self.execution_id = cfg["simulation"]["execution_id"]
+        self.tick_seconds = cfg["simulation"]["tick_seconds"]
+
+        
 
     def load_ticks(self, csv_path: str, execution: int) -> List[TelemetryTick]:
         df = pd.read_csv(csv_path)
