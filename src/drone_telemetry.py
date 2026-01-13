@@ -5,8 +5,6 @@ import pandas as pd
 # ---------- 1) Modelo do "tick" ----------
 @dataclass(frozen=True)
 class TelemetryTick:
-    execution: int
-    t: int
     h: float
     dt: float
     delta_dt: float

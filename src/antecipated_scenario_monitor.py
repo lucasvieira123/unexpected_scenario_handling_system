@@ -9,6 +9,9 @@ from sismic.io import import_from_yaml
 from sismic.interpreter import Interpreter
 import re
 
+from constants import DEJAVU_CONF_PATH
+from utils import load_config
+
 PATTERN = re.compile(r"^\s*(?P<action>.*?)\s*\(\s*(?P<scenario>.*?)\s*\)\s*$")
 RED   = "\033[31m"
 GREEN = "\033[32m"
@@ -16,8 +19,10 @@ RESET = "\033[0m"
 
 
 class StateMachineEngine:
-    def __init__(self, _initial_context: dict, config: dict) -> None:
-        self.state_machine = import_from_yaml(filepath=config["scenario_state_machine_yaml"])
+    def __init__(self, _initial_context: dict) -> None:
+        self.cfg = load_config(DEJAVU_CONF_PATH)
+
+        self.state_machine = import_from_yaml(filepath=self.cfg["scenario_state_machine_yaml"])
         self.itp = Interpreter(self.state_machine, initial_context=_initial_context)
 
         self.monitored_scenarios_df = pd.DataFrame(columns=_initial_context.keys())
@@ -179,12 +184,13 @@ class StateMachineEngine:
 
 class AntecipatedScenarioMonitor:
     
-    def __init__(self, initial_context: dict, config) -> None:
+    def __init__(self, initial_context: dict) -> None:
+        self.cfg = load_config(DEJAVU_CONF_PATH)
         self.latest: Optional[TelemetryTick] = None
         self.history_runtime_data: List[TelemetryTick] = []  # opcional (pode desligar se ficar grande)
-        self.state_machine_engine = StateMachineEngine(initial_context, config)
+        self.state_machine_engine = StateMachineEngine(initial_context)
 
-        self.new_csv = self.next_csv_path(config["checked_scenarios_folder"])
+        self.new_csv = self.next_csv_path(self.cfg["checked_scenarios_folder"])
         self.new_csv.write_text("", encoding="utf-8")
 
 

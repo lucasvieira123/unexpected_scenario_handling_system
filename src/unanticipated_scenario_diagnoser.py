@@ -4,11 +4,14 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier, export_text
 from sklearn.tree import _tree
 
+from constants import DEJAVU_CONF_PATH
+from utils import load_config
+
 class UnanticipatedScenarioDiagnoser:
 
-    def __init__(self, config) -> None:
-        self.config = config
-        self.all_checked_scenarios_df = self.load_all_checked_scenarios(config["checked_scenarios_folder"])
+    def __init__(self) -> None:
+        self.cfg = load_config(DEJAVU_CONF_PATH)
+        self.all_checked_scenarios_df = self.load_all_checked_scenarios(self.cfg["checked_scenarios_folder"])
         self.classifier = DecisionTreeClassifier(random_state=42, max_depth=3)
 
     def load_all_checked_scenarios(self, folder: str) -> pd.DataFrame:
@@ -92,7 +95,7 @@ class UnanticipatedScenarioDiagnoser:
         recurse(0, [])
         return rules
 
-    def diagnose(self, detected_unanticipated_scenarios_df: pd.DataFrame,
+    def diagnosis(self, detected_unanticipated_scenarios_df: pd.DataFrame,
                  identified_unanticipated_scenarios_dict: pd.DataFrame) -> pd.DataFrame:
         
         violated_scenario_name = detected_unanticipated_scenarios_df["anticipated_scenario"].iloc[0]

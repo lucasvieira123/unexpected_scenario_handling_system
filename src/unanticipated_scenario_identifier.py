@@ -2,6 +2,9 @@ import re
 import pandas as pd
 import yaml
 
+from constants import DEJAVU_CONF_PATH
+from utils import load_config
+
 _OP_NEG = {
     ">=": "<",
     "<=": ">",
@@ -11,20 +14,17 @@ _OP_NEG = {
     "<": ">=",
 }
 
+
 class UnanticipatedScenarioIdentifier:
 
-    def load_config(self, path: str) -> dict:
-        with open(path, "r", encoding="utf-8") as f:
-            return yaml.safe_load(f)
-
-    def __init__(self, config: dict):
-        self.config = config
-        self.scenarios_config = self.load_config(config["anticipated_scenarios_yaml"])
+    def __init__(self):
+        self.cfg = load_config(DEJAVU_CONF_PATH)
+        self.modelling_anticipated_scenarios = load_config(self.cfg["anticipated_scenarios_yaml"])
        
 
     def get_scenario_by_name(self, name: str) -> dict:
         name_key = name.casefold().strip()
-        for sc in self.scenarios_config.get("scenarios", []):
+        for sc in self.modelling_anticipated_scenarios.get("scenarios", []):
             if sc.get("name", "").casefold().strip() == name_key:
                 return sc
         raise KeyError(f"Cenário com name='{name}' não encontrado")
@@ -61,7 +61,7 @@ class UnanticipatedScenarioIdentifier:
             return conds[0]
         return " and ".join(f"({c})" for c in conds)
 
-    def identify(self, unanticipated_scenarios_df: pd.DataFrame):
+    def identifies(self, unanticipated_scenarios_df: pd.DataFrame):
         
         #TODO só trata violacoes em post-conditions por enquanto
 
