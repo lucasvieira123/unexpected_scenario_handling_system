@@ -32,7 +32,7 @@ class UnanticipatedScenarioIdentifier:
     def false_clauses(self, cond: str, context_row: pd.Series) -> list[str]:
         ctx = context_row.iloc[0].to_dict()  # {'h': 99.2, 'delta_dt': 10.0, ...}
 
-        clauses = [c.strip() for c in cond.split(" and ")]
+        clauses = [c.strip() for c in cond.split(" AND ")]
         falses = [c for c in clauses if not eval(c, {}, ctx)]
         return falses 
     

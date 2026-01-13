@@ -53,7 +53,7 @@ class UnanticipatedScenarioDiagnoser:
         take_pos = sorted({p for i in hits for p in (i, i+1) if p < len(dfr)})
         return dfr.iloc[take_pos].copy()
     
-    def extract_rules(self, clf, feature_names, class_names=None, precision=3):
+    def extract_rules(self, clf, feature_names, class_names=None):
         tree = clf.tree_
 
         if class_names is None:
@@ -67,13 +67,13 @@ class UnanticipatedScenarioDiagnoser:
             # nó interno
             if feat_id != _tree.TREE_UNDEFINED:
                 feat = feature_names[feat_id]
-                thr = tree.threshold[node]
+                thr = int(tree.threshold[node])
 
                 left = tree.children_left[node]
                 right = tree.children_right[node]
 
-                recurse(left,  conditions + [f"{feat} <= {thr:.{precision}f}"])
-                recurse(right, conditions + [f"{feat} > {thr:.{precision}f}"])
+                recurse(left,  conditions + [f"{feat} <= {thr}"])
+                recurse(right, conditions + [f"{feat} > {thr}"])
                 return
 
             # folha
@@ -111,6 +111,9 @@ class UnanticipatedScenarioDiagnoser:
         # regras = export_text(self.classifier, feature_names=list(X.columns))
         # print(regras)
         rules = self.extract_rules(self.classifier, feature_names=list(X.columns))
+
+        for r in rules: # Força 'then' ser string "True" ou "False"
+            r["then"] = "True" if str(r["then"]) in ("1", "1.0", "True", "true") else "False"
 
         false_rules = [
             {"if": r["if"], "proba": r["proba"]}

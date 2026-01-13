@@ -1,9 +1,9 @@
 scenarios:
-  - id: landing
-    name: "Landing"
+  - id: lANDing
+    name: "LANDing"
     given: "h >= 100"
-    when: "dt == 0 and b > 10"
-    do: "land_act"
+    when: "dt == 0 AND b > 10"
+    do: "lAND_act"
     then: "h == 0"
 
   - id: shutdown
@@ -13,11 +13,11 @@ scenarios:
     do: "shutdown_act"
     then: "armed == False"
 
-  - id: safe_landing
-    name: "Safe Landing"
+  - id: safe_lANDing
+    name: "Safe LANDing"
     given: "h >= 100"
     when: "b <= 10"
-    do: "safeland_act"
+    do: "safelAND_act"
     then: "h == 0"
 
   - id: takeoff
@@ -37,9 +37,9 @@ scenarios:
   - id: flying
     name: "Flying"
     given: "h >= 100"
-    when: "b > 10 and dt > 0"
+    when: "b > 10 AND dt > 0"
     do: "maneuver_act"
-    then: "delta_dt >= 10 and h >= 100"
+    then: "delta_dt >= 10 AND h >= 100"
 
 transitions:
   - from: INITIAL
@@ -55,15 +55,15 @@ transitions:
     to: check_status
 
   - from: check_status
-    to: safe_landing
+    to: safe_lANDing
 
-  - from: safe_landing
+  - from: safe_lANDing
     to: shutdown
 
   - from: check_status
-    to: landing
+    to: lANDing
 
-  - from: landing
+  - from: lANDing
     to: shutdown
 
   - from: shutdown
