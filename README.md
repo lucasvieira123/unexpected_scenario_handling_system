@@ -6,7 +6,7 @@
 - [Configuration](#configuration)
 - [Quick Run](#quick-run)
 - [Reproducing the Paper Experiments](#reproducing-the-paper-experiments)
-- [Licence](#license)
+- [License](#license)
 
 ## Overview
 **DejaVuArch** is a reference architecture that enables **self-evolving systems** to **detect**, **identify**, **diagnose**, and **remediate** unanticipated scenarios using **similarity-based adaptation**.
