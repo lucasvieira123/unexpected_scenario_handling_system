@@ -1,9 +1,0 @@
-[
-  {
-    "name": "cand_low_speed_flying",
-    "given": "h < 100 AND vibration >= 50 AND wind_speed > 60",
-    "when": "b > 10 AND dt > 0",
-    "do": "setSpeed(Low) AND maneuver_act",
-    "then": "delta_dt >= 10 AND h >= 90"
-  }
-]
