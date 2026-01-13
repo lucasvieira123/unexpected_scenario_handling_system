@@ -58,4 +58,4 @@ After the execution finishes, check the generated results in:
 - `res/similarities.jsonl`
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.
