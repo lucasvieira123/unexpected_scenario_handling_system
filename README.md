@@ -6,10 +6,14 @@
 - [Configuration](#configuration)
 - [Quick Run](#quick-run)
 - [Reproducing the Paper Experiments](#reproducing-the-paper-experiments)
+- [Not Implemented] (#not-implemented)
 - [License](#license)
 
 ## Overview
 **DejaVuArch** is a reference architecture that enables **self-evolving systems** to **detect**, **identify**, **diagnose**, and **remediate** unanticipated scenarios using **similarity-based adaptation**.
+
+[overview_arch.pdf](https://github.com/user-attachments/files/24591274/overview_arch.pdf)
+
 
 In this repository, the pipeline can (optionally) **replay/simulate a target system execution** (e.g., from traces) and then perform scenario monitoring and similarity-based analysis to support unanticipated scenario handling.
 
@@ -56,6 +60,8 @@ python dejavu.py
 
 After the execution finishes, check the generated results in:
 - `res/similarities.jsonl`
+## Not Implemented
+The **Adaptation Evaluation** and **Evolutionary Adaptation Enactor** components have not been implemented yet. This is because it is first necessary to build a simulation that represents the effects of an adaptation on the _target application_. Then, once a viable adaptation is achieved, the adapted scenario should be merged into the Anticipated Scenario Model, becoming a newly discovered scenario to handle the previously unanticipated situation.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.
