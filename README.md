@@ -6,7 +6,7 @@
 - [Configuration](#configuration)
 - [Quick Run](#quick-run)
 - [Reproducing the Paper Experiments](#reproducing-the-paper-experiments)
-- [Not Implemented] (#not-implemented)
+- [Not Implemented](#not-implemented)
 - [License](#license)
 
 ## Overview
