@@ -267,88 +267,89 @@ else:
 
     # ── Left panel: hAS Model ─────────────────────────────────────────────────
     with col_has:
-        st.subheader("hAS Model")
+        with st.container(border=True):
+            st.subheader("hAS Model")
 
-        COLS = 2
-        SPACING_X = 380
-        SPACING_Y = 260
+            COLS = 2
+            SPACING_X = 380
+            SPACING_Y = 260
 
-        has_nodes = []
-        for i, (sid, s) in enumerate(st.session_state.scenarios.items()):
-            col = i % COLS
-            row = i // COLS
-            has_nodes.append(
-                Node(
-                    id=sid,
-                    label=make_label(s),
-                    shape="box",
-                    x=col * SPACING_X,
-                    y=row * SPACING_Y,
-                    color={"background": "#1E3A5F", "border": "#4C9BE8",
-                           "highlight": {"background": "#2A5298", "border": "#6BB3F0"}},
-                    font={"size": 13, "color": "#FFFFFF", "face": "monospace", "align": "left"},
+            has_nodes = []
+            for i, (sid, s) in enumerate(st.session_state.scenarios.items()):
+                col = i % COLS
+                row = i // COLS
+                has_nodes.append(
+                    Node(
+                        id=sid,
+                        label=make_label(s),
+                        shape="box",
+                        x=col * SPACING_X,
+                        y=row * SPACING_Y,
+                        color={"background": "#1E3A5F", "border": "#4C9BE8",
+                               "highlight": {"background": "#2A5298", "border": "#6BB3F0"}},
+                        font={"size": 13, "color": "#FFFFFF", "face": "monospace", "align": "left"},
+                    )
                 )
-            )
 
-        has_edges = [
-            Edge(source=t["from"], target=t["to"], directed=True,
-                 color={"color": "#4C9BE8"}, arrows="to")
-            for t in st.session_state.transitions
-        ]
+            has_edges = [
+                Edge(source=t["from"], target=t["to"], directed=True,
+                     color={"color": "#4C9BE8"}, arrows="to")
+                for t in st.session_state.transitions
+            ]
 
-        agraph(nodes=has_nodes, edges=has_edges, config=Config(
-            width="100%", height=600, directed=True,
-            physics=False, hierarchical=False, nodeHighlightBehavior=True,
-        ))
+            agraph(nodes=has_nodes, edges=has_edges, config=Config(
+                width="100%", height=600, directed=True,
+                physics=False, hierarchical=False, nodeHighlightBehavior=True,
+            ))
 
     # ── Right panel: State Machine ────────────────────────────────────────────
     with col_assm:
-        st.subheader("Anticipated Scenario State Machine (ASSM)")
+        with st.container(border=True):
+            st.subheader("Anticipated Scenario State Machine (ASSM)")
 
-        assm = has_to_assm(build_has_model())
-        assm_states = assm["statechart"]["root state"]["states"]
+            assm = has_to_assm(build_has_model())
+            assm_states = assm["statechart"]["root state"]["states"]
 
-        # Node color by type
-        def node_color(name: str):
-            if name == "INIT":
-                return {"background": "#2E7D32", "border": "#66BB6A"}
-            if name == "FINAL":
-                return {"background": "#1A237E", "border": "#5C6BC0"}
-            if name.startswith("ERR"):
-                return {"background": "#7B1010", "border": "#EF5350"}
-            if name.startswith("PHI"):
-                return {"background": "#4A235A", "border": "#AB47BC"}
-            return {"background": "#1E3A5F", "border": "#4C9BE8"}
+            def node_color(name: str):
+                if name == "INIT":
+                    return {"background": "#2E7D32", "border": "#66BB6A"}
+                if name == "FINAL":
+                    return {"background": "#1A237E", "border": "#5C6BC0"}
+                if name.startswith("ERR"):
+                    return {"background": "#7B1010", "border": "#EF5350"}
+                if name.startswith("PHI"):
+                    return {"background": "#4A235A", "border": "#AB47BC"}
+                return {"background": "#1E3A5F", "border": "#4C9BE8"}
 
-        assm_nodes = []
-        assm_edges = []
+            def assm_label(state: dict) -> str:
+                name = state["name"]
+                contract = state.get("contract", [])
+                always = next((c["always"] for c in contract if "always" in c), None)
+                if always:
+                    return f"{name}\n─────────────\n{always}"
+                return name
 
-        def assm_label(state: dict) -> str:
-            name = state["name"]
-            contract = state.get("contract", [])
-            always = next((c["always"] for c in contract if "always" in c), None)
-            if always:
-                return f"{name}\n─────────────\n{always}"
-            return name
+            assm_nodes = []
+            assm_edges = []
 
-        for i, state in enumerate(assm_states):
-            name = state["name"]
-            assm_nodes.append(Node(
-                id=name, label=assm_label(state), shape="box",
-                color=node_color(name),
-                font={"size": 12, "color": "#FFFFFF", "face": "monospace", "align": "left"},
-            ))
-            for tr in state.get("transitions", []):
-                label = tr.get("event", tr.get("guard", ""))
-                assm_edges.append(Edge(
-                    source=name, target=tr["target"],
-                    directed=True, arrows="to",
-                    label=label,
-                    color={"color": "#90A4AE"},
-                    font={"size": 11, "color": "#000000", "align": "middle"},
+            for state in assm_states:
+                name = state["name"]
+                assm_nodes.append(Node(
+                    id=name, label=assm_label(state), shape="box",
+                    color=node_color(name),
+                    font={"size": 12, "color": "#FFFFFF", "face": "monospace", "align": "left"},
                 ))
+                for tr in state.get("transitions", []):
+                    label = tr.get("event", tr.get("guard", ""))
+                    assm_edges.append(Edge(
+                        source=name, target=tr["target"],
+                        directed=True, arrows="to",
+                        label=label,
+                        color={"color": "#90A4AE"},
+                        font={"size": 11, "color": "#000000", "align": "middle"},
+                    ))
 
-        agraph(nodes=assm_nodes, edges=assm_edges, config=Config(
-            width="100%", height=600, directed=True,
-            physics=False, hierarchical=True, nodeHighlightBehavior=True,
-        ))
+            agraph(nodes=assm_nodes, edges=assm_edges, config=Config(
+                width="100%", height=600, directed=True,
+                physics=False, hierarchical=True, nodeHighlightBehavior=True,
+            ))
