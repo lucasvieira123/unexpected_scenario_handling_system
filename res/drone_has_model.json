@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "name": "Drone Delivery hAS Model"
+  },
+  "parameters": {
+    "h": { "type": "int", "min": 0, "max": 150 },
+    "b": { "type": "int", "min": 0, "max": 100 },
+    "dt": { "type": "int", "min": 0, "max": 100 },
+    "delta_dt": { "type": "int", "min": 0, "max": 100 },
+    "armed": { "type": "bool" },
+    "wind_speed": { "type": "int", "min": 0, "max": 360 },
+    "vibration": { "type": "int", "min": 0, "max": 100 },
+    "satellite_count": { "type": "int", "min": 0, "max": 15 },
+    "payload": { "type": "int", "min": 0, "max": 100 }
+  },
+  "scenarios": {
+    "takeoff": {
+      "name": "Takeoff",
+      "given": "h == 0",
+      "when": "armed == true",
+      "do": "takeoff_act",
+      "then": "h >= 100"
+    },
+    "check_status": {
+      "name": "CheckStatus",
+      "given": "*",
+      "when": "h >= 100",
+      "do": "checkstatus_act",
+      "then": "*"
+    },
+    "flying": {
+      "name": "Flying",
+      "given": "h >= 100",
+      "when": "b > 10 AND dt > 0",
+      "do": "maneuver_act",
+      "then": "delta_dt >= 10 AND h >= 100"
+    },
+    "landing": {
+      "name": "Landing",
+      "given": "h >= 100",
+      "when": "dt == 0 and b > 10",
+      "do": "land_act",
+      "then": "h == 0"
+    },
+    "safe_landing": {
+      "name": "Safe Landing",
+      "given": "h >= 100",
+      "when": "b <= 10",
+      "do": "safeland_act",
+      "then": "h == 0"
+    },
+    "shut_down": {
+      "name": "Shut Down",
+      "given": "armed == true",
+      "when": "h == 0",
+      "do": "shutdown_act",
+      "then": "armed == false"
+    }
+  },
+  "transitions": [
+    { "from": "takeoff",      "to": "check_status" },
+    { "from": "check_status", "to": "flying"       },
+    { "from": "flying",       "to": "check_status" },
+    { "from": "check_status", "to": "landing"      },
+    { "from": "check_status", "to": "safe_landing" },
+    { "from": "landing",      "to": "shut_down"    },
+    { "from": "safe_landing", "to": "shut_down"    }
+  ]
+}
