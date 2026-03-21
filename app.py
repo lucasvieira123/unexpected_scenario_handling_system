@@ -324,14 +324,10 @@ else:
                 return f"{name}\n─────────────\n{always}"
             return name
 
-        # Layout: place states in a grid
         for i, state in enumerate(assm_states):
             name = state["name"]
-            col  = i % 4
-            row  = i // 4
             assm_nodes.append(Node(
                 id=name, label=assm_label(state), shape="box",
-                x=col * 160, y=row * 120,
                 color=node_color(name),
                 font={"size": 12, "color": "#FFFFFF", "face": "monospace", "align": "left"},
             ))
@@ -347,5 +343,5 @@ else:
 
         agraph(nodes=assm_nodes, edges=assm_edges, config=Config(
             width="100%", height=600, directed=True,
-            physics=False, hierarchical=False, nodeHighlightBehavior=True,
+            physics=False, hierarchical=True, nodeHighlightBehavior=True,
         ))
