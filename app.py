@@ -146,7 +146,7 @@ with st.sidebar:
     st.divider()
 
     # ── Add Scenario ──────────────────────────────────────────────────────────
-    st.subheader("Add Scenario")
+    st.subheader("Scenarios")
     with st.form("form_add_scenario", clear_on_submit=True):
         name      = st.text_input("Name *",  placeholder="e.g. Takeoff")
         given     = st.text_input("Given",   placeholder="e.g. h == 0")
@@ -173,11 +173,24 @@ with st.sidebar:
                 }
                 st.sidebar.success(f"'{name}' added!")
 
+    # ── Scenario list + delete ─────────────────────────────────────────────────
+    if st.session_state.scenarios:
+        for sid, s in list(st.session_state.scenarios.items()):
+            col_name, col_btn = st.columns([3, 1])
+            col_name.markdown(f"**{s['name']}**")
+            if col_btn.button("🗑", key=f"del_{sid}", help="Delete scenario"):
+                del st.session_state.scenarios[sid]
+                st.session_state.transitions = [
+                    t for t in st.session_state.transitions
+                    if t["from"] != sid and t["to"] != sid
+                ]
+                st.rerun()
+
     st.divider()
 
     # ── Transitions ───────────────────────────────────────────────────────────
     if len(st.session_state.scenarios) >= 2:
-        st.subheader("Add Transition")
+        st.subheader("Transitions")
         names = {s["name"]: sid for sid, s in st.session_state.scenarios.items()}
         name_list = list(names.keys())
 
@@ -195,20 +208,14 @@ with st.sidebar:
                     st.session_state.transitions.append(t)
                     st.sidebar.success(f"{from_name} → {to_name}")
 
-        st.divider()
-
-    # ── Scenario list + delete ─────────────────────────────────────────────────
-    if st.session_state.scenarios:
-        st.subheader("Scenarios")
-        for sid, s in list(st.session_state.scenarios.items()):
-            col_name, col_btn = st.columns([3, 1])
-            col_name.markdown(f"**{s['name']}**")
-            if col_btn.button("🗑", key=f"del_{sid}", help="Delete scenario"):
-                del st.session_state.scenarios[sid]
-                st.session_state.transitions = [
-                    t for t in st.session_state.transitions
-                    if t["from"] != sid and t["to"] != sid
-                ]
+        id_to_name = {sid: s["name"] for sid, s in st.session_state.scenarios.items()}
+        for i, t in enumerate(st.session_state.transitions):
+            fn = id_to_name.get(t["from"], t["from"])
+            tn = id_to_name.get(t["to"],   t["to"])
+            col_t, col_td = st.columns([3, 1])
+            col_t.caption(f"{fn} → {tn}")
+            if col_td.button("🗑", key=f"del_t_{i}", help="Delete transition"):
+                st.session_state.transitions.pop(i)
                 st.rerun()
 
         st.divider()
